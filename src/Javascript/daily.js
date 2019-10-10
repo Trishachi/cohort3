@@ -35,4 +35,22 @@ assertEquals(2,2);
 assertEquals("2",2);
 assertEquals("This value","This value");
 
+// Daily Test - 9/10/2019
+// Steps to follow
+// - copy and past this code into ‘daily.test.js’
+// ? - write a stub to test the code
+// ? - Run test a failing test
+// ? - Write the code to pass the test
 
+
+const functions = {
+    makeEmailArr: (name) => {
+        let firstname = name[0].toLowerCase();
+        let lastname = name[1].toLowerCase();
+        let email = `${firstname}.${lastname}@evolveu.ca`;
+        console.log(email);
+        return email;
+    }
+ }
+
+export default functions;
