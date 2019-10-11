@@ -16,14 +16,14 @@
 
 export function assertEquals(p1,p2){
     if (p1 === p2) return true;
-          if (p1 !== p2) {
-               console.log("*** the two values are not the same:" ,
-                          "\n",
-                          "p1 --> " + p1,
-                          "\n",
-                          "p2--> " + p2);
-            return false;
-          }
+    if (p1 !== p2) {
+        console.log("*** the two values are not the same:" ,
+                    "\n",
+                    "p1 --> " + p1,
+                    "\n",
+                    "p2--> " + p2);
+    return false;
+    }
   };
 
 // and before this comment ---
@@ -36,12 +36,6 @@ assertEquals("2",2);
 assertEquals("This value","This value");
 
 // Daily Test - 9/10/2019
-// Steps to follow
-// - copy and past this code into ‘daily.test.js’
-// ? - write a stub to test the code
-// ? - Run test a failing test
-// ? - Write the code to pass the test
-
 
 const functions = {
     makeEmailArr: (name) => {
