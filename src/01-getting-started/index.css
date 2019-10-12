@@ -76,7 +76,7 @@ html {
 /* Calculator Section Styles */
 #calculator {
   max-width: 520px;
-  /* height: 400px; */
+  padding: 20px 0;
   background-color: teal;
   margin: 0 auto;
   border-radius: 5px;
@@ -92,11 +92,32 @@ button {
   text-align: center;
   cursor: pointer;
   background-color: #f4511e;
-  color: #FFFFFF;
+  color: #ffffff;
   transition: all 0.5s;
   margin-bottom: 20px;
 }
 
 button:hover {
   background: #000000;
+}
+
+#inputs {
+  margin: 15px 0;
+}
+
+input[type="number"] {
+  padding: 10px 5px;
+  width: 170px;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+}
+
+input[type="number"]:focus {
+  background-color: lightblue;
+}
+
+#output {
+  padding: 20px 0;
+  font-size: 1.2em;
 }
