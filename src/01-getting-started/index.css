@@ -73,8 +73,8 @@ html {
   }
 }
 
-/* Calculator Section Styles */
-#calculator {
+/* Exercise Section Styles */
+.card {
   max-width: 520px;
   padding: 20px 0;
   background-color: teal;
@@ -101,11 +101,12 @@ button:hover {
   background: #000000;
 }
 
-#inputs {
+#inputs,
+#getArray {
   margin: 15px 0;
 }
 
-input[type="number"] {
+input {
   padding: 10px 5px;
   width: 170px;
   border-radius: 5px;
@@ -113,11 +114,20 @@ input[type="number"] {
   transition: background-color 0.4s ease-in-out;
 }
 
-input[type="number"]:focus {
+input:focus {
   background-color: lightblue;
 }
 
-#output {
+#output,
+#messageArea {
   padding: 20px 0;
   font-size: 1.2em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.header {
+  color: white;
 }

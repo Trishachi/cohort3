@@ -1,11 +1,18 @@
+// Calculator Parameters
 let input1 = document.getElementById("input1");
 var input2 = document.getElementById("input2");
 let output = document.getElementById("output");
-const add = document.getElementById("add");
-const subtract = document.getElementById("subtract");
-const divide = document.getElementById("divide");
-const multiply = document.getElementById("multiply");
-const clear = document.getElementById("clear");
+// const add = document.getElementById("add");
+// const subtract = document.getElementById("subtract");
+// const divide = document.getElementById("divide");
+// const multiply = document.getElementById("multiply");
+// const clear = document.getElementById("clear");
+
+// Tax Calculator Parameters
+let totalTax = 0;
+let afterTaxIncome = 0;
+
+let arr = [];
 
 const functions = {
   size: num => {
@@ -26,33 +33,49 @@ const functions = {
 
 const calculator = {
   addition: (number1, number2) => {
-    console.log("add button clicked");
-    number1 = Number(input1.value);
-    number2 = Number(input2.value);
-    output.innerHTML = "Your Result is " + (number1 + number2);
     return number1 + number2;
   },
+  addButtonClick: () => {
+    console.log("add button clicked");
+    let additionResult = calculator.addition(
+      Number(input1.value),
+      Number(input2.value)
+    );
+    output.textContent = "Your Result is " + additionResult;
+  },
   subtraction: (number1, number2) => {
-    console.log("subtract button clicked");
-    number1 = Number(input1.value);
-    number2 = Number(input2.value);
-    output.innerHTML = "Your Result is " + (number1 - number2);
     return number1 - number2;
   },
+  subButtonClick: () => {
+    console.log("subtract button clicked");
+    let subtractionResult = calculator.subtraction(
+      Number(input1.value),
+      Number(input2.value)
+    );
+    output.textContent = "Your Result is " + subtractionResult;
+  },
   division: (number1, number2) => {
-    console.log("divide button clicked");
-    number1 = Number(input1.value);
-    number2 = Number(input2.value);
-    output.innerHTML =
-      "Your Result is " + Math.round((number1 / number2) * 100) / 100;
     return number1 / number2;
   },
+  divButtonClick: () => {
+    console.log("divide button clicked");
+    let divisionResult = calculator.division(
+      Number(input1.value),
+      Number(input2.value)
+    );
+    output.textContent =
+      "Your Result is " + Math.round(divisionResult * 100) / 100;
+  },
   multiplication: (number1, number2) => {
-    console.log("multiply button clicked");
-    number1 = Number(input1.value);
-    number2 = Number(input2.value);
-    output.innerHTML = "Your Result is " + number1 * number2;
     return number1 * number2;
+  },
+  multButtonClick: () => {
+    console.log("multiply button clicked");
+    let multiplicationResult = calculator.multiplication(
+      Number(input1.value),
+      Number(input2.value)
+    );
+    output.textContent = "Your Result is " + multiplicationResult;
   },
   clear: () => {
     input1.value = "";
@@ -61,11 +84,54 @@ const calculator = {
   }
 };
 
-add.addEventListener("click", calculator.addition);
-subtract.addEventListener("click", calculator.subtraction);
-divide.addEventListener("click", calculator.division);
-multiply.addEventListener("click", calculator.multiplication);
-clear.addEventListener("click", calculator.clear);
+const calculate = {
+  tax: annualIncome => {
+    if (annualIncome <= 47630) totalTax = (annualIncome - 0) * (15 / 100) + 0;
+    if (annualIncome > 47630 && annualIncome <= 95259)
+      totalTax = (annualIncome - 47630) * (20.5 / 100) + 7145;
+    if (annualIncome > 95259 && annualIncome <= 147667)
+      totalTax = (annualIncome - 95259) * (26 / 100) + 16908;
+    if (annualIncome > 147667 && annualIncome <= 210371)
+      totalTax = (annualIncome - 147667) * (29 / 100) + 30535;
+    if (annualIncome > 210371)
+      totalTax = (annualIncome - 210371) * (33 / 100) + 48719;
+    return totalTax;
+  },
+  taxButtonClick: () => {
+    let calcTaxResult = calculate.tax(Number(income.value));
+    afterTaxIncome = Number(income.value - calcTaxResult);
+    taxResult.innerText = `Total Tax:  $${calcTaxResult}`;
+    AFTIncome.innerText = `After-Tax Income: $${afterTaxIncome}`;
+  },
+  reset: () => {
+    income.value = "";
+    taxResult.innerText = `Total Tax:  $0`;
+    AFTIncome.innerText = `After-Tax Income: $0`;
+  }
+};
+
+const arrays = {
+  addArray: item => {
+    if (typeof item == "number") {
+      return `${item} has been added to array`;
+    }
+    return "Input is not a valid number";
+  },
+  addArrayButton: () => {
+    console.log("Add array button clicked");
+    let addArrayResult = arrays.addArray(Number(getArray.value));
+    console.log(addArrayResult);
+  },
+  showArray: () => {
+    return 0;
+  },
+  totalArray: () => {
+    return 0;
+  },
+  clearArray: () => {
+    return 0;
+  }
+};
 
 export default functions;
-export { calculator };
+export { calculator, calculate, arrays };

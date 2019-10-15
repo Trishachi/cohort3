@@ -182,26 +182,83 @@
     </div>
 
     <div class="w3-content w3-container w3-padding-64 w3-center" id="idSize">
-      <h1>Simple Calculator App</h1>
-      <div id="calculator">
+      <h3 class="w3-center">SIMPLE CALCULATOR APP</h3>
+      <div id="calculator" class="card">
         <div id="inputs">
           <input id="input1" type="number" placeholder="Enter 1st Number" />
           <input id="input2" type="number" placeholder="Enter 2nd Number" />
         </div>
         <div id="keyboard">
           <div class="row">
-            <button class="calc-btn operator column" id="add">+</button>
-            <button class="calc-btn operator column" id="subtract">-</button>
-            <button class="calc-btn operator column" id="divide">&#247;</button>
-            <button class="calc-btn operator column" id="multiply">
+            <button class="" id="add">+</button>
+            <button class="" id="subtract">-</button>
+            <button class="" id="divide">&#247;</button>
+            <button class="" id="multiply">
               &#215;
             </button>
-            <button class="calc-btn operator column" id="clear">CE</button>
+            <button class="" id="clear">CE</button>
           </div>
         </div>
         <div id="output">
           Result Goes Here
         </div>
+      </div>
+    </div>
+
+    <!-- ---------- Canadian Taxes App ------------------ -->
+
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-white w3-wide"> TAXES</span>
+      </div>
+    </div>
+
+    <div class="w3-content w3-container w3-padding-64 w3-center" id="idSize">
+      <div id="taxCalculator" class="card">
+        <h3 class="w3-center header">CANADIAN TAX CALCULATOR</h3>
+        <div id="annualIncome">
+          <label for="">Your Income</label>
+          <input id="income" type="number" placeholder="Annual Income" />
+        </div>
+        <div id="calculate">
+          <div id="results">
+            <p class="bold" id="taxResult">Total Tax: $0</p>
+            <p class="bold" id="AFTIncome">After-Tax Income: $0</p>
+          </div>
+          <button id="calcTax">Calculate Tax</button>
+          <button id="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- Working with Arrays ------------------ -->
+
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-white w3-wide"> ARRAYS </span>
+      </div>
+    </div>
+
+    <div class="w3-content w3-container w3-padding-64 w3-center" id="idSize">
+      <div id="workArrays" class="card">
+        <h3 class="w3-center header">WORKING WITH ARRAYS</h3>
+        <div>
+          <input
+            id="getArray"
+            type="text"
+            placeholder="Enter Array Item"
+            required
+          />
+        </div>
+        <div id="operateArrays">
+          <button class="" id="addArr">Add</button>
+          <button class="" id="showArr">Show</button>
+          <button class="" id="totalArr">Total</button>
+          <button class="" id="clearArr">
+            Clear
+          </button>
+        </div>
+        <div id="messageArea">Message Area</div>
       </div>
     </div>
 
