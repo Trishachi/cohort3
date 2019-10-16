@@ -12,6 +12,27 @@
     p2--> 2
 */
 
+var contacts = [
+  {
+    firstName: "Chisom",
+    lastName: "Okoye",
+    number: "0543236543",
+    likes: ["Reading", "Coding", "Swimming"]
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"]
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"]
+  }
+];
+
 // Write the function after this comment ---
 
 export function assertEquals(p1, p2) {
@@ -56,4 +77,60 @@ const functions = {
   }
 };
 
+// Daily Test - 15/10/2019 - Arrays
+const arrs = {
+  reverseArray: arr1 => {
+    let newArr = [];
+    for (let i = arr1.length - 1; i >= 0; i--) {
+      newArr.push(arr1[i]);
+    }
+    return newArr;
+  },
+  countDown: num => {
+    let text = "";
+    let i = num;
+    while (i >= 0) {
+      text += i + " ";
+      i--;
+    }
+    return text;
+  },
+  counter: num1 => {
+    let count = "";
+    let i = 0;
+    do {
+      count += i + " ";
+      i++;
+    } while (i <= num1);
+    return count;
+  },
+  profileDetails: () => {
+    let profile = "";
+    for (let contact in contacts) {
+      profile +=
+        contacts[contact].firstName +
+        " " +
+        contacts[contact].lastName +
+        " - " +
+        contacts[contact].number +
+        "\n";
+      console.log(profile);
+    }
+    return profile;
+  },
+  arraysList: arr => {
+    let list = " ";
+    for (const item of arr) {
+      list += item + ",";
+    }
+    console.log(list);
+    return list;
+  }
+};
+
 export default functions;
+export { arrs };
+
+// Resources - https://bitsofco.de/for-in-vs-for-of/
+/* for..in is a method for iterating over "enumerable" properties of an object. It therefore applies to all objects (not only Object()s) that have these properties. */
+/* for..of is a method, introduced in ES2015, for iterating over "iterable collections". These are objects that have a [Symbol.iterator] property */
