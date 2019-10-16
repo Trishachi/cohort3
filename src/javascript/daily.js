@@ -1,17 +1,3 @@
-/*	
-	Write the function that will create this output:
-
-*** the two values are not the same:
-    p1--> a
-    p2--> b
-*** the two values are not the same:
-    p1--> 1
-    p2--> 2
-*** the two values are not the same:
-    p1--> 2
-    p2--> 2
-*/
-
 var contacts = [
   {
     firstName: "Chisom",
@@ -33,51 +19,9 @@ var contacts = [
   }
 ];
 
-// Write the function after this comment ---
+// Write the function after this comment ---------------------------------
 
-export function assertEquals(p1, p2) {
-  if (p1 === p2) return true;
-  if (p1 !== p2) {
-    console.log(
-      "*** the two values are not the same:",
-      "\n",
-      "p1 --> " + p1,
-      "\n",
-      "p2--> " + p2
-    );
-    return false;
-  }
-}
-
-// and before this comment ---
-
-assertEquals("a", "b");
-assertEquals("a", "a");
-assertEquals(1, 2);
-assertEquals(2, 2);
-assertEquals("2", 2);
-assertEquals("This value", "This value");
-
-// Daily Test - 9/10/2019 & 11/10/2019
-
-const functions = {
-  makeEmailArr: name => {
-    let firstname = name[0].toLowerCase();
-    let lastname = name[1].toLowerCase();
-    let email = `${firstname}.${lastname}@evolveu.ca`;
-    console.log(email);
-    return email;
-  },
-  makeEmailObj: name => {
-    let firstName = name.fname.toLowerCase();
-    let lastName = name.lname.toLowerCase();
-    let email = `${firstName}.${lastName}@evolveu.ca`;
-    console.log(email);
-    return email;
-  }
-};
-
-// Daily Test - 15/10/2019 - Arrays
+// Daily Test - 15/10/2019  and 16/10/2019 Arrays
 const arrs = {
   reverseArray: arr1 => {
     let newArr = [];
@@ -125,6 +69,73 @@ const arrs = {
     }
     console.log(list);
     return list;
+  },
+  doubleNumbers: arr2 => {
+    let doubleArr = [];
+    arr2.forEach(function(item) {
+      item = item * 2;
+      doubleArr.push(item);
+    });
+    return doubleArr;
+  },
+  sliceFruits: (arr1, start, stop) => {
+    let favFruits = arr1.slice(start, stop);
+    console.log(favFruits);
+    console.log(arr1);
+    return favFruits;
+  },
+  spliceFruits: (arr1, index, number) => {
+    let cutFruits = arr1.splice(index, number);
+    console.log(arr1);
+    console.log(cutFruits);
+    return cutFruits;
+  },
+  mapProfile: arr => {
+    return "";
+  }
+};
+
+// ------------------------------------------------------------------
+
+export function assertEquals(p1, p2) {
+  if (p1 === p2) return true;
+  if (p1 !== p2) {
+    console.log(
+      "*** the two values are not the same:",
+      "\n",
+      "p1 --> " + p1,
+      "\n",
+      "p2--> " + p2
+    );
+    return false;
+  }
+}
+
+// and before this comment ---
+
+assertEquals("a", "b");
+assertEquals("a", "a");
+assertEquals(1, 2);
+assertEquals(2, 2);
+assertEquals("2", 2);
+assertEquals("This value", "This value");
+
+// Daily Test - 9/10/2019 & 11/10/2019
+
+const functions = {
+  makeEmailArr: name => {
+    let firstname = name[0].toLowerCase();
+    let lastname = name[1].toLowerCase();
+    let email = `${firstname}.${lastname}@evolveu.ca`;
+    console.log(email);
+    return email;
+  },
+  makeEmailObj: name => {
+    let firstName = name.fname.toLowerCase();
+    let lastName = name.lname.toLowerCase();
+    let email = `${firstName}.${lastName}@evolveu.ca`;
+    console.log(email);
+    return email;
   }
 };
 
