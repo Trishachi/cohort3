@@ -1,0 +1,59 @@
+/* Global Styles */
+body {
+    background: rgb(192,221,48);
+background: linear-gradient(90deg, rgba(192,221,48,1) 0%, rgba(52,144,195,0.9416141456582633) 16%, rgba(0,255,12,1) 100%);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Volkhov', serif;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f4511e;
+    color: #FFFFFF;
+    transition: all 0.5s;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background: #000000;
+}
+
+button span{
+    position: relative;
+    transition: 0.5s; 
+}
+
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  button:hover span {
+    padding-right: 25px;
+    
+  }
+  
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
