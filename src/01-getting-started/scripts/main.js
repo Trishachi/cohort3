@@ -22,3 +22,6 @@ calcTax.addEventListener("click", calculate.taxButtonClick);
 reset.addEventListener("click", calculate.reset);
 
 addArr.addEventListener("click", arrays.addArrayButton);
+showArr.addEventListener("click", arrays.showArrayButton);
+totalArr.addEventListener("click", arrays.totalArrayButton);
+clearArr.addEventListener("click", arrays.clearArrayButton);

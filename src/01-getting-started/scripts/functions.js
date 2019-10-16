@@ -112,7 +112,7 @@ const calculate = {
 
 const arrays = {
   addArray: item => {
-    if (typeof item == "number") {
+    if (typeof item === "number" && isNaN(item) !== true) {
       return `${item} has been added to array`;
     }
     return "Input is not a valid number";
@@ -120,16 +120,38 @@ const arrays = {
   addArrayButton: () => {
     console.log("Add array button clicked");
     let addArrayResult = arrays.addArray(Number(getArray.value));
-    console.log(addArrayResult);
+    if (addArrayResult == `${getArray.value} has been added to array`) {
+      arr.push(Number(getArray.value));
+    }
+    console.log(arr);
+    messageArea.textContent = addArrayResult;
+    getArray.value = "";
   },
-  showArray: () => {
-    return 0;
+  showArray: arr => {
+    return arr.join();
   },
-  totalArray: () => {
-    return 0;
+  showArrayButton: () => {
+    console.log("Show array button clicked");
+    let showArrayResult = arrays.showArray(arr);
+    messageArea.textContent = `Current array is ${showArrayResult}`;
   },
-  clearArray: () => {
-    return 0;
+  totalArray: array => {
+    return array.reduce((a, b) => a + b, 0);
+  },
+  totalArrayButton: () => {
+    console.log("Total array button clicked");
+    let totalArrayResult = Number(arrays.totalArray(arr));
+    messageArea.textContent = totalArrayResult;
+  },
+  clearArray: array => {
+    array = [];
+    return array;
+  },
+  clearArrayButton: () => {
+    arr = [];
+    getArray.value = "";
+    messageArea.textContent = "Array Cleared";
+    console.log(arr);
   }
 };
 

@@ -36,7 +36,7 @@ test("Calculate Income Tax", () => {
 test("Working with Arrays", () => {
   expect(arrays.addArray(2)).toBe("2 has been added to array");
   expect(arrays.addArray("name")).toBe("Input is not a valid number");
-  expect(arrays.showArray([5, 10, 15])).toBe("5, 10, 15");
-  expect(arrays.totalArray([5, 10, 15])).toBe("30");
-  expect(arrays.clearArray()).toBeNull();
+  expect(arrays.showArray([5, 10, 15])).toBe("5,10,15");
+  expect(arrays.totalArray([5, 10, 15])).toBe(30);
+  expect(arrays.clearArray()).toEqual([]);
 });
