@@ -14,6 +14,25 @@ let afterTaxIncome = 0;
 
 let arr = [];
 
+const canadaProvinces = {
+  ab: "Alberta",
+  bc: "British Columbia",
+  mb: "Manitoba",
+  nb: "New Brunswick",
+  nl: "Newfoundland and Labrador",
+  ns: "Nova Scotia",
+  nt: "Northwest Territories",
+  nu: "Nunavut",
+  on: "Ontario",
+  pe: "Prince Edward Island",
+  qc: "Quebec",
+  sk: "Saskatchewan",
+  yt: "Yukon"
+};
+
+let provinceResult = "";
+let provinceCode = "";
+
 const functions = {
   size: num => {
     if (num < 0) return "negative";
@@ -155,5 +174,60 @@ const arrays = {
   }
 };
 
+const province = {
+  find: provinceCodeTxt => {
+    provinceCode = provinceCodeTxt.toLowerCase();
+    switch (provinceCode) {
+      case "ab":
+        provinceResult = canadaProvinces.ab;
+        return provinceResult;
+      case "bc":
+        provinceResult = canadaProvinces.bc;
+        return provinceResult;
+      case "mb":
+        provinceResult = canadaProvinces.mb;
+        return provinceResult;
+      case "nb":
+        provinceResult = canadaProvinces.nb;
+        return provinceResult;
+      case "nl":
+        provinceResult = canadaProvinces.nl;
+        return provinceResult;
+      case "ns":
+        provinceResult = canadaProvinces.ns;
+        return provinceResult;
+      case "nt":
+        provinceResult = canadaProvinces.nt;
+        return provinceResult;
+      case "nu":
+        provinceResult = canadaProvinces.nu;
+        return provinceResult;
+      case "on":
+        provinceResult = canadaProvinces.on;
+        return provinceResult;
+      case "pe":
+        provinceResult = canadaProvinces.pe;
+        return provinceResult;
+      case "qc":
+        provinceResult = canadaProvinces.qc;
+        return provinceResult;
+      case "sk":
+        provinceResult = canadaProvinces.sk;
+        return provinceResult;
+      case "yt":
+        provinceResult = canadaProvinces.yt;
+        return provinceResult;
+      default:
+        return "Invalid Province Code Selected";
+    }
+  },
+  findProvinceButton: () => {
+    console.log("Lookup Button Clicked");
+    let selectedProvince = province.find(provinceInputText.value);
+    provinceMessage.textContent = `Province Fullname: ${selectedProvince}`;
+    provinceInputText.value = "";
+  }
+};
+
 export default functions;
-export { calculator, calculate, arrays };
+export { calculator, calculate, arrays, province };

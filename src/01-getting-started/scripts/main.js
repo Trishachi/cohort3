@@ -2,6 +2,7 @@ import functions from "./functions.js";
 import { calculator } from "./functions.js";
 import { calculate } from "./functions.js";
 import { arrays } from "./functions.js";
+import { province } from "./functions.js";
 
 // **********
 //
@@ -25,3 +26,5 @@ addArr.addEventListener("click", arrays.addArrayButton);
 showArr.addEventListener("click", arrays.showArrayButton);
 totalArr.addEventListener("click", arrays.totalArrayButton);
 clearArr.addEventListener("click", arrays.clearArrayButton);
+
+provinceLookupBtn.addEventListener("click", province.findProvinceButton);

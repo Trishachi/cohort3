@@ -2,6 +2,7 @@ import functions from "./functions";
 import { calculator } from "./functions";
 import { calculate } from "./functions";
 import { arrays } from "./functions";
+import { province } from "./functions";
 
 test("Check the sizes", () => {
   expect(functions.size(-1)).toBe("negative"); // Consider the edge cases
@@ -39,4 +40,10 @@ test("Working with Arrays", () => {
   expect(arrays.showArray([5, 10, 15])).toBe("5,10,15");
   expect(arrays.totalArray([5, 10, 15])).toBe(30);
   expect(arrays.clearArray()).toEqual([]);
+});
+
+test("Find Canadian Province", () => {
+  expect(province.find("ab")).toBe("Alberta");
+  expect(province.find("sk")).toBe("Saskatchewan");
+  expect(province.find("on")).toBe("Ontario");
 });
