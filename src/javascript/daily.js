@@ -90,8 +90,25 @@ const arrs = {
     console.log(cutFruits);
     return cutFruits;
   },
-  mapProfile: arr => {
-    return "";
+  doubleArrays: arr2 => {
+    let newArr = arr2.map(x => x * 2);
+    console.log(newArr);
+    return newArr;
+  },
+  filterArrays: arr3 => {
+    let selected = arr3.filter(name => name.length > 6);
+    console.log(selected);
+    return selected;
+  },
+  sumArrays: arr4 => {
+    let sum = arr4.reduce((acc, curVal) => acc + curVal);
+    console.log(sum);
+    return sum;
+  },
+  cleanUp: arr5 => {
+    arr5.sort((a, b) => a - b);
+    console.log(arr5);
+    return arr5;
   }
 };
 

@@ -58,6 +58,33 @@ test("Testing splicing of an array", () => {
   ).toEqual(["Grape", "Peach"]);
 });
 
+test("Return Names longer than six characters", () => {
+  expect(
+    arrs.filterArrays([
+      "Chisombili",
+      "Henry",
+      "Jonathan",
+      "Bill",
+      "Jamie",
+      "Scholastica"
+    ])
+  ).toEqual(["Chisombili", "Jonathan", "Scholastica"]);
+});
+
+test("Double Arrays Using map()", () => {
+  expect(arrs.doubleArrays([1, 4, 9, 16])).toEqual([2, 8, 18, 32]);
+});
+
+test("Sum Arrays Using reduce()", () => {
+  expect(arrs.sumArrays([1, 2, 3, 4, 5])).toBe(15);
+});
+
+test("Test array sort method", () => {
+  expect(
+    arrs.cleanUp([1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20])
+  ).toEqual([1, 1, 1, 1, 2, 2, 2, 4, 5, 10, 20, 20, 391, 392, 591]);
+});
+
 // --------------------------------------------------------------------------------------
 
 test("Check for equality", () => {
