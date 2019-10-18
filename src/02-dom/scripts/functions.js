@@ -29,13 +29,17 @@ const functions = {
   },
   deleteItem: () => {
     console.log("Delete Button Clicked");
-    list.removeChild(list.lastChild);
+    list.removeChild(list.lastElementChild);
   },
   showList: () => {
     console.log("Show Button Clicked");
+    let p = document.createElement("p");
+    p.appendChild(document.createTextNode("Current List:"));
+    listDisplay.appendChild(p);
     let newList = list.cloneNode(true);
     listDisplay.append(newList);
     // Make List not to display again on subsequent click without change
+    // list = [];
   }
 };
 
