@@ -1,6 +1,16 @@
 /* Global Styles */
 body {
-  background-color: aqua;
+  /* text-align: center; */
 }
 
 /* Basic DOM Styles */
+#container {
+  max-width: 35%;
+  margin: 50px auto;
+  /* padding: 20px; */
+  border: 2px solid black;
+}
+
+#buttonControls {
+  margin: 20px 0;
+}
