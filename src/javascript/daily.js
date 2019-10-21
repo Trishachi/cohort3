@@ -1,3 +1,20 @@
+// Write the function after this comment ---------------------------------
+
+// Daily Test - 21/10/2019
+
+const functions1 = {
+  loopStaff: arr1 => {
+    let staffEmail = [];
+    arr1.forEach(function(item) {
+      var emails = functions.makeEmailObj(item);
+      staffEmail.push(emails);
+    });
+    console.log(staffEmail);
+    return staffEmail;
+  }
+};
+
+// Daily Test - 15/10/2019  and 16/10/2019 Arrays
 var contacts = [
   {
     firstName: "Chisom",
@@ -19,9 +36,6 @@ var contacts = [
   }
 ];
 
-// Write the function after this comment ---------------------------------
-
-// Daily Test - 15/10/2019  and 16/10/2019 Arrays
 const arrs = {
   reverseArray: arr1 => {
     let newArr = [];
@@ -58,7 +72,7 @@ const arrs = {
         " - " +
         contacts[contact].number +
         "\n";
-      console.log(profile);
+      // console.log(profile);
     }
     return profile;
   },
@@ -67,7 +81,7 @@ const arrs = {
     for (const item of arr) {
       list += item + ",";
     }
-    console.log(list);
+    // console.log(list);
     return list;
   },
   doubleNumbers: arr2 => {
@@ -80,34 +94,34 @@ const arrs = {
   },
   sliceFruits: (arr1, start, stop) => {
     let favFruits = arr1.slice(start, stop);
-    console.log(favFruits);
-    console.log(arr1);
+    // console.log(favFruits);
+    // console.log(arr1);
     return favFruits;
   },
   spliceFruits: (arr1, index, number) => {
     let cutFruits = arr1.splice(index, number);
-    console.log(arr1);
-    console.log(cutFruits);
+    // console.log(arr1);
+    // console.log(cutFruits);
     return cutFruits;
   },
   doubleArrays: arr2 => {
     let newArr = arr2.map(x => x * 2);
-    console.log(newArr);
+    // console.log(newArr);
     return newArr;
   },
   filterArrays: arr3 => {
     let selected = arr3.filter(name => name.length > 6);
-    console.log(selected);
+    // console.log(selected);
     return selected;
   },
   sumArrays: arr4 => {
     let sum = arr4.reduce((acc, curVal) => acc + curVal);
-    console.log(sum);
+    // console.log(sum);
     return sum;
   },
   cleanUp: arr5 => {
     arr5.sort((a, b) => a - b);
-    console.log(arr5);
+    // console.log(arr5);
     return arr5;
   }
 };
@@ -130,12 +144,12 @@ export function assertEquals(p1, p2) {
 
 // and before this comment ---
 
-assertEquals("a", "b");
-assertEquals("a", "a");
-assertEquals(1, 2);
-assertEquals(2, 2);
-assertEquals("2", 2);
-assertEquals("This value", "This value");
+// assertEquals("a", "b");
+// assertEquals("a", "a");
+// assertEquals(1, 2);
+// assertEquals(2, 2);
+// assertEquals("2", 2);
+// assertEquals("This value", "This value");
 
 // Daily Test - 9/10/2019 & 11/10/2019
 
@@ -144,20 +158,20 @@ const functions = {
     let firstname = name[0].toLowerCase();
     let lastname = name[1].toLowerCase();
     let email = `${firstname}.${lastname}@evolveu.ca`;
-    console.log(email);
+    // console.log(email);
     return email;
   },
   makeEmailObj: name => {
     let firstName = name.fname.toLowerCase();
     let lastName = name.lname.toLowerCase();
     let email = `${firstName}.${lastName}@evolveu.ca`;
-    console.log(email);
+    // console.log(email);
     return email;
   }
 };
 
 export default functions;
-export { arrs };
+export { arrs, functions1 };
 
 // Resources - https://bitsofco.de/for-in-vs-for-of/
 /* for..in is a method for iterating over "enumerable" properties of an object. It therefore applies to all objects (not only Object()s) that have these properties. */
