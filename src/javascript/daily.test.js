@@ -114,6 +114,7 @@ test("Test array sort method", () => {
 
 test("Check for equality", () => {
   expect(assertEquals("a", "b")).toBe(false); // Consider the edge cases
+  expect(assertEquals("a", "a")).toBe(true); // Consider the edge cases
 });
 
 /*
