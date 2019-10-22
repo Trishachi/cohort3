@@ -44,6 +44,17 @@ test("Working with Arrays", () => {
 
 test("Find Canadian Province", () => {
   expect(province.find("ab")).toBe("Alberta");
-  expect(province.find("sk")).toBe("Saskatchewan");
+  expect(province.find("bc")).toBe("British Columbia");
+  expect(province.find("mb")).toBe("Manitoba");
+  expect(province.find("nb")).toBe("New Brunswick");
+  expect(province.find("nl")).toBe("Newfoundland and Labrador");
+  expect(province.find("ns")).toBe("Nova Scotia");
+  expect(province.find("nt")).toBe("Northwest Territories");
+  expect(province.find("nu")).toBe("Nunavut");
   expect(province.find("on")).toBe("Ontario");
+  expect(province.find("pe")).toBe("Prince Edward Island");
+  expect(province.find("qc")).toBe("Quebec");
+  expect(province.find("sk")).toBe("Saskatchewan");
+  expect(province.find("yt")).toBe("Yukon");
+  expect(province.find("ot")).toBe("Invalid Province Code Selected");
 });
