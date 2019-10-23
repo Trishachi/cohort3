@@ -14,4 +14,5 @@ addButton.addEventListener("click", functions.addListOnBtnClick);
 input.addEventListener("keypress", functions.addListOnKeypress);
 deleteButton.addEventListener("click", functions.deleteItem);
 showButton.addEventListener("click", functions.showList);
-addCard.addEventListener("click", functions.addNewCard);
+
+// addCard.addEventListener("click", functions.addNewCard);

@@ -1,16 +1,16 @@
 /* Variables and Declarations */
-// let box = document.getElementById("container");
+let box = document.getElementById("container");
 let input = document.getElementById("userInput");
 let list = document.getElementById("myList");
 let listDisplay = document.getElementById("listResult");
 
-let card = document.createElement("div");
-let cardHeader = document.createElement("div");
-let cardBody = document.createElement("div");
-let b4Btn = document.createElement("button");
-let addIcon = document.createElement("i");
+// let card = document.createElement("div");
+// let cardHeader = document.createElement("div");
+// let cardBody = document.createElement("div");
+// let b4Btn = document.createElement("button");
+// let addIcon = document.createElement("i");
 
-let cardCount = 1;
+// let cardCount = 1;
 
 // let addCard = document.getElementById("addCard");
 
@@ -47,39 +47,39 @@ const functions = {
     listDisplay.append(newList);
     // Make List not to display again on subsequent click without change
     // list = [];
-  },
-  createNewCard: () => {
-    let mainCard = document.getElementById("card1");
-    let cardTitle = document.getElementById("cardHeader");
-    let clonedCard = mainCard.cloneNode(true);
-    cardCount++;
-    cardTitle.innerText = `Card ${cardCount}`;
-    leftPanel.append(clonedCard);
-
-    // card.classList.add("card", "text-center");
-    // cardHeader.classList.add("card-header");
-    // cardBody.classList.add("card-body");
-
-    // cardHeader.appendChild(document.createTextNode("Card 2"));
-    // functions.createB4Btn();
-    // cardBody.appendChild(b4Btn);
-    // card.appendChild(cardHeader);
-    // card.appendChild(cardBody);
-
-    // leftPanel.appendChild(card);
-  },
-  addNewCardBtn: () => {
-    console.log("Add Card Button Clicked");
-    functions.createNewCard();
-  },
-  createB4Btn: () => {
-    b4Btn.classList.add("btn", "btn-outline-primary");
-    addIcon.classList.add("fas", "fa-plus");
-    b4Btn.appendChild(addIcon);
-    b4Btn.appendChild(document.createTextNode(" Add Before"));
   }
+  // createNewCard: () => {
+  //   let mainCard = document.getElementById("card1");
+  //   let cardTitle = document.getElementById("cardHeader");
+  //   let clonedCard = mainCard.cloneNode(true);
+  //   cardCount++;
+  //   cardTitle.innerText = `Card ${cardCount}`;
+  //   leftPanel.append(clonedCard);
+
+  // card.classList.add("card", "text-center");
+  // cardHeader.classList.add("card-header");
+  // cardBody.classList.add("card-body");
+
+  // cardHeader.appendChild(document.createTextNode("Card 2"));
+  // functions.createB4Btn();
+  // cardBody.appendChild(b4Btn);
+  // card.appendChild(cardHeader);
+  // card.appendChild(cardBody);
+
+  // leftPanel.appendChild(card);
+  // },
+  // addNewCardBtn: () => {
+  //   console.log("Add Card Button Clicked");
+  //   functions.createNewCard();
+  // },
+  // createB4Btn: () => {
+  //   b4Btn.classList.add("btn", "btn-outline-primary");
+  //   addIcon.classList.add("fas", "fa-plus");
+  //   b4Btn.appendChild(addIcon);
+  //   b4Btn.appendChild(document.createTextNode(" Add Before"));
+  // }
 };
 
 export default functions;
 
-addCard.addEventListener("click", functions.addNewCardBtn);
+// addCard.addEventListener("click", functions.addNewCardBtn);

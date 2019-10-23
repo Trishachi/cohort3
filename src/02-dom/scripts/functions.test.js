@@ -8,5 +8,5 @@ test("displays new list item after a click", () => {
   //     '  <button id="button" />' +
   //     "</div>";
 
-  expect(functions.addListOnBtnClick).toBeCalled();
+  expect(functions.addListOnBtnClick).toEqual(newTodo);
 });
