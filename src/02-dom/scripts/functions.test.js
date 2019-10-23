@@ -1,12 +1,12 @@
 import functions from "./functions.js";
 
-test("displays new list item after a click", () => {
-  // Set up our document body
-  //   document.body.innerHTML =
-  //     "<div>" +
-  //     '  <span id="username" />' +
-  //     '  <button id="button" />' +
-  //     "</div>";
+test("DOM Basics Connection Test", () => {
+  const List = document.createElement("ol");
+  functions.createListElement(List);
+});
 
-  expect(functions.addListOnBtnClick).toEqual(newTodo);
+test("Add List Item Test", () => {
+  const orderedList = document.createElement("ol");
+  functions.createListElement(orderedList);
+  expect(functions.createListElement(orderedList)).toBe("");
 });
