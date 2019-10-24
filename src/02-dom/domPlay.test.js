@@ -10,7 +10,11 @@ test("Check what cards on page", () => {
   functions1.addCard(chkCard, 0);
   functions1.addCard(chkCard, 1);
   functions1.addCard(chkCard, 2);
-  expect(functions1.whatCard(chkCard)).toEqual([0, 1, 2]);
   functions1.addCard(chkCard, 3);
-  expect(functions1.whatCard(chkCard)).toEqual([0, 1, 2, 3]);
+  expect(functions1.whatCard(chkCard)).toEqual([
+    "The Count is 0",
+    "The Count is 1",
+    "The Count is 2",
+    "The Count is 3"
+  ]);
 });

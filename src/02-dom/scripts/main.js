@@ -14,7 +14,10 @@ let showButton = document.getElementById("show");
 add.addEventListener("click", () => {
   functions.createListElement(myList);
 });
-deleteButton.addEventListener("click", functions.deleteItem);
+// deleteButton.addEventListener("click", functions.deleteItem);
+deleteButton.addEventListener("click", () => {
+  functions.deleteItem(myList);
+});
 showButton.addEventListener("click", () => {
-  functions.showList(myList.children);
+  functions.showList(myList);
 });

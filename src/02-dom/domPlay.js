@@ -9,7 +9,14 @@ const functions1 = {
     node.appendChild(newCard);
   },
   whatCard: node => {
-    return [0, 1, 2];
+    let newList = [];
+    let index = 0;
+    for (let item of node.children) {
+      newList[index] = item.textContent;
+      index++;
+    }
+    console.log(newList);
+    return newList;
   }
 };
 

@@ -1,8 +1,5 @@
 /* Variables and Declarations */
-let box = document.getElementById("container");
-
-let list = document.getElementById("myList");
-let listDisplay = document.getElementById("listResult");
+// let box = document.getElementById("container");
 
 /*  Application Functions    */
 const functions = {
@@ -14,20 +11,23 @@ const functions = {
     olList.appendChild(li);
     // list.prepend(li) - To add to start of list
   },
-  deleteItem: () => {
+  deleteItem: list => {
     if (list.children.length) {
       list.removeChild(list.lastElementChild);
     }
   },
   showList: listItemsArr => {
     let p = document.createElement("p");
-    // let newList = list.cloneNode(true);
     let newList = [];
-    for (var item of listItemsArr) {
-      newList.push(item.textContent);
+    let index = 0;
+    for (let item of listItemsArr.children) {
+      newList[index] = item.textContent;
+      index++;
     }
     p.appendChild(document.createTextNode(`Current List: ${newList}`));
-    listDisplay.appendChild(p);
+    listResult.appendChild(p);
+    // console.log(newList);
+    return newList;
   }
 };
 
