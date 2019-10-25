@@ -1,8 +1,40 @@
 // Write the function after this comment ---------------------------------
 
-// Daily Test - 21/10/2019
+// Daily Test - 21/10/2019 + // Daily Test - 24/10/2019
 
 const functions1 = {
+  loopStaffMap: arr => {
+    const staffEmail = arr.map(item => functions.makeEmailObj(item));
+    console.log(staffEmail[1]);
+    return staffEmail;
+  },
+  loopStaffForEach: arr1 => {
+    let staffEmail = [];
+    arr1.forEach(function(item) {
+      var emails = functions.makeEmailObj(item);
+      staffEmail.push(emails);
+    });
+    console.log(staffEmail[1]);
+    return staffEmail;
+  },
+  loopStaffIn: arr => {
+    let staffEmail = [];
+    for (var item in arr) {
+      var emails = functions.makeEmailObj(arr[item]);
+      staffEmail.push(emails);
+    }
+    console.log(staffEmail[3]);
+    return staffEmail;
+  },
+  loopStaffOf: arr => {
+    let staffEmail = [];
+    for (var item of arr) {
+      var emails = functions.makeEmailObj(item);
+      staffEmail.push(emails);
+    }
+    console.log(staffEmail[0]);
+    return staffEmail;
+  },
   loopStaff: arr1 => {
     let staffEmail = [];
     arr1.forEach(function(item) {
@@ -174,5 +206,5 @@ export default functions;
 export { arrs, functions1 };
 
 // Resources - https://bitsofco.de/for-in-vs-for-of/
-/* for..in is a method for iterating over "enumerable" properties of an object. It therefore applies to all objects (not only Object()s) that have these properties. */
-/* for..of is a method, introduced in ES2015, for iterating over "iterable collections". These are objects that have a [Symbol.iterator] property */
+/* for..in (Loops through the property names) is a method for iterating over "enumerable" properties of an object. It therefore applies to all objects (not only Object()s) that have these properties. */
+/* for..of (Loops through the property values) is a method, introduced in ES2015, for iterating over "iterable collections". These are objects that have a [Symbol.iterator] property */

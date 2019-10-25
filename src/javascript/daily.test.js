@@ -2,9 +2,6 @@ import { assertEquals } from "./daily";
 import { arrs, functions1 } from "./daily";
 import functions from "./daily";
 
-/*	
-	// Daily Test - 21/10/2019 - Write the function to build email addresses for the company.
-*/
 const data = {
   staff: [
     { fname: "Jane", lname: "Smith", balance: 10 },
@@ -19,6 +16,32 @@ const data = {
   city: "Calgary",
   prov: "Alberta"
 };
+
+// Daily Test - 24/10/2019
+test("email builder for company using forEach", () => {
+  const staffEmail = functions1.loopStaffForEach(data.staff);
+  expect(staffEmail[1]).toEqual("liam.henry@evolveu.ca");
+});
+
+test("email builder for company using map()", () => {
+  const staffEmail = functions1.loopStaffMap(data.staff);
+  expect(staffEmail[1]).toEqual("liam.henry@evolveu.ca");
+});
+
+// Daily Test - 22/10/2019
+test("email builder for company using forOf", () => {
+  const staffEmail = functions1.loopStaffOf(data.staff);
+  expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+});
+
+test("email builder for company using forIn", () => {
+  const staffEmail = functions1.loopStaffIn(data.staff);
+  expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+});
+
+/*	
+	// Daily Test - 21/10/2019 - Write the function to build email addresses for the company.
+*/
 
 test("email builder for company", () => {
   const staffEmail = functions1.loopStaff(data.staff);
