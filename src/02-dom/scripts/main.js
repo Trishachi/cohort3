@@ -1,7 +1,7 @@
 import functions from "./functions.js";
 
 /* Variables and Declarations */
-// let addButton = document.getElementById("add");
+let addButton = document.getElementById("add");
 let deleteButton = document.getElementById("delete");
 let showButton = document.getElementById("show");
 

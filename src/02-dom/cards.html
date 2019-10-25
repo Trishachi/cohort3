@@ -52,41 +52,21 @@
     <div class="container-fluid">
       <h1 class="display-4">Working with Cards</h1>
       <div id="wrapper" class="container">
-        <div class="row">
-          <div id="leftPanel" class="col">
-            <div class="text-center">
-              <button
-                id="addCard"
-                type="button"
-                class="btn btn-outline-primary"
-              >
-                Add Card
-              </button>
-            </div>
-
-            <div id="card1" class="card text-center">
-              <div id="cardHeader" class="card-header">
-                Card 1
+        <div class="row row-grid">
+          <div class="col-md-6">
+            <div id="leftPanel" class="col-md-12">
+              <div id="mainOperation">
+                <button id="addCard" type="button" class="btn btn-outline-success">Add Card</button>
               </div>
-              <div class="card-body">
-                <button id="" type="button" class="btn btn-outline-primary">
-                  <i class="fas fa-plus"></i> Add Before
-                </button>
-                <button id="" type="button" class="btn btn-outline-primary">
-                  <i class="fas fa-plus"></i> Add After
-                </button>
-                <button id="" type="button" class="btn btn-outline-danger">
-                  <i class="fas fa-trash-alt"></i> Delete
-                </button>
-              </div>
+              <!-- Dynamically added card go here -->
             </div>
           </div>
-          <div id="rightPanel" class="col tall-card">
-            <div class="card text-center">
-              <h5 class="card-header">Right Side</h5>
-              <div class="card-body"></div>
-            </div>
+          <div class="col-md-6">
+              <div id="rightPanel" class="col-md-12">
+                  <h4 class="panelTitle">Right Side</h5>
+              </div>            
           </div>
+        </div>        
         </div>
       </div>
     </div>
