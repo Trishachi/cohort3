@@ -16,19 +16,19 @@ const cardFunctions = {
 
     let addBefore = document.createElement("button");
     addBefore.textContent = "Add Before";
-    addBefore.classList.add("addBeforeBtn");
+    addBefore.classList.add("addBeforeBtn", "btn", "btn-outline-primary");
     cardBody.appendChild(addBefore);
     // node.appendChild(newCard);
 
     let addAfter = document.createElement("button");
     addAfter.textContent = "Add After";
-    addAfter.classList.add("addAfterBtn");
+    addAfter.classList.add("addAfterBtn", "btn", "btn-outline-primary");
     cardBody.appendChild(addAfter);
     // node.appendChild(newCard);
 
     let deleteCard = document.createElement("button");
     deleteCard.textContent = "Delete";
-    deleteCard.classList.add("deleteCardBtn");
+    deleteCard.classList.add("deleteCardBtn", "btn", "btn-outline-danger");
     cardBody.appendChild(deleteCard);
     //Return new card
     return newCard;
@@ -48,7 +48,7 @@ const cardFunctions = {
     node.insertBefore(newCard, currentCard);
   },
   addCardAfter: (node, currentCard) => {
-    console.log("Add After Button Clicked");
+    // console.log("Add After Button Clicked");
     let newCard = cardFunctions.createCard(cardFunctions.counter);
     node.insertBefore(newCard, currentCard.nextSibling);
   }
