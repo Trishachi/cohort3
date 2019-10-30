@@ -6,7 +6,7 @@ export class Account {
 
   deposit(depositAmount) {
     if (depositAmount <= 0) {
-      return (this.AccBalance = "Please Enter Positive Dollar Amount");
+      return this.AccBalance;
     }
     this.AccBalance += depositAmount;
     //return this.AccBalance;
@@ -14,7 +14,7 @@ export class Account {
 
   withdraw(withAmount) {
     if (withAmount > this.AccBalance) {
-      return (this.AccBalance = "Insufficient Funds");
+      return this.AccBalance;
     }
     this.AccBalance -= withAmount;
     // return this.AccBalance;
@@ -30,11 +30,41 @@ export class AccountController {
     this.accountHolder = [];
   }
   addAccount(newAcc, initBalance) {
-    // const newAcc1 = new Account(initBalance, newAcc);
     this.accountHolder.push(new Account(newAcc, initBalance));
     return this.accountHolder;
   }
   removeAccount(accName) {
-    return 0;
+    let newAccHolder = this.accountHolder.filter(function(value, index, arr) {
+      return value.accountName !== accName;
+    });
+    this.accountHolder = newAccHolder;
+    return this.accountHolder;
+  }
+  getAccBalances(arr) {
+    let newArray = arr.map(num => {
+      return num.AccBalance;
+    });
+    return newArray;
+  }
+  totalAccBalance(arr) {
+    let newArray = this.getAccBalances(arr);
+    let totalBalance = newArray.reduce((acc, curVal) => {
+      return acc + curVal;
+    });
+    return totalBalance;
+  }
+  highestValAcc(arr) {
+    let newArray = this.getAccBalances(arr);
+    let highestVal = newArray.reduce((a, b) => {
+      return Math.max(a, b);
+    });
+    return highestVal;
+  }
+  lowestValAcc(arr) {
+    let newArray = this.getAccBalances(arr);
+    let lowestVal = newArray.reduce((a, b) => {
+      return Math.min(a, b);
+    });
+    return lowestVal;
   }
 }

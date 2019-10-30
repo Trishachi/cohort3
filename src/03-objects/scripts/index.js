@@ -7,7 +7,7 @@ deposit.addEventListener("click", () => {
     Number(initialBalance.value)
   );
   newAccount.deposit(Number(amount.value));
-  message.textContent = newAccount.balance();
+  message.textContent = `Effective Balance: $${newAccount.balance()}`;
 });
 
 withdraw.addEventListener("click", () => {
@@ -17,5 +17,5 @@ withdraw.addEventListener("click", () => {
     Number(initialBalance.value)
   );
   newAccount.withdraw(Number(amount.value));
-  message.textContent = newAccount.balance();
+  message.textContent = `Effective Balance: $${newAccount.balance()}`;
 });
