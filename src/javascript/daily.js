@@ -1,8 +1,20 @@
 // Write the function after this comment ---------------------------------
 
-// Daily Test - 21/10/2019 + // Daily Test - 24/10/2019
-
+// Daily Test - 29/10/2019
 const functions1 = {
+  loopStaffTotBal: array => {
+    let balances = array.map(item => item.balance);
+    let totalBalance = balances.reduce(function(acc, curVal) {
+      return acc + curVal;
+    });
+    return totalBalance;
+  },
+  loopStaffAvgBal: array => {
+    let totalBalance = functions1.loopStaffTotBal(array);
+    let avgBalance = Math.round((totalBalance / array.length) * 100) / 100;
+    return avgBalance;
+  },
+  // Daily Test - 21/10/2019 + // Daily Test - 24/10/2019
   loopStaffMap: arr => {
     const staffEmail = arr.map(item => functions.makeEmailObj(item));
     console.log(staffEmail[1]);

@@ -17,6 +17,17 @@ const data = {
   prov: "Alberta"
 };
 
+// Daily Test - 29/10/2019
+test("email builder for company to get total balance", () => {
+  const totBalance = functions1.loopStaffTotBal(data.staff);
+  expect(totBalance).toEqual(3823);
+});
+
+test("email builder for company to get average balance", () => {
+  const totBalance = functions1.loopStaffAvgBal(data.staff);
+  expect(totBalance).toEqual(546.14);
+});
+
 // Daily Test - 24/10/2019
 test("email builder for company using forEach", () => {
   const staffEmail = functions1.loopStaffForEach(data.staff);
