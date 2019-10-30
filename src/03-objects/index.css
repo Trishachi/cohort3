@@ -1,0 +1,39 @@
+#leftPanel,
+#rightPanel {
+  border: 2px solid black;
+  height: 100vh;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #eee;
+}
+
+#leftPanel {
+  overflow: scroll;
+}
+
+.panelTitle {
+  padding: 10px;
+}
+
+#addCard {
+  margin: 20px;
+}
+
+[class*="col-"] {
+  margin-bottom: 15px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.btn {
+  margin: 5px;
+}
+
+@media only screen and (min-width: 860px) {
+  /* For bigger screens */
+  #container {
+    width: 35%;
+  }
+}
