@@ -20,7 +20,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.html"><i class="fas fa-university"></i> My Accounts
+      <a class="navbar-brand" href="index.html"><i class="fas fa-university"></i> Royal Bank
 
       </a>
       <button
@@ -74,20 +74,34 @@
                           <input type="number" class="form-control" id="initialBalance" placeholder="Enter Opening Balance">
                         </div>
                       </div>
-                      <div class="form-group row">
+                      <!-- <div class="form-group row">
                         <label for="amount" class="col-sm-4 col-form-label">Enter Amount:</label>
                         <div class="col-sm-8">
                           <input type="number" class="form-control" id="amount" placeholder="Enter Amount">
                         </div>
-                      </div>
+                      </div> -->
                       <div class="form-group row">
-                        <div class="col-sm-10">
-                          <button id="deposit" type='submit' class="btn btn-primary">Deposit</button>
-                          <button id="withdraw" type='submit' class="btn btn-primary">Wthdraw</button>
+                        <div class="col-sm-12">
+                          <!-- <button id="deposit" type='submit' class="btn btn-primary">Deposit</button> -->
+                          <!-- <button id="withdraw" type='submit' class="btn btn-primary">Wthdraw</button> -->
+                          <button id="newAccount" type='submit' class="btn btn-primary">Create New Account</button>
                         </div>
                       </div>
-                      <div id="message">
-
+                      <hr>
+                      <div id="accSumMessage" class="hide">
+                        <div>
+                          <h6>Total Account Balance: <span id="totBalSummary"></span></h6>
+                        </div>
+                        <div>
+                            <h6>Highest Value Account</h6>
+                            <p>Account Name: <span id="highAccName"></span></p>
+                            <p>Balance: <span id="highAccBal"></span></p>
+                        </div>
+                        <div>
+                            <h6>Lowest Value Account</h6>
+                            <p>Account Name: <span id="lowAccName"></span></p>
+                            <p>Balance: <span id="lowAccBal"></span></p>
+                        </div>
                       </div>                  
               </div>            
           </div>

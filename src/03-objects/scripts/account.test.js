@@ -1,4 +1,5 @@
 import { Account, AccountController } from "./account.js";
+import helperFunctions from "./helperFunctions.js";
 
 test("Test for Account Initializations", () => {
   let newAcc = new Account("Checking", 20);
@@ -47,3 +48,42 @@ test("Testing Account Controller", () => {
   expect(newAccount.highestValAcc(newAccount.accountHolder)).toEqual(30);
   expect(newAccount.lowestValAcc(newAccount.accountHolder)).toEqual(15);
 });
+//**********************************Helper Functions Tests***************************************/
+//Test Clear inputs
+test("Testing Clear Input Fields", () => {
+  let input1 = document.createElement("input");
+  let input2 = document.createElement("input");
+  input1.value = "Checking";
+  input2.value = "50";
+  helperFunctions.clearInputs(input1, input2);
+  expect(input1.value).toEqual("");
+  expect(input2.value).toEqual("");
+});
+
+//Test create card function
+const fs = require("fs");
+const path = require("path");
+const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
+
+jest.dontMock("fs");
+
+beforeEach(() => {
+  document.documentElement.innerHTML = html.toString();
+});
+
+afterEach(() => {
+  // restore the original func after test
+  jest.resetModules();
+});
+
+test("Check if new card created", () => {
+  let div = document.getElementById("leftPanel");
+  let newCard = helperFunctions.createCard();
+  let elementCount = div.childElementCount;
+  div.appendChild(newCard);
+  expect(div.childElementCount).toBe(elementCount + 1);
+});
+
+//Test addcard /account function
+
+//Test deleteCard / account function
