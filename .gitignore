@@ -6,3 +6,5 @@
 
 /coverage
 /node_modules
+/src/02-dom/.vscode
+
