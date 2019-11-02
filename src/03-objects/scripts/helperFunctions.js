@@ -11,7 +11,7 @@ const helperFunctions = {
 
     let cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header");
-    cardHeader.textContent = `Account Name: ${accName}`;
+    cardHeader.textContent = accName;
     newCard.appendChild(cardHeader);
 
     let cardBody = document.createElement("div");
