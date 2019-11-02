@@ -85,5 +85,11 @@ test("Check if new card created", () => {
 });
 
 //Test addcard /account function
+test("Check if new account was added", () => {
+  // expect(div.childElementCount).toBe(elementCount + 1);
+});
 
 //Test deleteCard / account function
+test("Check if selected account was deleted", () => {
+  // expect(div.childElementCount).toBe(elementCount + 1);
+});

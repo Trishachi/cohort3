@@ -26,15 +26,16 @@ export class Account {
 }
 
 export class AccountController {
-  constructor() {
-    this.accountHolder = [];
+  constructor(accOwner, accountHolder = []) {
+    this.accOwner = accOwner;
+    this.accountHolder = accountHolder;
   }
   addAccount(newAcc, initBalance) {
     this.accountHolder.push(new Account(newAcc, initBalance));
     return this.accountHolder;
   }
   removeAccount(accName) {
-    let newAccHolder = this.accountHolder.filter(function(value, index, arr) {
+    let newAccHolder = this.accountHolder.filter(function(value) {
       return value.accountName !== accName;
     });
     this.accountHolder = newAccHolder;
