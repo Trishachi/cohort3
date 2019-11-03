@@ -40,6 +40,10 @@
   margin: 10px;
 }
 
+.card-body + div {
+  padding-bottom: 15px;
+}
+
 .btn {
   margin: 5px;
 }

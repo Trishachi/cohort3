@@ -25,6 +25,7 @@ test("Testing Account Controller", () => {
   expect(newAccount.addAccount("New", 10)).toEqual([
     { accountName: "New", AccBalance: 10 }
   ]);
+
   expect(newAccount.addAccount("New1", 20)).toEqual([
     { accountName: "New", AccBalance: 10 },
     { accountName: "New1", AccBalance: 20 }
@@ -47,6 +48,7 @@ test("Testing Account Controller", () => {
   console.log(newAccount.totalAccBalance(newAccount.accountHolder));
   expect(newAccount.highestValAcc(newAccount.accountHolder)).toEqual(30);
   expect(newAccount.lowestValAcc(newAccount.accountHolder)).toEqual(15);
+  expect(newAccount.accountList.length).toEqual(3);
 });
 //**********************************Helper Functions Tests***************************************/
 //Test Clear inputs
@@ -60,36 +62,15 @@ test("Testing Clear Input Fields", () => {
   expect(input2.value).toEqual("");
 });
 
-//Test create card function
-const fs = require("fs");
-const path = require("path");
-const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf8");
-
-jest.dontMock("fs");
-
-beforeEach(() => {
-  document.documentElement.innerHTML = html.toString();
-});
-
-afterEach(() => {
-  // restore the original func after test
-  jest.resetModules();
-});
-
-test("Check if new card created", () => {
-  let div = document.getElementById("leftPanel");
-  let newCard = helperFunctions.createCard();
+//Test create card functions
+test("Check Card Funtions", () => {
+  let div = document.createElement("div");
   let elementCount = div.childElementCount;
-  div.appendChild(newCard);
+  let newCard1 = helperFunctions.addCard("Sav", 200, div);
   expect(div.childElementCount).toBe(elementCount + 1);
-});
-
-//Test addcard /account function
-test("Check if new account was added", () => {
-  // expect(div.childElementCount).toBe(elementCount + 1);
-});
-
-//Test deleteCard / account function
-test("Check if selected account was deleted", () => {
-  // expect(div.childElementCount).toBe(elementCount + 1);
+  let newCard2 = helperFunctions.addCard("Sav", 200, div);
+  console.log(div.childElementCount);
+  helperFunctions.deleteCard(newCard2);
+  console.log(div.childElementCount);
+  expect(div.childElementCount).toBe(1);
 });

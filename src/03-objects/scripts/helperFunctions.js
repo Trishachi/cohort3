@@ -4,7 +4,7 @@ const helperFunctions = {
     inputOne.value = "";
     inputTwo.value = "";
   },
-  createCard: (accName, initBalance) => {
+  addCard: (accName, initBalance, node) => {
     // this.count++;
     let newCard = document.createElement("div");
     newCard.classList.add("card");
@@ -20,6 +20,7 @@ const helperFunctions = {
 
     //Balance Section
     let inputDiv = document.createElement("div");
+    inputDiv.style.paddingBottom = "15px";
     let inputAmount = document.createElement("input");
     inputDiv.append(inputAmount);
     inputAmount.classList.add("form-control");
@@ -46,21 +47,14 @@ const helperFunctions = {
     //Balance Section
     let effectiveBalance = document.createElement("div");
     effectiveBalance.textContent = `Effective Balance: $${initBalance}`;
+    effectiveBalance.style.paddingTop = "10px";
     cardBody.appendChild(effectiveBalance);
 
     //Return new card
+    node.appendChild(newCard);
     return newCard;
   },
-  addCard: node => {
-    // console.log("Add Card Button Clicked");
-    let newCard = helperFunctions.createCard(
-      accountName.value,
-      initialBalance.value
-    );
-    node.appendChild(newCard);
-  },
   deleteCard: card => {
-    // console.log("Delete Button Clicked");
     card.remove();
   }
 };
