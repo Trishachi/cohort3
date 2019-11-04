@@ -32,19 +32,19 @@ export class AccountController {
     this.accOwner = accOwner;
     this.accountHolder = [];
   }
-  get accountList() {
+  accountList() {
     return this.accountHolder;
   }
   addAccount(newAcc, initBalance) {
     this.accountHolder.push(new Account(newAcc, initBalance));
-    return this.accountHolder;
+    // return this.accountHolder;
   }
   removeAccount(accName) {
     let newAccHolder = this.accountHolder.filter(function(value) {
       return value.accountName !== accName;
     });
     this.accountHolder = newAccHolder;
-    return this.accountHolder;
+    // return this.accountHolder;
   }
   getAccBalances(arr) {
     let newArray = arr.map(num => {

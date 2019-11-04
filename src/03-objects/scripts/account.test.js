@@ -18,16 +18,19 @@ test("Test for Account Initializations", () => {
 
 test("Testing Account Controller", () => {
   let newAccount = new AccountController();
-  expect(newAccount.addAccount("New", 10)).toEqual([
+  newAccount.addAccount("New", 10);
+  expect(newAccount.accountList()).toEqual([
     { accountName: "New", AccBalance: 10 }
   ]);
 
-  expect(newAccount.addAccount("New1", 20)).toEqual([
+  newAccount.addAccount("New1", 20);
+  expect(newAccount.accountList()).toEqual([
     { accountName: "New", AccBalance: 10 },
     { accountName: "New1", AccBalance: 20 }
   ]);
 
-  expect(newAccount.removeAccount("New")).toEqual([
+  newAccount.removeAccount("New");
+  expect(newAccount.accountList()).toEqual([
     { accountName: "New1", AccBalance: 20 }
   ]);
 
@@ -42,7 +45,7 @@ test("Testing Account Controller", () => {
   expect(newAccount.totalAccBalance(newAccount.accountHolder)).toEqual(65);
   expect(newAccount.highestValAcc(newAccount.accountHolder)).toEqual(30);
   expect(newAccount.lowestValAcc(newAccount.accountHolder)).toEqual(15);
-  expect(newAccount.accountList.length).toEqual(3);
+  expect(newAccount.accountList().length).toEqual(3);
 });
 //**********************************Helper Functions Tests***************************************/
 //Test Clear inputs
