@@ -1,11 +1,13 @@
 const cityHelpers = {
+  cityKeyCount: 1,
+  //cityKeyCount needs to be a pointer to the city key value
   addCityCard: (cityName, node) => {
     let newCard = document.createElement("div");
     newCard.classList.add("card");
 
     let cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header");
-    cardHeader.textContent = cityName;
+    cardHeader.textContent = cityHelpers.cityKeyCount++;
     newCard.appendChild(cardHeader);
 
     let cardBody = document.createElement("div");
