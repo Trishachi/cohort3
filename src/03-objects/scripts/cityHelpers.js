@@ -40,7 +40,7 @@ const cityHelpers = {
 
     //Balance Section
     let effectiveBalance = document.createElement("div");
-    effectiveBalance.textContent = `Effective Balance: `;
+    effectiveBalance.textContent = `City Name: ${cityName}`;
     effectiveBalance.style.paddingTop = "10px";
     cardBody.appendChild(effectiveBalance);
 

@@ -14,18 +14,26 @@ rightPanel.addEventListener("click", event => {
       cityName.value,
       latitudeInput.value,
       longitudeInput.value,
-      population.value
+      Number(population.value)
     );
+    cityName.value = latitudeInput.value = longitudeInput.value = population.value =
+      "";
     console.log(newComm.cityRoster);
   }
   if (event.target.id == "mostNorth") {
     console.log("Most North City Button Clicked");
+    let mostNorth = newComm.getMostNorthern(newComm.cityRoster);
+    resultDisplay.textContent = `Most Northern City is: ${mostNorth.cityName}`;
   }
   if (event.target.id == "mostSouth") {
     console.log("Most South City Button Clicked");
+    let mostSouth = newComm.getMostSouthern(newComm.cityRoster);
+    resultDisplay.textContent = `Most Southern City is: ${mostSouth.cityName}`;
   }
   if (event.target.id == "totalPopulation") {
     console.log("Total Population Button Clicked");
+    let totalPopulation = newComm.getPopulation(newComm.cityRoster);
+    resultDisplay.textContent = `Total Population is: ${totalPopulation}`;
   }
 });
 
