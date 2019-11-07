@@ -17,6 +17,12 @@ const data = {
   prov: "Alberta"
 };
 
+// Daily Test - 06/11/2019
+test("Test array of balances greater or equal 1000", () => {
+  const filteredBalances = functions1.loopStaff1kBal(data.staff);
+  expect(filteredBalances).toEqual([1000, 1330]);
+});
+
 // Daily Test - 29/10/2019
 test("email builder for company to get total balance", () => {
   const totBalance = functions1.loopStaffTotBal(data.staff);

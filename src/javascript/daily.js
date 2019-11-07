@@ -1,7 +1,12 @@
 // Write the function after this comment ---------------------------------
 
-// Daily Test - 29/10/2019
 const functions1 = {
+  loopStaff1kBal: arr => {
+    let balances = arr.map(item => item.balance);
+    let filteredBalance = balances.filter(item => item >= 1000);
+    return filteredBalance;
+  },
+  // Daily Test - 29/10/2019
   loopStaffTotBal: array => {
     let balances = array.map(item => item.balance);
     let totalBalance = balances.reduce(function(acc, curVal) {
