@@ -1,4 +1,5 @@
 import { City, Community } from "./cityFunctions.js";
+import cityHelpers from "./cityHelpers.js";
 
 const newCommunity = new Community();
 newCommunity.createCity(1, "Lagos", 6.465422, 3.406448, 17500000);
@@ -85,4 +86,15 @@ describe("Community Controller Methods Tests", () => {
       }
     ]);
   });
+});
+
+//**********************************Helper Functions Tests***************************************/
+test("Check Card Funtions", () => {
+  let div = document.createElement("div");
+  expect(div.childElementCount).toBe(0);
+  let newCard1 = cityHelpers.addCityCard("Calgary", div);
+  expect(div.childElementCount).toBe(1);
+  let newCard2 = cityHelpers.addCityCard("Ottawa", div);
+  cityHelpers.deleteCityCard(newCard2);
+  expect(div.childElementCount).toBe(1);
 });
