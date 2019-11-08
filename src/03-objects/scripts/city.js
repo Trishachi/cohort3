@@ -1,10 +1,40 @@
 import { City, Community } from "./cityFunctions.js";
 import cityHelpers from "./cityHelpers.js";
 
+const url = "http://localhost:5000/";
+
 const newComm = new Community();
 let keyCounter = 1;
 
-rightPanel.addEventListener("click", event => {
+async function postData(url = "", data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json"
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrer: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+
+  const json = await response.json(); // parses JSON response into native JavaScript objects
+  json.status = response.status;
+  json.statusText = response.statusText;
+  // console.log(json, typeof(json));
+  return json;
+}
+
+async function postToServer(newCity) {
+  let data = await postData(url + "add", newCity);
+  return data;
+}
+
+rightPanel.addEventListener("click", async event => {
   if (event.target.id == "addNewCity") {
     // console.log("Add New City Button Clicked");
     cityHelpers.addCityCard(
@@ -21,10 +51,14 @@ rightPanel.addEventListener("click", event => {
       longitudeInput.value,
       Number(population.value)
     );
-    keyCounter++;
+
     cityName.value = latitudeInput.value = longitudeInput.value = population.value =
       "";
     console.log(newComm.cityRoster);
+    await postToServer(
+      newComm.cityRoster.filter(item => item.key == keyCounter)[0]
+    );
+    keyCounter++;
   }
   if (event.target.id == "mostNorth") {
     // console.log("Most North City Button Clicked");
