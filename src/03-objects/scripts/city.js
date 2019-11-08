@@ -7,8 +7,13 @@ let keyCounter = 1;
 rightPanel.addEventListener("click", event => {
   if (event.target.id == "addNewCity") {
     // console.log("Add New City Button Clicked");
-
-    cityHelpers.addCityCard(cityName.value, leftPanel);
+    cityHelpers.addCityCard(
+      cityName.value,
+      latitudeInput.value,
+      longitudeInput.value,
+      population.value,
+      leftPanel
+    );
     newComm.createCity(
       Number(keyCounter),
       cityName.value,
@@ -51,6 +56,7 @@ leftPanel.addEventListener("click", event => {
         arrayItem => arrayItem.key == currentCardKey
       );
       newComm.cityRoster[currentCardIndex].movedIn(movedInAmt);
+      selectedCard.children[1].children[5].textContent = `Current Population: ${newComm.cityRoster[currentCardIndex].population}`;
       // console.log(newComm.cityRoster[currentCardIndex].population);
       inputField.value = "";
     }
@@ -66,7 +72,8 @@ leftPanel.addEventListener("click", event => {
         arrayItem => arrayItem.key == currentCardKey
       );
       newComm.cityRoster[currentCardIndex].movedOut(movedOutAmt);
-      console.log(newComm.cityRoster[currentCardIndex].population);
+      selectedCard.children[1].children[5].textContent = `Current Population: ${newComm.cityRoster[currentCardIndex].population}`;
+      // console.log(newComm.cityRoster[currentCardIndex].population);
       inputField.value = "";
     }
   }

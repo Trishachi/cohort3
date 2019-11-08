@@ -1,7 +1,7 @@
 const cityHelpers = {
   cityKeyCount: 1,
   //cityKeyCount needs to be a pointer to the city key value
-  addCityCard: (cityName, node) => {
+  addCityCard: (cityName, latitude, longitude, population, node) => {
     let newCard = document.createElement("div");
     newCard.classList.add("card");
 
@@ -40,11 +40,17 @@ const cityHelpers = {
     deleteCard.classList.add("deleteCardBtn", "btn", "btn-outline-danger");
     cardBody.appendChild(deleteCard);
 
-    //Balance Section
+    //City Details Section
     let effectiveBalance = document.createElement("div");
-    effectiveBalance.textContent = `City Name: ${cityName}`;
+    effectiveBalance.textContent = `City Name: ${cityName} | Latitude: ${latitude} | Longitude: ${longitude}`;
     effectiveBalance.style.paddingTop = "10px";
     cardBody.appendChild(effectiveBalance);
+
+    //Population Output Section
+    let currentPopulation = document.createElement("div");
+    currentPopulation.textContent = `Current Population: ${population}`;
+    currentPopulation.style.paddingTop = "5px";
+    cardBody.appendChild(currentPopulation);
 
     //Return new card
     node.appendChild(newCard);
