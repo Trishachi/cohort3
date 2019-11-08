@@ -71,11 +71,10 @@ export class Community {
     // console.log(totalPolulation);
     return totalPolulation;
   }
-  deleteCity(key) {
-    this.cityRoster = this.cityRoster.filter(city => {
-      return city.key !== key;
+  deleteCity(cityKey) {
+    let newCityRoster = this.cityRoster.filter(city => {
+      return city.key !== cityKey;
     });
-
-    return this.cityRoster;
+    this.cityRoster = newCityRoster;
   }
 }

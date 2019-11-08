@@ -6,7 +6,7 @@ let keyCounter = 1;
 
 rightPanel.addEventListener("click", event => {
   if (event.target.id == "addNewCity") {
-    console.log("Add New City Button Clicked");
+    // console.log("Add New City Button Clicked");
 
     cityHelpers.addCityCard(cityName.value, leftPanel);
     newComm.createCity(
@@ -22,17 +22,17 @@ rightPanel.addEventListener("click", event => {
     console.log(newComm.cityRoster);
   }
   if (event.target.id == "mostNorth") {
-    console.log("Most North City Button Clicked");
+    // console.log("Most North City Button Clicked");
     let mostNorth = newComm.getMostNorthern(newComm.cityRoster);
     resultDisplay.textContent = `Most Northern City is: ${mostNorth.cityName}`;
   }
   if (event.target.id == "mostSouth") {
-    console.log("Most South City Button Clicked");
+    // console.log("Most South City Button Clicked");
     let mostSouth = newComm.getMostSouthern(newComm.cityRoster);
     resultDisplay.textContent = `Most Southern City is: ${mostSouth.cityName}`;
   }
   if (event.target.id == "totalPopulation") {
-    console.log("Total Population Button Clicked");
+    // console.log("Total Population Button Clicked");
     let totalPopulation = newComm.getPopulation(newComm.cityRoster);
     resultDisplay.textContent = `Total Population is: ${totalPopulation}`;
   }
@@ -41,7 +41,7 @@ rightPanel.addEventListener("click", event => {
 leftPanel.addEventListener("click", event => {
   // console.log(event.target);
   if (event.target.className == "movedIn btn btn-outline-primary") {
-    console.log("Moved In button clicked");
+    // console.log("Moved In button clicked");
     let selectedCard = event.target.parentElement.parentElement;
     let inputField = selectedCard.children[1].children[0].children[0];
     let movedInAmt = Number(inputField.value);
@@ -51,12 +51,12 @@ leftPanel.addEventListener("click", event => {
         arrayItem => arrayItem.key == currentCardKey
       );
       newComm.cityRoster[currentCardIndex].movedIn(movedInAmt);
-      console.log(newComm.cityRoster[currentCardIndex].population);
+      // console.log(newComm.cityRoster[currentCardIndex].population);
       inputField.value = "";
     }
   }
   if (event.target.className == "movedOut btn btn-outline-primary") {
-    console.log("Moved Out button clicked");
+    // console.log("Moved Out button clicked");
     let selectedCard = event.target.parentElement.parentElement;
     let inputField = selectedCard.children[1].children[0].children[0];
     let movedOutAmt = Number(inputField.value);
@@ -71,8 +71,15 @@ leftPanel.addEventListener("click", event => {
     }
   }
   if (event.target.className == "deleteCardBtn btn btn-outline-danger") {
-    console.log("Delete City button clicked");
+    // console.log("Delete City button clicked");
     let selectedCard = event.target.parentElement.parentElement;
+    let currentCardTitle = selectedCard.children[0].textContent;
+    let currentCardIndex = newComm.cityRoster.findIndex(
+      arrayItem => arrayItem.key == currentCardTitle
+    );
+    let currentCardKey = newComm.cityRoster[currentCardIndex].key;
+    newComm.deleteCity(currentCardKey);
     cityHelpers.deleteCityCard(selectedCard);
+    console.log(newComm.cityRoster);
   }
 });
