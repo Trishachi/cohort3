@@ -74,7 +74,7 @@ describe("Community Controller Methods Tests", () => {
     newCommunity.deleteCity(2);
     newCommunity.deleteCity(3);
     newCommunity.deleteCity(4);
-    console.log(newCommunity.cityRoster);
+    // console.log(newCommunity.cityRoster);
     expect(newCommunity.cityRoster).toEqual([
       { cityName: "Awka", key: 6, latitude: 0, longitude: 0, population: 99 },
       {
@@ -92,9 +92,21 @@ describe("Community Controller Methods Tests", () => {
 test("Check Card Funtions", () => {
   let div = document.createElement("div");
   expect(div.childElementCount).toBe(0);
-  let newCard1 = cityHelpers.addCityCard("Calgary", div);
+  let newCard1 = cityHelpers.addCityCard(
+    "Calgary",
+    "51.04427",
+    "-114.062019",
+    99000,
+    div
+  );
   expect(div.childElementCount).toBe(1);
-  let newCard2 = cityHelpers.addCityCard("Ottawa", div);
+  let newCard2 = cityHelpers.addCityCard(
+    "Ottawa",
+    "91.0427",
+    "-94.062019",
+    50000,
+    div
+  );
   cityHelpers.deleteCityCard(newCard2);
   expect(div.childElementCount).toBe(1);
 });
