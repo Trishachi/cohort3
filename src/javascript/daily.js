@@ -1,6 +1,29 @@
 // Write the function after this comment ---------------------------------
+// Daily Test - 08/11/2019 - Callback Exercise
+const callBacks = {
+  filterProvinces: (data, callback) => {
+    let Arr = [];
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].province === "BC" || data[i].province === "AB") {
+        Arr.push(data[i]);
+      }
+    }
+    return Arr;
+  },
+  makeFullName: arr => {
+    return arr.fname + " " + arr.lname;
+  }
+};
+
+// filterProvinces: data => {
+//   let newArr = data.filter(item => {
+//     return item.province === "BC" || item.province === "AB";
+//   });
+//   return newArr;
+// }
 
 const functions1 = {
+  // Daily Test - 06/11/2019
   loopStaff1kBal: arr => {
     let balances = arr.map(item => item.balance);
     let filteredBalance = balances.filter(item => item >= 1000);
@@ -220,7 +243,7 @@ const functions = {
 };
 
 export default functions;
-export { arrs, functions1 };
+export { arrs, functions1, callBacks };
 
 // Resources - https://bitsofco.de/for-in-vs-for-of/
 /* for..in (Loops through the property names) is a method for iterating over "enumerable" properties of an object. It therefore applies to all objects (not only Object()s) that have these properties. */
