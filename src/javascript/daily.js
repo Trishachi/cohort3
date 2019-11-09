@@ -1,17 +1,17 @@
 // Write the function after this comment ---------------------------------
 // Daily Test - 08/11/2019 - Callback Exercise
 const callBacks = {
-  filterProvinces: (data, callback) => {
-    let Arr = [];
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].province === "BC" || data[i].province === "AB") {
-        Arr.push(data[i]);
-      }
+  filterProvinces: (data, callBack) => {
+    let newArr = data.filter(
+      item => item.province === "BC" || item.province === "AB"
+    );
+    if (typeof callBack === "function") {
+      return callBack(newArr);
     }
-    return Arr;
+    return newArr;
   },
-  makeFullName: arr => {
-    return arr.fname + " " + arr.lname;
+  makeFullName: Arr => {
+    return Arr.map(item => item.fname + " " + item.lname);
   }
 };
 
@@ -20,6 +20,19 @@ const callBacks = {
 //     return item.province === "BC" || item.province === "AB";
 //   });
 //   return newArr;
+// }
+
+// filterProvinces: (data, callback) => {
+//   let Arr = [];
+//   for (let i = 0; i < data.length; i++) {
+//     if (data[i].province === "BC" || data[i].province === "AB") {
+//       Arr.push(data[i]);
+//       if (typeof callback === "function") {
+//         callback(data[i]);
+//       }
+//     }
+//   }
+//   return Arr;
 // }
 
 const functions1 = {

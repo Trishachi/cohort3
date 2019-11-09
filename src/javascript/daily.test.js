@@ -66,12 +66,17 @@ const data = {
 
 // Daily Test - 08/11/2019
 test("Test CallBack Exercise - filterProvinces", () => {
-  const filteredProvinces = callBacks.filterProvinces(people);
-  console.log(filteredProvinces);
+  const filteredProvinces = callBacks.filterProvinces(people, data);
+  // console.log(filteredProvinces);
   expect(
     filteredProvinces[3].province == "BC" ||
       filteredProvinces[3].province == "AB"
   ).toBeTruthy();
+  // console.log(callBacks.filterProvinces(people, callBacks.makeFullName)[3]);
+  expect(callBacks.makeFullName(filteredProvinces)[3]).toBe("Carrie Ramirez");
+  expect(callBacks.filterProvinces(people, callBacks.makeFullName)[3]).toBe(
+    "Carrie Ramirez"
+  );
 });
 
 // Daily Test - 06/11/2019
