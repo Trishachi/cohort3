@@ -34,6 +34,16 @@ async function postToServer(newCity) {
   return data;
 }
 
+async function updateServer(currentCity) {
+  let data = await postData(url + "update", currentCity);
+  return data;
+}
+
+async function deleteFromServer(cityKey) {
+  let data = await postData(url + "delete", { key: cityKey });
+  return data;
+}
+
 rightPanel.addEventListener("click", async event => {
   if (event.target.id == "addNewCity") {
     // console.log("Add New City Button Clicked");
@@ -77,7 +87,7 @@ rightPanel.addEventListener("click", async event => {
   }
 });
 
-leftPanel.addEventListener("click", event => {
+leftPanel.addEventListener("click", async event => {
   // console.log(event.target);
   if (event.target.className == "movedIn btn btn-outline-primary") {
     // console.log("Moved In button clicked");
@@ -90,6 +100,7 @@ leftPanel.addEventListener("click", event => {
         arrayItem => arrayItem.key == currentCardKey
       );
       newComm.cityRoster[currentCardIndex].movedIn(movedInAmt);
+      await updateServer(newComm.cityRoster[currentCardIndex]);
       selectedCard.children[1].children[5].textContent = `Current Population: ${newComm.cityRoster[currentCardIndex].population}`;
       // console.log(newComm.cityRoster[currentCardIndex].population);
       inputField.value = "";
@@ -106,6 +117,7 @@ leftPanel.addEventListener("click", event => {
         arrayItem => arrayItem.key == currentCardKey
       );
       newComm.cityRoster[currentCardIndex].movedOut(movedOutAmt);
+      await updateServer(newComm.cityRoster[currentCardIndex]);
       selectedCard.children[1].children[5].textContent = `Current Population: ${newComm.cityRoster[currentCardIndex].population}`;
       // console.log(newComm.cityRoster[currentCardIndex].population);
       inputField.value = "";
@@ -121,6 +133,7 @@ leftPanel.addEventListener("click", event => {
     let currentCardKey = newComm.cityRoster[currentCardIndex].key;
     newComm.deleteCity(currentCardKey);
     cityHelpers.deleteCityCard(selectedCard);
+    await deleteFromServer(currentCardKey);
     console.log(newComm.cityRoster);
   }
 });
