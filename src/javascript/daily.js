@@ -5,6 +5,7 @@ const callBacks = {
     let newArr = data.filter(
       item => item.province === "BC" || item.province === "AB"
     );
+    console.log(typeof callBack);
     if (typeof callBack === "function") {
       return callBack(newArr);
     }
@@ -14,26 +15,6 @@ const callBacks = {
     return Arr.map(item => item.fname + " " + item.lname);
   }
 };
-
-// filterProvinces: data => {
-//   let newArr = data.filter(item => {
-//     return item.province === "BC" || item.province === "AB";
-//   });
-//   return newArr;
-// }
-
-// filterProvinces: (data, callback) => {
-//   let Arr = [];
-//   for (let i = 0; i < data.length; i++) {
-//     if (data[i].province === "BC" || data[i].province === "AB") {
-//       Arr.push(data[i]);
-//       if (typeof callback === "function") {
-//         callback(data[i]);
-//       }
-//     }
-//   }
-//   return Arr;
-// }
 
 const functions1 = {
   // Daily Test - 06/11/2019
