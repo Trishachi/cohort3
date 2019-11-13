@@ -46,6 +46,29 @@ const cityFetchFunctions = {
   async clearServer() {
     let data = await this.postData(url + "clear");
     return data;
+  },
+  async htmlReloadCities() {
+    fetch("http://localhost:5000/all")
+      .then(request => request.json())
+      .then(data => {
+        data.map(serverCity => {
+          newComm.createCity(
+            Number(serverCity.key),
+            serverCity.cityName,
+            Number(serverCity.latitude),
+            Number(serverCity.longitude),
+            Number(serverCity.population)
+          );
+          cityHelpers.addCityCard(
+            serverCity.cityName,
+            Number(serverCity.latitude),
+            Number(serverCity.longitude),
+            Number(serverCity.population),
+            leftPanel
+          );
+        });
+      });
+    return newComm.cityRoster;
   }
 };
 

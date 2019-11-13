@@ -5,6 +5,12 @@ import cityFetchFunctions from "./cityFetch.js";
 const newComm = new Community();
 let keyCounter = 1;
 
+window.addEventListener("load", async event => {
+  console.log("Server Starting");
+  let data = await cityFetchFunctions.htmlReloadCities();
+  console.log(data);
+});
+
 rightPanel.addEventListener("click", async event => {
   if (event.target.id == "addNewCity") {
     // console.log("Add New City Button Clicked");
