@@ -6,9 +6,11 @@ const newComm = new Community();
 let keyCounter = 1;
 
 window.addEventListener("load", async event => {
-  console.log("Server Starting");
+  // console.log("Server Starting");
   let data = await cityFetchFunctions.htmlReloadCities();
+  newComm.cityRoster = data;
   console.log(data);
+  console.log(newComm.cityRoster);
 });
 
 rightPanel.addEventListener("click", async event => {
@@ -16,16 +18,16 @@ rightPanel.addEventListener("click", async event => {
     // console.log("Add New City Button Clicked");
     cityHelpers.addCityCard(
       cityName.value,
-      latitudeInput.value,
-      longitudeInput.value,
-      population.value,
+      Number(latitudeInput.value),
+      Number(longitudeInput.value),
+      Number(population.value),
       leftPanel
     );
     newComm.createCity(
       Number(keyCounter),
       cityName.value,
-      latitudeInput.value,
-      longitudeInput.value,
+      Number(latitudeInput.value),
+      Number(longitudeInput.value),
       Number(population.value)
     );
 
@@ -50,6 +52,7 @@ rightPanel.addEventListener("click", async event => {
   if (event.target.id == "totalPopulation") {
     // console.log("Total Population Button Clicked");
     let totalPopulation = newComm.getPopulation(newComm.cityRoster);
+    console.log(newComm.cityRoster);
     resultDisplay.textContent = `Total Population is: ${totalPopulation}`;
   }
 });
