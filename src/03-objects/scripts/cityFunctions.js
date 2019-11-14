@@ -43,7 +43,7 @@ export class Community {
   createCity(key, cityName, latitude, longitude, population) {
     let newCity = new City(key, cityName, latitude, longitude, population);
     this.cityRoster.push(newCity);
-    return newCity;
+    return this.cityRoster;
   }
   whichSphere(city) {
     if (city.latitude > 0) return "Northern Hemishpere";

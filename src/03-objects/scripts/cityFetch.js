@@ -44,6 +44,7 @@ const cityFetchFunctions = {
   /* istanbul ignore next */
   async getCitiesOnServer(newComm) {
     let data = await this.postData(url + "all");
+    // console.log(newComm.cityRoster);
     if (data.length != 0) {
       newComm.cityRoster = data.map(
         item =>
