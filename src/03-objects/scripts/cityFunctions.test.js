@@ -110,3 +110,14 @@ test("Check Card Funtions", () => {
   cityHelpers.deleteCityCard(newCard2);
   expect(div.childElementCount).toBe(1);
 });
+
+//**********************************Comp 130E Tests***************************************/
+describe("Testing for Competency 130E", () => {
+  test("Comp 130E", () => {
+    let myCity = new City(7, "Nimo", 6.16062, 6.988009, 5000);
+    let myFav = myCity;
+    myCity.movedIn(500);
+    expect(myCity.population).toBe(5500);
+    expect(myFav.population).toBe(5500);
+  });
+});
