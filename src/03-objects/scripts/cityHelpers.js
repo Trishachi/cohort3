@@ -7,7 +7,8 @@ const cityHelpers = {
 
     let cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header");
-    cardHeader.textContent = cityHelpers.cityKeyCount++;
+    // cardHeader.textContent = cityHelpers.cityKeyCount++;
+    cardHeader.textContent = cityName;
     newCard.appendChild(cardHeader);
 
     let cardBody = document.createElement("div");

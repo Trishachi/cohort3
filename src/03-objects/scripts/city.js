@@ -2,8 +2,23 @@ import { City, Community } from "./cityFunctions.js";
 import cityHelpers from "./cityHelpers.js";
 import cityFetchFunctions from "./cityFetch.js";
 
+resultDisplay.textContent = `Server is Ready!`;
+
 const newComm = new Community();
-let keyCounter = 1;
+let keyCounter;
+
+let lastKey = cityFetchFunctions.getCitiesOnServer(newComm);
+lastKey.then(
+  result => {
+    keyCounter = result + 1;
+    if (newComm.cityRoster.length >= 1) {
+      resultDisplay.textContent = `Success: Last key found!`;
+    } else {
+      resultDisplay.textContent = `Success: Server is Running!`;
+    }
+  },
+  reject => (resultDisplay.textContent = `Error: No key found!`)
+);
 
 window.addEventListener("load", async event => {
   // console.log("Server Starting");
@@ -65,9 +80,9 @@ leftPanel.addEventListener("click", async event => {
     let inputField = selectedCard.children[1].children[0].children[0];
     let movedInAmt = Number(inputField.value);
     if (movedInAmt > 0) {
-      let currentCardKey = selectedCard.children[0].textContent;
+      let currentCardTitle = selectedCard.children[0].textContent;
       let currentCardIndex = newComm.cityRoster.findIndex(
-        arrayItem => arrayItem.key == currentCardKey
+        arrayItem => arrayItem.cityName == currentCardTitle
       );
       newComm.cityRoster[currentCardIndex].movedIn(movedInAmt);
       await cityFetchFunctions.updateServer(
@@ -86,9 +101,9 @@ leftPanel.addEventListener("click", async event => {
     let inputField = selectedCard.children[1].children[0].children[0];
     let movedOutAmt = Number(inputField.value);
     if (movedOutAmt > 0) {
-      let currentCardKey = selectedCard.children[0].textContent;
+      let currentCardTitle = selectedCard.children[0].textContent;
       let currentCardIndex = newComm.cityRoster.findIndex(
-        arrayItem => arrayItem.key == currentCardKey
+        arrayItem => arrayItem.cityName == currentCardTitle
       );
       newComm.cityRoster[currentCardIndex].movedOut(movedOutAmt);
       await cityFetchFunctions.updateServer(
@@ -106,7 +121,7 @@ leftPanel.addEventListener("click", async event => {
     let selectedCard = event.target.parentElement.parentElement;
     let currentCardTitle = selectedCard.children[0].textContent;
     let currentCardIndex = newComm.cityRoster.findIndex(
-      arrayItem => arrayItem.key == currentCardTitle
+      arrayItem => arrayItem.cityName == currentCardTitle
     );
     let currentCardKey = newComm.cityRoster[currentCardIndex].key;
     newComm.deleteCity(currentCardKey);

@@ -39,9 +39,26 @@ const cityFetchFunctions = {
     let data = await this.postData(url + "delete", { key: cityKey });
     return data;
   },
-  async getCitiesOnServer() {
+  async getCitiesOnServer(newComm) {
     let data = await this.postData(url + "all");
-    return data;
+    if (data.length != 0) {
+      newComm.cityRoster = data.map(
+        item =>
+          new City(
+            item.key,
+            item.cityName,
+            item.latitude,
+            item.longitude,
+            item.population
+          )
+      );
+      let keyArrays = comm.cityRoster.map(itm => itm.key);
+      keyArrays.sort((a, b) => b - a);
+      let lastKey = keyArrays[0];
+      return lastKey;
+    }
+    let lastKey = 0;
+    return lastKey;
   },
   async clearServer() {
     let data = await this.postData(url + "clear");
