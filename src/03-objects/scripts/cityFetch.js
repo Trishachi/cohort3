@@ -31,14 +31,17 @@ const cityFetchFunctions = {
     let data = await this.postData(url + "add", newCity);
     return data;
   },
+  /* istanbul ignore next */
   async updateServer(currentCity) {
     let data = await this.postData(url + "update", currentCity);
     return data;
   },
+  /* istanbul ignore next */
   async deleteFromServer(cityKey) {
     let data = await this.postData(url + "delete", { key: cityKey });
     return data;
   },
+  /* istanbul ignore next */
   async getCitiesOnServer(newComm) {
     let data = await this.postData(url + "all");
     if (data.length != 0) {
@@ -64,6 +67,7 @@ const cityFetchFunctions = {
     let data = await this.postData(url + "clear");
     return data;
   },
+  /* istanbul ignore next */
   async htmlReloadCities() {
     fetch("http://localhost:5000/all")
       .then(request => request.json())
