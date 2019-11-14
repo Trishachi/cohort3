@@ -52,7 +52,7 @@ const cityFetchFunctions = {
             item.population
           )
       );
-      let keyArrays = comm.cityRoster.map(itm => itm.key);
+      let keyArrays = newComm.cityRoster.map(itm => itm.key);
       keyArrays.sort((a, b) => b - a);
       let lastKey = keyArrays[0];
       return lastKey;

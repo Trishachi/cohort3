@@ -43,7 +43,7 @@ const cityHelpers = {
 
     //City Details Section
     let effectiveBalance = document.createElement("div");
-    effectiveBalance.textContent = `City Name: ${cityName} | Latitude: ${latitude} | Longitude: ${longitude}`;
+    effectiveBalance.textContent = `Latitude: ${latitude} | Longitude: ${longitude}`;
     effectiveBalance.style.paddingTop = "10px";
     cardBody.appendChild(effectiveBalance);
 

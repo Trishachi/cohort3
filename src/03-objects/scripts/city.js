@@ -24,14 +24,14 @@ window.addEventListener("load", async event => {
   // console.log("Server Starting");
   let data = await cityFetchFunctions.htmlReloadCities();
   newComm.cityRoster = data;
-  console.log(data);
-  console.log(newComm.cityRoster);
+  // console.log(data);
+  // console.log(newComm.cityRoster);
 });
 
 rightPanel.addEventListener("click", async event => {
   if (event.target.id == "addNewCity") {
-    // console.log("Add New City Button Clicked");
     cityHelpers.addCityCard(
+      // Number(keyCounter),
       cityName.value,
       Number(latitudeInput.value),
       Number(longitudeInput.value),
@@ -48,7 +48,7 @@ rightPanel.addEventListener("click", async event => {
 
     cityName.value = latitudeInput.value = longitudeInput.value = population.value =
       "";
-    console.log(newComm.cityRoster);
+    // console.log(newComm.cityRoster);
     await cityFetchFunctions.postToServer(
       newComm.cityRoster.filter(item => item.key == keyCounter)[0]
     );
