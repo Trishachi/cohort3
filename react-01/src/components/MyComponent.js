@@ -1,13 +1,12 @@
 import React from "react";
 
-class MyComp extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello World from MyComp</h1>
-      </div>
-    );
-  }
-}
+const MyComponent = props => {
+  return (
+    <div>
+      <h1>Hello World from MyComp {props.whatToSay}</h1>
+      <button onClick={props.buttonClicked}>Push Me</button>
+    </div>
+  );
+};
 
-export default MyComp;
+export default MyComponent;

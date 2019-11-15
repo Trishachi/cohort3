@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.counter = 21;
+    // this.onPushMe = this.onPushMe.bind(this);
     this.state = {
       myState: "TBD" //Initialization of the state
     };
@@ -17,20 +18,19 @@ class App extends React.Component {
     this.counter++;
     console.log(this.counter);
     this.setState({
-      myState: "now" + this.counter
+      myState: "now: " + this.counter
     });
   };
 
   render() {
+    const whatToSay = "WhatEver";
     return (
       <div className="App">
-        <MyComponent />
+        <MyComponent whatToSay={whatToSay} buttonClicked={this.onPushMe} />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1>
-            I am in control of this application and my name is Chisom
-            {this.counter}
-            {this.state.myState}
+            Welcome to my React App. My name is Chisom {this.state.myState}
           </h1>
           <button onClick={this.onPushMe}>Push Me</button>
           <p>
