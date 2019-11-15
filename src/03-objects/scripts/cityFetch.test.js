@@ -24,7 +24,7 @@ describe("Testing Fetch Functions", () => {
 
     await cityFetchFunctions.deleteFromServer(1);
     await cityFetchFunctions.getCitiesOnServer(newCommunity);
-    // // console.log(await cityFetchFunctions.getCitiesOnServer());
+
     expect(await cityFetchFunctions.getCitiesOnServer(newCommunity)).toBe(2);
     await cityFetchFunctions.updateServer({
       key: 2,
@@ -34,12 +34,11 @@ describe("Testing Fetch Functions", () => {
       population: 50000
     });
     await cityFetchFunctions.getCitiesOnServer(newCommunity);
-    // console.log(
-    //   newCommunity.cityRoster.filter(item => item.key === 2)[0].population
-    // );
     expect(
       newCommunity.cityRoster.filter(item => item.key === 2)[0].population
     ).toBe(50000);
+
     await cityFetchFunctions.clearServer();
+    expect(await cityFetchFunctions.getCitiesOnServer(newCommunity)).toBe(0);
   });
 });

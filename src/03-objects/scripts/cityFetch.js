@@ -3,6 +3,7 @@ import cityHelpers from "./cityHelpers.js";
 
 const url = "http://localhost:5000/";
 const newComm = new Community();
+const leftPanel = document.getElementById("leftPanel");
 
 const cityFetchFunctions = {
   async postData(url = "", data = {}) {
@@ -36,12 +37,12 @@ const cityFetchFunctions = {
     let data = await this.postData(url + "update", currentCity);
     return data;
   },
-  /* istanbul ignore next */
+
   async deleteFromServer(cityKey) {
     let data = await this.postData(url + "delete", { key: cityKey });
     return data;
   },
-  /* istanbul ignore next */
+
   async getCitiesOnServer(newComm) {
     let data = await this.postData(url + "all");
     // console.log(newComm.cityRoster);
