@@ -3,7 +3,7 @@ import React from "react";
 const OddComponent = props => {
   return (
     <div>
-      <h1>Odd Component</h1>
+      <h2>Odd</h2>
     </div>
   );
 };

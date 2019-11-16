@@ -3,7 +3,7 @@ import React from "react";
 const EvenComponent = props => {
   return (
     <div>
-      <h1>Even Component</h1>
+      <h2>Even</h2>
     </div>
   );
 };

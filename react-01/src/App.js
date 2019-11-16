@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import MyComponent from "./components/MyComponent";
+import EvenComponent from "./components/EvenComponent";
+import OddComponent from "./components/OddComponent";
 
 class App extends React.Component {
   constructor() {
@@ -26,13 +28,14 @@ class App extends React.Component {
     const whatToSay = "WhatEver";
     return (
       <div className="App">
-        <MyComponent whatToSay={whatToSay} buttonClicked={this.onPushMe} />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1>
             Welcome to my React App. My name is Chisom {this.state.myState}
           </h1>
           <button onClick={this.onPushMe}>Push Me</button>
+          <MyComponent whatToSay={whatToSay} buttonClicked={this.onPushMe} />
+          {this.counter % 2 == 0 ? <EvenComponent /> : <OddComponent />}
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
