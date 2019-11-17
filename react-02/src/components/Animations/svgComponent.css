@@ -3,8 +3,49 @@
   display: flex;
   justify-content: space-around;
   padding: 20px 2px;
+  background-color: #09d3ac;
 }
 
 .svg-image {
   max-height: 10vh;
+}
+
+.animate {
+  animation: iconanimate 5s infinite;
+}
+
+.animate1 {
+  animation: iconanimate1 5s infinite;
+}
+
+.animate2 {
+  animation: iconanimate2 5s infinite;
+}
+
+.animate3 {
+  animation: iconanimate3 5s infinite;
+}
+
+@keyframes iconanimate {
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes iconanimate1 {
+  50% {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes iconanimate2 {
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes iconanimate3 {
+  50% {
+    transform: skewY(25deg);
+  }
 }
