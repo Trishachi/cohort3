@@ -10,20 +10,23 @@
   max-height: 10vh;
 }
 
-.animate {
-  animation: iconanimate 5s infinite;
+.svg-image:hover {
+  filter: invert(0.5) sepia(2) hue-rotate(360deg) saturate(5) brightness(1);
 }
 
+.animate {
+  animation: iconanimate 10s infinite;
+}
 .animate1 {
   animation: iconanimate1 5s infinite;
 }
 
 .animate2 {
-  animation: iconanimate2 5s infinite;
+  animation: iconanimate2 15s infinite;
 }
 
 .animate3 {
-  animation: iconanimate3 5s infinite;
+  animation: iconanimate3 8s infinite;
 }
 
 @keyframes iconanimate {
