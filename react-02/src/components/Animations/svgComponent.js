@@ -7,6 +7,7 @@ const Animation = props => {
   return (
     <div id="Header" className="Navigation">
       <img
+        id="Home"
         src={welcome}
         className="svg-image animate"
         alt="svg1"
@@ -14,6 +15,7 @@ const Animation = props => {
         onMouseLeave={props.mouseOutEvent}
       />
       <img
+        id="Tictactoe"
         src={tictactoe}
         className="svg-image animate1"
         alt="svg2"
@@ -21,6 +23,7 @@ const Animation = props => {
         onMouseLeave={props.mouseOutEvent}
       />
       <img
+        id="Icon3"
         src={welcome}
         className="svg-image animate2"
         alt="svg3"
@@ -28,6 +31,7 @@ const Animation = props => {
         onMouseLeave={props.mouseOutEvent}
       />
       <img
+        id="Icon4"
         src={tictactoe}
         className="svg-image animate3"
         alt="svg4"
