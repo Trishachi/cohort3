@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Animation from "./components/Animations/svgComponent";
+import { Square, Board, Game } from "./components/Tictactoe/tictactoe.js";
 
 class App extends React.Component {
   constructor() {
@@ -37,6 +38,7 @@ class App extends React.Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          <Game />
           <a
             className="App-link"
             href="https://reactjs.org"
