@@ -13,6 +13,7 @@ const Animation = props => {
         alt="svg1"
         onMouseOver={props.mouseOverEvent}
         onMouseLeave={props.mouseOutEvent}
+        onClick={props.ButtonClicked}
       />
       <img
         id="Tictactoe"
@@ -21,6 +22,7 @@ const Animation = props => {
         alt="svg2"
         onMouseOver={props.mouseOverEvent}
         onMouseLeave={props.mouseOutEvent}
+        onClick={props.ButtonClicked}
       />
       <img
         id="Icon3"
@@ -29,6 +31,7 @@ const Animation = props => {
         alt="svg3"
         onMouseOver={props.mouseOverEvent}
         onMouseLeave={props.mouseOutEvent}
+        onClick={props.ButtonClicked}
       />
       <img
         id="Icon4"
@@ -37,6 +40,7 @@ const Animation = props => {
         alt="svg4"
         onMouseOver={props.mouseOverEvent}
         onMouseLeave={props.mouseOutEvent}
+        onClick={props.ButtonClicked}
       />
     </div>
   );

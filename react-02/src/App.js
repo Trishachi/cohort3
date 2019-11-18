@@ -1,14 +1,16 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Animation from "./components/Animations/svgComponent";
 import { Square, Board, Game } from "./components/Tictactoe/tictactoe.js";
+import DefaultApp from "./components/DefaultApp/DefaultApp.js";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      myState: "Display Action"
+      myState: "Display Action",
+      currentIcon: "Home"
     };
   }
 
@@ -25,28 +27,26 @@ class App extends React.Component {
     });
   };
 
+  onButtonClick = evt => {
+    console.log(evt.target.id + " Button Clicked");
+    this.setState({
+      currentIcon: evt.target.id
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <Animation
           mouseOverEvent={this.onMouseOver}
           mouseOutEvent={this.onMouseOut}
+          ButtonClicked={this.onButtonClick}
         />
         <header className="App-header">
-          <p id="hoverStatus">{this.state.myState}</p>
-          <img src={logo} className="App-logo animate" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <Game />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          {this.state.currentIcon === "Home" && (
+            <DefaultApp myState={this.state.myState} />
+          )}
+          {this.state.currentIcon === "Tictactoe" && <Game />}
         </header>
       </div>
     );
