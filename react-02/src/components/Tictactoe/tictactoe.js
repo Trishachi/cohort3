@@ -65,7 +65,7 @@ class Game extends React.Component {
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
-      history: history.concat([{ squares: squares }]),
+      history: history.concat([{ squares: squares, latestMove: i }]),
       stepNumber: history.length, //ensure we don't get stuck showing the same move after a new move has been made
       xIsNext: !this.state.xIsNext
     });
@@ -84,7 +84,12 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? "Go to move #" + move : "Go to game start/Restart";
+      const latestMove = step.latestMove;
+      const col = 1 + (latestMove % 3);
+      const row = 1 + Math.floor(latestMove / 3);
+      const desc = move
+        ? "Go to move #" + move + " (" + col + "," + row + ")"
+        : "Go to game start/Restart";
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
