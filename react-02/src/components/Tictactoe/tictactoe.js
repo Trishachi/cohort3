@@ -2,8 +2,9 @@ import React from "react";
 import "./tictactoe.css";
 
 function Square(props) {
+  const className = "square" + (props.highlight ? " highlight" : "");
   return (
-    <button className="square" onClick={props.onClick}>
+    <button className={className} onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -11,33 +12,50 @@ function Square(props) {
 
 class Board extends React.Component {
   renderSquare(i) {
+    const winLine = this.props.winLine;
     return (
       <Square
+        key={i}
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
+        highlight={winLine && winLine.includes(i)}
       />
     );
   }
 
   render() {
+    const boardSize = 3;
+    let squares = [];
+    for (let i = 0; i < boardSize; ++i) {
+      let row = [];
+      for (let j = 0; j < boardSize; ++j) {
+        row.push(this.renderSquare(i * boardSize + j));
+      }
+      squares.push(
+        <div key={i} className="board-row">
+          {row}
+        </div>
+      );
+    }
     return (
-      <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
+      <div>{squares}</div>
+      // <div>
+      //   <div className="board-row">
+      //     {this.renderSquare(0)}
+      //     {this.renderSquare(1)}
+      //     {this.renderSquare(2)}
+      //   </div>
+      //   <div className="board-row">
+      //     {this.renderSquare(3)}
+      //     {this.renderSquare(4)}
+      //     {this.renderSquare(5)}
+      //   </div>
+      //   <div className="board-row">
+      //     {this.renderSquare(6)}
+      //     {this.renderSquare(7)}
+      //     {this.renderSquare(8)}
+      //   </div>
+      // </div>
     );
   }
 }
@@ -60,7 +78,7 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice(); //creates a new copy of squares array after every move
-    if (calculateWinner(squares) || squares[i]) {
+    if (calculateWinner(squares).winner || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
@@ -81,7 +99,9 @@ class Game extends React.Component {
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
+    const winnerInfo = calculateWinner(current.squares);
+    // console.log(winnerInfo);
+    const winner = winnerInfo.winner;
 
     const moves = history.map((step, move) => {
       const latestMove = step.latestMove;
@@ -114,7 +134,11 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          <Board
+            squares={current.squares}
+            onClick={i => this.handleClick(i)}
+            winLine={winnerInfo.line}
+          />
         </div>
         <div className="game-info">
           <div>{status}</div>
@@ -140,12 +164,12 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return { winner: squares[a], line: lines[i] };
     } else if (!squares.includes(null)) {
-      return "draw";
+      return { winner: "draw" };
     }
   }
-  return null;
+  return { winner: null, line: null };
 }
 
 export { Square, Board, Game };
