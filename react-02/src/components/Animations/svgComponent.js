@@ -1,6 +1,8 @@
 import React from "react";
 import welcome from "./welcome.svg";
 import tictactoe from "./tictactoe.svg";
+import accounts from "./accounts.svg";
+import cities from "./cities.svg";
 import "./svgComponent.css";
 
 const Animation = props => {
@@ -25,8 +27,8 @@ const Animation = props => {
         onClick={props.ButtonClicked}
       />
       <img
-        id="Icon3"
-        src={welcome}
+        id="Accounts"
+        src={accounts}
         className="svg-image animate2"
         alt="svg3"
         onMouseOver={props.mouseOverEvent}
@@ -34,8 +36,8 @@ const Animation = props => {
         onClick={props.ButtonClicked}
       />
       <img
-        id="Icon4"
-        src={tictactoe}
+        id="Cities"
+        src={cities}
         className="svg-image animate3"
         alt="svg4"
         onMouseOver={props.mouseOverEvent}
