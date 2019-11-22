@@ -48,6 +48,11 @@
   margin: 5px;
 }
 
+.error {
+  color: red;
+  font-weight: bold;
+}
+
 @media only screen and (min-width: 860px) {
   /* For bigger screens */
   #container {

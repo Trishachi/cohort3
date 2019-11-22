@@ -50,6 +50,13 @@ const helperFunctions = {
     effectiveBalance.style.paddingTop = "10px";
     cardBody.appendChild(effectiveBalance);
 
+    //Error Message Section
+    let errorMessage = document.createElement("div");
+    errorMessage.classList.add("error");
+    // errorMessage.textContent = `Error Occured`;
+    errorMessage.style.paddingTop = "10px";
+    cardBody.appendChild(errorMessage);
+
     //Return new card
     node.appendChild(newCard);
     return newCard;

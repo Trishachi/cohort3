@@ -2,6 +2,7 @@ import { Account, AccountController } from "./account.js";
 import helperFunctions from "./helperFunctions.js";
 
 const newAcc = new AccountController("User");
+// const errorDisplay = document.getElementsByClassName("error");
 
 newAccount.addEventListener("click", () => {
   helperFunctions.addCard(
@@ -35,7 +36,7 @@ lowValAcc.addEventListener("click", () => {
 
 leftPanel.addEventListener("click", function(event) {
   if (event.target.className == "deleteCardBtn btn btn-outline-danger") {
-    console.log("Delete Clicked");
+    // console.log("Delete Clicked");
     let selectedCard = event.target.parentElement.parentElement;
     let selectedAccName = selectedCard.children[0].textContent;
     console.log(selectedAccName);
@@ -56,11 +57,15 @@ leftPanel.addEventListener("click", function(event) {
       newAcc.accountHolder[currentCardIndex].deposit(depositAmount);
       console.log(newAcc.accountHolder[currentCardIndex].AccBalance);
       selectedCard.children[1].children[4].textContent = `Effective Balance: $${newAcc.accountHolder[currentCardIndex].AccBalance}`;
+      selectedCard.children[1].children[5].textContent = "";
       inputField.value = "";
+    } else {
+      selectedCard.children[1].children[5].textContent =
+        "Enter Positive Dollar Amount";
     }
   }
   if (event.target.className == "withdraw btn btn-outline-primary") {
-    console.log("Withdraw Clicked");
+    // console.log("Withdraw Clicked");
     let selectedCard = event.target.parentElement.parentElement;
     let inputField = selectedCard.children[1].children[0].children[0];
     let depositAmount = Number(inputField.value);
@@ -69,11 +74,18 @@ leftPanel.addEventListener("click", function(event) {
       let currentCardIndex = newAcc.accountHolder.findIndex(
         arrayItem => arrayItem.accountName === currentCardName
       );
-      // console.log(currentCardIndex);
-      newAcc.accountHolder[currentCardIndex].withdraw(depositAmount);
-      console.log(newAcc.accountHolder[currentCardIndex].AccBalance);
+
+      if (depositAmount < newAcc.accountHolder[currentCardIndex].AccBalance) {
+        newAcc.accountHolder[currentCardIndex].withdraw(depositAmount);
+        selectedCard.children[1].children[5].textContent = "";
+      } else {
+        selectedCard.children[1].children[5].textContent = "Insufficient Funds";
+      }
       selectedCard.children[1].children[4].textContent = `Effective Balance: $${newAcc.accountHolder[currentCardIndex].AccBalance}`;
       inputField.value = "";
+    } else {
+      selectedCard.children[1].children[5].textContent =
+        "Enter Positive Dollar Amount";
     }
   }
 });
