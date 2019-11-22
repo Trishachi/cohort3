@@ -2,18 +2,24 @@ import { Account, AccountController } from "./account.js";
 import helperFunctions from "./helperFunctions.js";
 
 const newAcc = new AccountController("User");
-// const errorDisplay = document.getElementsByClassName("error");
 
 newAccount.addEventListener("click", () => {
-  helperFunctions.addCard(
-    accountName.value,
-    Number(initialBalance.value),
-    leftPanel
-  );
-  newAcc.addAccount(accountName.value, Number(initialBalance.value));
-  helperFunctions.clearInputs(accountName, initialBalance);
-  accOptions.classList.add("unhide");
-  console.log(newAcc.accountHolder);
+  if (accountName.value != "") {
+    helperFunctions.addCard(
+      accountName.value,
+      Number(initialBalance.value),
+      leftPanel
+    );
+    newAcc.addAccount(accountName.value, Number(initialBalance.value));
+    accOptions.classList.add("unhide");
+    // errorDisplay.textContent = "";
+    console.log(accountName.value);
+    console.log(newAcc.existingAccounts(accountName.value));
+    helperFunctions.clearInputs(accountName, initialBalance);
+    errorDisplay.textContent = "";
+  } else {
+    errorDisplay.textContent = "Please enter a unique name for your account";
+  }
 });
 
 totBalSummary.addEventListener("click", () => {

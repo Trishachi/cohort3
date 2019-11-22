@@ -35,6 +35,11 @@ export class AccountController {
   accountList() {
     return this.accountHolder;
   }
+  existingAccounts(accName) {
+    let accountNames = this.accountHolder.map(name => name.accountName);
+    let status = accountNames.includes(accName);
+    return status;
+  }
   addAccount(newAcc, initBalance) {
     this.accountHolder.push(new Account(newAcc, initBalance));
     // return this.accountHolder;
