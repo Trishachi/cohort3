@@ -4,7 +4,13 @@ import helperFunctions from "./helperFunctions.js";
 const newAcc = new AccountController("User");
 
 newAccount.addEventListener("click", () => {
-  if (accountName.value != "") {
+  let nameArray = newAcc.accountHolder;
+  let accNames = nameArray.map(item => item.accountName);
+  let nameExists = accNames.includes(accountName.value);
+  // console.log(nameExists);
+  if (accountName.value === "" || nameExists == true) {
+    errorDisplay.textContent = "Please enter a unique name for your account";
+  } else {
     helperFunctions.addCard(
       accountName.value,
       Number(initialBalance.value),
@@ -12,18 +18,13 @@ newAccount.addEventListener("click", () => {
     );
     newAcc.addAccount(accountName.value, Number(initialBalance.value));
     accOptions.classList.add("unhide");
-    // errorDisplay.textContent = "";
-    console.log(accountName.value);
-    console.log(newAcc.existingAccounts(accountName.value));
     helperFunctions.clearInputs(accountName, initialBalance);
     errorDisplay.textContent = "";
-  } else {
-    errorDisplay.textContent = "Please enter a unique name for your account";
   }
 });
 
 totBalSummary.addEventListener("click", () => {
-  console.log("Balance Button Clicked");
+  // console.log("Balance Button Clicked");
   let totalBalance = newAcc.totalAccBalance(newAcc.accountHolder);
   resultDisplay.textContent = `Total account balance is: $${totalBalance}`;
 });
@@ -35,7 +36,7 @@ highValAcc.addEventListener("click", () => {
 });
 
 lowValAcc.addEventListener("click", () => {
-  console.log("Lowest Value Button Clicked");
+  // console.log("Lowest Value Button Clicked");
   let lowestAcc = newAcc.lowestValAcc(newAcc.accountHolder);
   resultDisplay.textContent = `Lowest Value Account is: $${lowestAcc}`;
 });
