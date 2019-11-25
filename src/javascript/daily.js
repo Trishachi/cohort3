@@ -7,9 +7,10 @@ const callBacks = {
     const totalAges = arr.reduce((acc, curVal) => acc + curVal.age, 0);
     provObj["age"] = totalAges;
     const totalPeople = arr.length;
-    provObj["num"] = totalAges;
-    console.log(totalPeople);
-
+    provObj["num"] = totalPeople;
+    const avgAge = Math.round((totalAges / totalPeople) * 100) / 100;
+    provObj["average"] = avgAge;
+    // console.log(avgAge);
     return provObj;
   },
 
