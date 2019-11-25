@@ -64,6 +64,13 @@ const data = {
   prov: "Alberta"
 };
 
+// Daily Test - 21/11/2019
+test("Test Callback Exercise - filterProvinceDetails", () => {
+  expect(
+    callBacks.filterProvinces(people, callBacks.filterProvineDetails)
+  ).toEqual({ age: 838, average: 38.09, num: 22 });
+});
+
 // Daily Test - 08/11/2019
 test("Test CallBack Exercise - filterProvinces", () => {
   const filteredProvinces = callBacks.filterProvinces(people, data);

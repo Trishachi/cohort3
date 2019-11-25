@@ -1,6 +1,18 @@
 // Write the function after this comment ---------------------------------
+
 // Daily Test - 08/11/2019 - Callback Exercise
 const callBacks = {
+  filterProvineDetails: arr => {
+    const provObj = { age: 0, average: 0, num: 0 };
+    const totalAges = arr.reduce((acc, curVal) => acc + curVal.age, 0);
+    provObj["age"] = totalAges;
+    const totalPeople = arr.length;
+    provObj["num"] = totalAges;
+    console.log(totalPeople);
+
+    return provObj;
+  },
+
   filterProvinces: (data, callBack) => {
     let newArr = data.filter(
       item => item.province === "BC" || item.province === "AB"
