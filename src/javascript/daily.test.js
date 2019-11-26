@@ -1,6 +1,18 @@
 import { assertEquals } from "./daily";
-import { arrs, functions1, callBacks } from "./daily";
+import { arrs, functions1, callBacks, sorting } from "./daily";
 import functions from "./daily";
+
+let myArray = [
+  { num: 5, str: "apples", origin: "BC" },
+  { num: 7, str: "oranges", origin: "Florida" },
+  { num: 2, str: "lemons", origin: "Mexico" },
+  { num: 8, str: "bananas", origin: "Ecuador" },
+  { num: 6, str: "avocados", origin: "Mexico" },
+  { num: 4, str: "pineapple", origin: "Brazil" },
+  { num: 3, str: "blueberries", origin: "Chile" },
+  { num: 9, str: "pears", origin: "Oregon" },
+  { num: 1, str: "cantaloupe", origin: "California" }
+];
 
 const people = [
   { fname: "Alex", lname: "Smith", province: "BC", age: 33 },
@@ -63,6 +75,30 @@ const data = {
   city: "Calgary",
   prov: "Alberta"
 };
+
+// Daily Test - 22/11/2019
+test("Test Sorting Exercises - Anonymous in Ascending Number", () => {
+  let myArr = sorting.numAsc(myArray);
+  expect(myArr[1]).toEqual({
+    num: 2,
+    str: "lemons",
+    origin: "Mexico"
+  });
+});
+
+test("Test Sorting Exercises - Named in Alphabetical Order", () => {
+  let myArr = sorting.namedAlphbetical(myArray);
+  expect(myArr[1]).toEqual({
+    num: 6,
+    str: "avocados",
+    origin: "Mexico"
+  });
+});
+
+test("Test Sorting Exercises - Arrow in Reverse Alphabetical Order", () => {
+  let myArr = sorting.originReverse(myArray);
+  expect(myArr[0]).toEqual({ num: 9, str: "pears", origin: "Oregon" });
+});
 
 // Daily Test - 21/11/2019
 test("Test Callback Exercise - filterProvinceDetails", () => {

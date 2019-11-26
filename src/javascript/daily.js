@@ -1,6 +1,37 @@
 // Write the function after this comment ---------------------------------
+// Daily Test - 22/11/2019 - Sorting Exercise
+const sorting = {
+  originReverse: arr => {
+    const newArray = arr.sort((a, b) => {
+      if (b.origin > a.origin) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    // console.log(newArray);
+    return newArray;
+  },
+  namedAlphbetical: arr => {
+    const newArray = arr.sort(function alphabeticalSort(a, b) {
+      if (a.str > b.str) {
+        return 1;
+      } else if (b.str > a.str) {
+        return -1;
+      }
+      return 0;
+    });
+    return newArray;
+  },
+  numAsc: arr => {
+    const newArray = arr.sort(function(a, b) {
+      return a.num - b.num;
+    });
+    return newArray;
+  }
+};
 
-// Daily Test - 08/11/2019 - Callback Exercise
+// Daily Test - 08/11/2019 - 21/11/2019 - Callback Exercise
 const callBacks = {
   filterProvineDetails: arr => {
     const provObj = { age: 0, average: 0, num: 0 };
@@ -250,7 +281,7 @@ const functions = {
 };
 
 export default functions;
-export { arrs, functions1, callBacks };
+export { arrs, functions1, callBacks, sorting };
 
 // Resources - https://bitsofco.de/for-in-vs-for-of/
 /* for..in (Loops through the property names) is a method for iterating over "enumerable" properties of an object. It therefore applies to all objects (not only Object()s) that have these properties. */
