@@ -1,6 +1,12 @@
 import { assertEquals } from "./daily";
+import { getMaxOfTmrw } from "./daily";
 import { arrs, functions1, callBacks, sorting } from "./daily";
 import functions from "./daily";
+
+const LOCAL_FORECAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 }
+};
 
 let myArray = [
   { num: 5, str: "apples", origin: "BC" },
@@ -75,6 +81,13 @@ const data = {
   city: "Calgary",
   prov: "Alberta"
 };
+
+// Daily Test - 26/11/2019
+test("Destructuring Assignment Test", () => {
+  let myTemp = getMaxOfTmrw(LOCAL_FORECAST);
+  // console.log("Maximum Temperature for tomorrow is: ", myTemp);
+  expect(myTemp).toBe(84.6);
+});
 
 // Daily Test - 22/11/2019
 test("Test Sorting Exercises - Anonymous in Ascending Number", () => {

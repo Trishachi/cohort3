@@ -1,4 +1,15 @@
 // Write the function after this comment ---------------------------------
+
+// Daily Test - 26/11/2019 - Destructuring Assignment
+//Use Destructuring Assignment to Assign Variables from Objects
+
+export function getMaxOfTmrw(forecast) {
+  const {
+    tomorrow: { max: maxOfTomorrow }
+  } = forecast;
+  return maxOfTomorrow;
+}
+
 // Daily Test - 22/11/2019 - Sorting Exercise
 const sorting = {
   originReverse: arr => {
