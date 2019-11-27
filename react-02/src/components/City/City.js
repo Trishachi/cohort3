@@ -1,17 +1,17 @@
 import React from "react";
-import "./Account.css";
+import "./City.css";
 
-class Account extends React.Component {
+class City extends React.Component {
   constructor() {
     super();
   }
   render() {
     return (
       <React.Fragment>
-        <h1>Hello From Accounts Component</h1>
+        <h1>Hello From Cities Component</h1>
       </React.Fragment>
     );
   }
 }
 
-export default Account;
+export default City;

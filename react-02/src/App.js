@@ -4,6 +4,8 @@ import "./App.css";
 import Animation from "./components/Animations/svgComponent";
 import { Square, Board, Game } from "./components/Tictactoe/tictactoe.js";
 import DefaultApp from "./components/DefaultApp/DefaultApp.js";
+import Account from "./components/Accounts/Account.js";
+import City from "./components/City/City.js";
 
 class App extends React.Component {
   constructor() {
@@ -47,6 +49,8 @@ class App extends React.Component {
             <DefaultApp myState={this.state.myState} />
           )}
           {this.state.currentIcon === "Tictactoe" && <Game />}
+          {this.state.currentIcon === "Accounts" && <Account />}
+          {this.state.currentIcon === "Cities" && <City />}
         </header>
       </div>
     );
