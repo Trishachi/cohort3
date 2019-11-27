@@ -60,3 +60,9 @@ ul {
 .square.highlight {
   background: #09d3ac;
 }
+
+.game-options {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
