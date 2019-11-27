@@ -6,6 +6,7 @@ import { Square, Board, Game } from "./components/Tictactoe/tictactoe.js";
 import DefaultApp from "./components/DefaultApp/DefaultApp.js";
 import Account from "./components/Accounts/Account.js";
 import City from "./components/City/City.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   constructor() {
