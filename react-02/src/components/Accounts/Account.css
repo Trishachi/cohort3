@@ -1,0 +1,66 @@
+#wrapper {
+  color: black;
+}
+
+#leftPanel,
+#rightPanel {
+  border: 2px solid black;
+  height: 100vh;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #eee;
+  overflow: scroll;
+}
+
+.panelTitle {
+  padding: 10px;
+}
+
+#accOptions {
+  text-align: justify;
+}
+
+.hide {
+  display: none;
+}
+
+.unhide {
+  display: block;
+}
+
+#accSumMessage div {
+  margin: 30px 0;
+}
+
+#addCard {
+  margin: 20px;
+}
+
+[class*="col-"] {
+  margin-bottom: 15px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.card-body + div {
+  padding-bottom: 15px;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media only screen and (min-width: 860px) {
+  /* For bigger screens */
+  #container {
+    width: 35%;
+  }
+}
