@@ -8,7 +8,7 @@ class Account extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Hello From Accounts Component</h1>
+        <h1>Welcome to Accounts Dashboard</h1>
         <div id="wrapper" className="container">
           <div className="row row-grid">
             <div className="col-md-6">
