@@ -1,7 +1,6 @@
 import React from "react";
 import "./Account.css";
 import { Account, AccountController } from "./accountFunctions";
-// import AccountController from "./accountFunctions";
 
 class AccountComp extends React.Component {
   constructor(props) {
@@ -25,8 +24,6 @@ class AccountComp extends React.Component {
   // };
 
   handleOnChange(event) {
-    console.log(event.target.name); // the name of the form element
-    console.log(event.target.value); // the value of the form element
     this.setState({
       [event.target.name]: event.target.value
     });
