@@ -5,9 +5,22 @@ import AccDisplays from "./AccDisplays";
 import { Account, AccountController } from "./accountFunctions";
 
 class AccountComp extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      highestAcc: " ",
+      lowestAcc: " ",
+      totalBalance: 0
+    };
+    this.accountController = new AccountController();
   }
+
+  addReactAccount = params => {
+    const { accName, accBalance } = params;
+    // console.log(params);
+    this.accountController.addAccount(accName, accBalance);
+    console.log(this.accountController.accountHolder);
+  };
 
   render() {
     return (
@@ -22,7 +35,7 @@ class AccountComp extends React.Component {
             </div>
             <div className="col-md-6">
               <div id="rightPanel" className="col-md-12">
-                <CreateAccForm />
+                <CreateAccForm onSubmit={this.addReactAccount} />
                 <hr></hr>
                 <AccDisplays />
               </div>

@@ -22,10 +22,12 @@ class CreateAccForm extends React.Component {
   }
 
   handleOnSubmit(event) {
-    alert(
-      "Input Value is: " + this.state.accName + " and " + this.state.accBalance
-    );
+    // alert(
+    //   "Input Value is: " + this.state.accName + " and " + this.state.accBalance
+    // );
     event.preventDefault();
+    this.props.onSubmit(this.state);
+    this.setState({ accName: "", accBalance: "" });
   }
 
   render() {
