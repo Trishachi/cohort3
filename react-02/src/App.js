@@ -4,7 +4,7 @@ import "./App.css";
 import Animation from "./components/Animations/svgComponent";
 import { Square, Board, Game } from "./components/Tictactoe/tictactoe.js";
 import DefaultApp from "./components/DefaultApp/DefaultApp.js";
-import Account from "./components/Accounts/Account.js";
+import AccountComp from "./components/Accounts/Account.js";
 import City from "./components/City/City.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -31,7 +31,7 @@ class App extends React.Component {
   };
 
   onButtonClick = evt => {
-    console.log(evt.target.id + " Button Clicked");
+    // console.log(evt.target.id + " Button Clicked");
     this.setState({
       currentIcon: evt.target.id
     });
@@ -50,7 +50,7 @@ class App extends React.Component {
             <DefaultApp myState={this.state.myState} />
           )}
           {this.state.currentIcon === "Tictactoe" && <Game />}
-          {this.state.currentIcon === "Accounts" && <Account />}
+          {this.state.currentIcon === "Accounts" && <AccountComp />}
           {this.state.currentIcon === "Cities" && <City />}
         </header>
       </div>

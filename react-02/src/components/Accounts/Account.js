@@ -1,10 +1,44 @@
 import React from "react";
 import "./Account.css";
+import { Account, AccountController } from "./accountFunctions";
+// import AccountController from "./accountFunctions";
 
-class Account extends React.Component {
-  constructor() {
-    super();
+class AccountComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      accountController: new AccountController(),
+      accName: "",
+      accBalance: 0
+    };
+
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
+
+  // handleAccName = event => {
+  //   this.setState({ accName: event.target.value });
+  // };
+
+  // handleAccBalance = event => {
+  //   this.setState({ accBalance: event.target.value });
+  // };
+
+  handleOnChange(event) {
+    console.log(event.target.name); // the name of the form element
+    console.log(event.target.value); // the value of the form element
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleOnSubmit(event) {
+    alert(
+      "Input Value is: " + this.state.accName + " and " + this.state.accBalance
+    );
+    event.preventDefault();
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -19,49 +53,56 @@ class Account extends React.Component {
             <div className="col-md-6">
               <div id="rightPanel" className="col-md-12">
                 <h4 className="panelTitle">Account Summary</h4>
-                <div className="form-group row">
-                  <label
-                    htmlFor="accountName"
-                    className="col-sm-4 col-form-label"
-                  >
-                    Account Name:
-                  </label>
-                  <div className="col-sm-8">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="accountName"
-                      placeholder="Enter Account Name"
-                    />
-                  </div>
-                </div>
-                <div className="form-group row">
-                  <label
-                    htmlFor="initBalance"
-                    className="col-sm-4 col-form-label"
-                  >
-                    Opening Balance:
-                  </label>
-                  <div className="col-sm-8">
-                    <input
-                      type="number"
-                      className="form-control"
-                      id="initialBalance"
-                      placeholder="Enter Opening Balance"
-                    />
-                  </div>
-                </div>
-                <div className="form-group row">
-                  <div className="col-sm-12">
-                    <button
-                      id="newAccount"
-                      type="submit"
-                      className="btn btn-primary"
+                <form>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="accountName"
+                      className="col-sm-4 col-form-label"
                     >
-                      Create New Account
-                    </button>
+                      Account Name:
+                    </label>
+                    <div className="col-sm-8">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="accountName"
+                        name="accName"
+                        placeholder="Enter Account Name"
+                        onChange={this.handleOnChange}
+                      />
+                    </div>
                   </div>
-                </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="initBalance"
+                      className="col-sm-4 col-form-label"
+                    >
+                      Opening Balance:
+                    </label>
+                    <div className="col-sm-8">
+                      <input
+                        type="number"
+                        className="form-control"
+                        id="initialBalance"
+                        name="accBalance"
+                        placeholder="Enter Opening Balance"
+                        onChange={this.handleOnChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <div className="col-sm-12">
+                      <button
+                        id="newAccount"
+                        type="submit"
+                        className="btn btn-primary"
+                        onClick={this.handleOnSubmit}
+                      >
+                        Create New Account
+                      </button>
+                    </div>
+                  </div>
+                </form>
                 <hr></hr>
                 <div>
                   <div id="accOptions" className="">
@@ -105,4 +146,4 @@ class Account extends React.Component {
   }
 }
 
-export default Account;
+export default AccountComp;
