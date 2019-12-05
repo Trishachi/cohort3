@@ -20,7 +20,7 @@ class App extends React.Component {
   onMouseOver = evt => {
     // console.log(evt.target.id);
     this.setState({
-      myState: `Moused Over ${evt.target.id}`
+      myState: `${evt.target.id} Exercise`
     });
   };
 
