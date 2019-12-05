@@ -123,7 +123,7 @@ class Game extends React.Component {
     });
 
     let status;
-    if (winner && winner != "draw") {
+    if (winner && winner !== "draw") {
       status = "Winner: " + winner;
     } else if (winner && winner === "draw") {
       status = "We have a " + winner;

@@ -4,8 +4,8 @@ import "./Account.css";
 function AccDisplays(props) {
   return (
     <div>
-      <div id="accOptions" className="">
-        <h5 className="panelTitle text-center">Account Options</h5>
+      <div id="accOptions" className="hide">
+        <h5 className="panelTitle text-center">Account Details</h5>
 
         <button
           id="highValAcc"

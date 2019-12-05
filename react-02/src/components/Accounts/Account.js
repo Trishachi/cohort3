@@ -2,14 +2,14 @@ import React from "react";
 import "./Account.css";
 import CreateAccForm from "./CreateAccForm";
 import AccDisplays from "./AccDisplays";
-import { Account, AccountController } from "./accountFunctions";
+import { AccountController } from "./accountFunctions";
 
 class AccountComp extends React.Component {
   constructor() {
     super();
     this.state = {
-      highestAcc: " ",
-      lowestAcc: " ",
+      highestAcc: 0,
+      lowestAcc: 0,
       totalBalance: 0
     };
     this.accountController = new AccountController();
@@ -17,9 +17,33 @@ class AccountComp extends React.Component {
 
   addReactAccount = params => {
     const { accName, accBalance } = params;
-    // console.log(params);
-    this.accountController.addAccount(accName, accBalance);
+    this.accountController.addAccount(accName, Number(accBalance));
     console.log(this.accountController.accountHolder);
+    console.log(this.state);
+    this.updateAccounts();
+    console.log(this.state);
+  };
+
+  updateAccounts = () => {
+    if (this.accountController.accountHolder.length < 1) {
+      this.setState({ highestAcc: 0, lowestAcc: 0, totalBalance: 0 });
+      return;
+    }
+    const highestAccountUpdate = this.accountController.highestValAcc(
+      this.accountController.accountHolder
+    );
+    const lowestAccountUpdate = this.accountController.lowestValAcc(
+      this.accountController.accountHolder
+    );
+    const totalBalanceUpdate = this.accountController.totalAccBalance(
+      this.accountController.accountHolder
+    );
+    console.log(highestAccountUpdate);
+    this.setState({
+      highestAcc: highestAccountUpdate,
+      lowestAcc: lowestAccountUpdate,
+      totalBalance: totalBalanceUpdate
+    });
   };
 
   render() {

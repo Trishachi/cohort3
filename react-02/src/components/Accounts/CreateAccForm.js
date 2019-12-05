@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./Account.css";
-import { Account, AccountController } from "./accountFunctions";
+import { AccountController } from "./accountFunctions";
 
 class CreateAccForm extends React.Component {
   constructor(props) {
