@@ -8,7 +8,7 @@ class CreateAccForm extends React.Component {
     this.state = {
       accountController: new AccountController(),
       accName: "",
-      accBalance: 0
+      accBalance: ""
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -43,6 +43,7 @@ class CreateAccForm extends React.Component {
                 id="accountName"
                 name="accName"
                 placeholder="Enter Account Name"
+                value={this.state.accName}
                 onChange={this.handleOnChange}
               />
             </div>
@@ -58,6 +59,7 @@ class CreateAccForm extends React.Component {
                 id="initialBalance"
                 name="accBalance"
                 placeholder="Enter Opening Balance"
+                value={this.state.accBalance}
                 onChange={this.handleOnChange}
               />
             </div>
