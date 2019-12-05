@@ -66,3 +66,7 @@ ul {
   flex-direction: column;
   margin-right: 20px;
 }
+
+.game-info button {
+  font-size: 16px !important;
+}
