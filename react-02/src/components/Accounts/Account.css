@@ -28,6 +28,15 @@
   display: block;
 }
 
+.accDetailsLabel {
+  font-size: 16px;
+}
+
+.accDetailsValue {
+  color: #007bff;
+  font-size: 20px;
+}
+
 .col-form-label {
   font-size: 16px !important;
 }

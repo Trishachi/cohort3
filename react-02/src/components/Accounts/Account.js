@@ -10,7 +10,8 @@ class AccountComp extends React.Component {
     this.state = {
       highestAcc: 0,
       lowestAcc: 0,
-      totalBalance: 0
+      totalBalance: 0,
+      errorMessage: " "
     };
     this.accountController = new AccountController();
   }
@@ -44,6 +45,7 @@ class AccountComp extends React.Component {
       lowestAcc: lowestAccountUpdate,
       totalBalance: totalBalanceUpdate
     });
+    document.getElementById("accOptions").classList.add("unhide");
   };
 
   render() {
@@ -61,7 +63,12 @@ class AccountComp extends React.Component {
               <div id="rightPanel" className="col-md-12">
                 <CreateAccForm onSubmit={this.addReactAccount} />
                 <hr></hr>
-                <AccDisplays />
+                <AccDisplays
+                  highestVAcc={this.state.highestAcc}
+                  lowestVAcc={this.state.lowestAcc}
+                  netWorth={this.state.totalBalance}
+                  message={this.state.errorMessage}
+                />
               </div>
             </div>
           </div>
