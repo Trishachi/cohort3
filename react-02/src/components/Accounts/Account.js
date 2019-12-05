@@ -18,11 +18,23 @@ class AccountComp extends React.Component {
 
   addReactAccount = params => {
     const { accName, accBalance } = params;
-    this.accountController.addAccount(accName, Number(accBalance));
-    console.log(this.accountController.accountHolder);
-    console.log(this.state);
-    this.updateAccounts();
-    console.log(this.state);
+    let nameArray = this.accountController.accountHolder;
+    let accNames = nameArray.map(item => item.accountName);
+    let nameExists = accNames.includes(accName);
+    // console.log(nameExists);
+
+    if (accName === "" || nameExists == true) {
+      this.setState({
+        errorMessage: "Please enter a unique name for your account"
+      });
+    } else {
+      this.accountController.addAccount(accName, Number(accBalance));
+      console.log(this.accountController.accountHolder);
+      this.updateAccounts();
+      this.setState({
+        errorMessage: ""
+      });
+    }
   };
 
   updateAccounts = () => {
@@ -39,7 +51,6 @@ class AccountComp extends React.Component {
     const totalBalanceUpdate = this.accountController.totalAccBalance(
       this.accountController.accountHolder
     );
-    console.log(highestAccountUpdate);
     this.setState({
       highestAcc: highestAccountUpdate,
       lowestAcc: lowestAccountUpdate,
