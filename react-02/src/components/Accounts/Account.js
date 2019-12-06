@@ -3,6 +3,7 @@ import "./Account.css";
 import CreateAccForm from "./CreateAccForm";
 import AccDisplays from "./AccDisplays";
 import { AccountController } from "./accountFunctions";
+import AccountCard from "./AccountCard";
 
 class AccountComp extends React.Component {
   constructor() {
@@ -37,6 +38,12 @@ class AccountComp extends React.Component {
     }
   };
 
+  deleteReactAccount = name => {
+    this.accountController.removeAccount(name);
+    console.log(this.accountController.accountHolder);
+    this.updateAccounts();
+  };
+
   updateAccounts = () => {
     if (this.accountController.accountHolder.length < 1) {
       this.setState({ highestAcc: 0, lowestAcc: 0, totalBalance: 0 });
@@ -59,7 +66,22 @@ class AccountComp extends React.Component {
     document.getElementById("accOptions").classList.add("unhide");
   };
 
+  addAccountCard = () => {
+    return this.accountController.accountHolder.map(account => {
+      return (
+        <AccountCard
+          key={account.accountName}
+          accountCard={account}
+          deleteAccCard={this.deleteReactAccount}
+          updateAccCard={this.updateAccounts}
+          cardName={account.accountName}
+        />
+      );
+    });
+  };
+
   render() {
+    const card = this.addAccountCard();
     return (
       <React.Fragment>
         <h1>Welcome to Accounts Dashboard</h1>
@@ -68,6 +90,7 @@ class AccountComp extends React.Component {
             <div className="col-md-6">
               <div id="leftPanel" className="col-md-12">
                 <h4 className="panelTitle">Accounts</h4>
+                {card}
               </div>
             </div>
             <div className="col-md-6">
