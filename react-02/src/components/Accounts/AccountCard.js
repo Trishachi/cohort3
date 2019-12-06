@@ -25,7 +25,7 @@ class AccountCard extends React.Component {
         <div className="card">
           <div className="card-header">{accountName}</div>
           <div className="card-body">
-            <div>
+            <div className="spacerBottom">
               <input
                 className="form-control"
                 placeholder="Enter Positive Dollar Amount"
@@ -41,8 +41,8 @@ class AccountCard extends React.Component {
             >
               Delete
             </button>
-            <div>Effective Balance: ${AccBalance}</div>
-            <div className="error"></div>
+            <div className="spacerTop">Effective Balance: ${AccBalance}</div>
+            <div className="error spacerTop"></div>
           </div>
         </div>
       </Fragment>

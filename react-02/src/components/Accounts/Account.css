@@ -72,6 +72,14 @@
   font-size: 18px;
 }
 
+.spacerBottom {
+  padding-bottom: 15px;
+}
+
+.spacerTop {
+  padding-top: 10px;
+}
+
 @media only screen and (min-width: 860px) {
   /* For bigger screens */
   #container {
