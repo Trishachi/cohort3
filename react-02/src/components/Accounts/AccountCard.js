@@ -4,12 +4,39 @@ class AccountCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      accountCard: this.props.accountCard
+      accountCard: this.props.accountCard,
+      amount: " ",
+      cardErrorMessage: " "
     };
+    this.handleFormChange = this.handleFormChange.bind(this);
   }
 
+  handleFormChange(event) {
+    this.setState({ amount: event.target.value });
+  }
+
+  handleDepositButton = event => {
+    event.preventDefault(event);
+    let depositAmount = Number(this.state.amount);
+
+    if (depositAmount > 0) {
+      console.log("Deposited Value: ", depositAmount);
+      this.state.accountCard.deposit(depositAmount);
+      const updatedDepositCard = this.state.accountCard;
+      this.setState({
+        accountCard: updatedDepositCard,
+        amount: " ",
+        cardErrorMessage: " "
+      });
+      this.props.updateAccCard();
+    } else {
+      this.setState({
+        cardErrorMessage: "Enter Positive Dollar Amount"
+      });
+    }
+  };
+
   handleDeleteButton = () => {
-    console.log("Delete Button Clicked");
     this.props.deleteAccCard(this.props.cardName);
     const updatedCard = this.state.accountCard;
     this.setState({
@@ -29,9 +56,17 @@ class AccountCard extends React.Component {
               <input
                 className="form-control"
                 placeholder="Enter Positive Dollar Amount"
+                type="number"
+                onChange={this.handleFormChange}
+                value={this.state.amount}
               />
             </div>
-            <button className="deposit btn btn-outline-primary">Deposit</button>
+            <button
+              className="deposit btn btn-outline-primary"
+              onClick={this.handleDepositButton}
+            >
+              Deposit
+            </button>
             <button className="withdraw btn btn-outline-primary">
               Withdraw
             </button>
@@ -42,7 +77,7 @@ class AccountCard extends React.Component {
               Delete
             </button>
             <div className="spacerTop">Effective Balance: ${AccBalance}</div>
-            <div className="error spacerTop"></div>
+            <div className="error spacerTop">{this.state.cardErrorMessage}</div>
           </div>
         </div>
       </Fragment>
