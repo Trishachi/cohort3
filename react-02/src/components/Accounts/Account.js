@@ -12,7 +12,7 @@ class AccountComp extends React.Component {
       highestAcc: 0,
       lowestAcc: 0,
       totalBalance: 0,
-      errorMessage: " "
+      errorMessage: ""
     };
     this.accountController = new AccountController();
   }
@@ -22,9 +22,8 @@ class AccountComp extends React.Component {
     let nameArray = this.accountController.accountHolder;
     let accNames = nameArray.map(item => item.accountName);
     let nameExists = accNames.includes(accName);
-    // console.log(nameExists);
 
-    if (accName === "" || nameExists == true) {
+    if (accName === "" || nameExists === true) {
       this.setState({
         errorMessage: "Please enter a unique name for your account"
       });
@@ -84,7 +83,7 @@ class AccountComp extends React.Component {
     const card = this.addAccountCard();
     return (
       <React.Fragment>
-        <h1>Welcome to Accounts Dashboard</h1>
+        <h1 className="spacer">Welcome to Accounts Dashboard</h1>
         <div id="wrapper" className="container">
           <div className="row row-grid">
             <div className="col-md-6">

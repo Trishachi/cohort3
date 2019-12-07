@@ -23,8 +23,8 @@ class AccountCard extends React.Component {
       const updatedDepositCard = this.state.accountCard;
       this.setState({
         accountCard: updatedDepositCard,
-        amount: " ",
-        cardErrorMessage: " "
+        amount: "",
+        cardErrorMessage: ""
       });
       this.props.updateAccCard();
     } else {
@@ -73,7 +73,7 @@ class AccountCard extends React.Component {
     return (
       <Fragment>
         <div className="card">
-          <div className="card-header">{accountName}</div>
+          <div className="card-header accTitle">{accountName}</div>
           <div className="card-body">
             <div className="spacerBottom">
               <input
@@ -102,7 +102,9 @@ class AccountCard extends React.Component {
             >
               Delete
             </button>
-            <div className="spacerTop">Effective Balance: ${AccBalance}</div>
+            <div className="spacerTop effectiveBalance">
+              Effective Balance: ${AccBalance}
+            </div>
             <div className="error spacerTop">{this.state.cardErrorMessage}</div>
           </div>
         </div>
