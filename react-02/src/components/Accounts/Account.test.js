@@ -1,44 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import DefaultApp from "./components/DefaultApp/DefaultApp.js";
-import Animation from "./components/Animations/svgComponent.js";
-import Game from "./components/Tictactoe/tictactoe.js";
-import {
-  Account,
-  AccountController
-} from "./components/Accounts/accountFunctions.js";
-import AccountComp from "./components/Accounts/Account.js";
-
-it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it("Starter App works without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<DefaultApp />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it("Navigation App works without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Animation />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it("TicTacToe App works without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Game />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it("Accounts App works without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<AccountComp />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+import { Account, AccountController } from "./accountFunctions.js";
 
 test("Test for Account Initializations", () => {
   let newAcc = new Account("Checking", 20);
