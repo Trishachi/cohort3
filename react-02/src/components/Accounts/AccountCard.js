@@ -18,9 +18,7 @@ class AccountCard extends React.Component {
   handleDepositButton = event => {
     event.preventDefault(event);
     let depositAmount = Number(this.state.amount);
-
     if (depositAmount > 0) {
-      console.log("Deposited Value: ", depositAmount);
       this.state.accountCard.deposit(depositAmount);
       const updatedDepositCard = this.state.accountCard;
       this.setState({
@@ -29,6 +27,31 @@ class AccountCard extends React.Component {
         cardErrorMessage: " "
       });
       this.props.updateAccCard();
+    } else {
+      this.setState({
+        cardErrorMessage: "Enter Positive Dollar Amount"
+      });
+    }
+  };
+
+  handleWithdrawButton = event => {
+    event.preventDefault(event);
+    let withdrawnAmount = Number(this.state.amount);
+    if (withdrawnAmount > 0) {
+      if (withdrawnAmount < this.state.accountCard.AccBalance) {
+        this.state.accountCard.withdraw(withdrawnAmount);
+        const updatedWithdrawCard = this.state.accountCard;
+        this.setState({
+          accountCard: updatedWithdrawCard,
+          amount: " ",
+          cardErrorMessage: " "
+        });
+        this.props.updateAccCard();
+      } else {
+        this.setState({
+          cardErrorMessage: "Insufficient Funds"
+        });
+      }
     } else {
       this.setState({
         cardErrorMessage: "Enter Positive Dollar Amount"
@@ -67,7 +90,10 @@ class AccountCard extends React.Component {
             >
               Deposit
             </button>
-            <button className="withdraw btn btn-outline-primary">
+            <button
+              className="withdraw btn btn-outline-primary"
+              onClick={this.handleWithdrawButton}
+            >
               Withdraw
             </button>
             <button
