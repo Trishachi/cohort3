@@ -38,7 +38,7 @@ class AccountCard extends React.Component {
     event.preventDefault(event);
     let withdrawnAmount = Number(this.state.amount);
     if (withdrawnAmount > 0) {
-      if (withdrawnAmount < this.state.accountCard.AccBalance) {
+      if (withdrawnAmount <= this.state.accountCard.AccBalance) {
         this.state.accountCard.withdraw(withdrawnAmount);
         const updatedWithdrawCard = this.state.accountCard;
         this.setState({

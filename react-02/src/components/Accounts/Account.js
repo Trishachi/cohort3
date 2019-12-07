@@ -46,6 +46,7 @@ class AccountComp extends React.Component {
   updateAccounts = () => {
     if (this.accountController.accountHolder.length < 1) {
       this.setState({ highestAcc: 0, lowestAcc: 0, totalBalance: 0 });
+      document.getElementById("accOptions").classList.remove("unhide");
       return;
     }
     const highestAccountUpdate = this.accountController.highestValAcc(
