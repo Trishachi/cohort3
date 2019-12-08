@@ -2,6 +2,7 @@ import React from "react";
 import "../Accounts/Account.css";
 import "./City.css";
 import MsgDisplay from "./MsgDisplay.js";
+import AddCityForm from "./AddCityForm";
 
 class City extends React.Component {
   constructor() {
@@ -23,6 +24,8 @@ class City extends React.Component {
                 <h4 className="panelTitle">Community Summary</h4>
                 <hr></hr>
                 <MsgDisplay />
+                <hr></hr>
+                <AddCityForm />
               </div>
             </div>
           </div>
