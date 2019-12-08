@@ -9,6 +9,11 @@ class City extends React.Component {
   constructor() {
     super();
   }
+
+  // addReactCity = params => {
+  //   const { cityName, latitude, longitude, population } = params;
+  // };
+
   render() {
     return (
       <React.Fragment>
