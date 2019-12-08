@@ -16,7 +16,8 @@
   padding: 10px;
 }
 
-#accOptions {
+#accOptions,
+#commOptions {
   text-align: justify;
 }
 

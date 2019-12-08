@@ -3,6 +3,7 @@ import "../Accounts/Account.css";
 import "./City.css";
 import MsgDisplay from "./MsgDisplay.js";
 import AddCityForm from "./AddCityForm";
+import CommDisplay from "./CommDisplay";
 
 class City extends React.Component {
   constructor() {
@@ -26,6 +27,7 @@ class City extends React.Component {
                 <MsgDisplay />
                 <hr></hr>
                 <AddCityForm />
+                <CommDisplay />
               </div>
             </div>
           </div>

@@ -70,6 +70,7 @@ class AddCityForm extends React.Component {
             </button>
           </div>
         </div>
+        <hr></hr>
       </Fragment>
     );
   }
