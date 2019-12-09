@@ -10,7 +10,10 @@ class City extends React.Component {
   constructor() {
     super();
     this.state = {
-      keyCounter: 0
+      keyCounter: 0,
+      northMost: " ",
+      southMost: "",
+      totalPopulation: 0
     };
     this.cityController = new Community();
   }
@@ -23,13 +26,42 @@ class City extends React.Component {
       cityName,
       latitude,
       longitude,
-      population
+      Number(population)
     );
     console.log(this.cityController.cityRoster);
     this.setState(newState => {
       return {
         keyCounter: newState.keyCounter + 1
       };
+    });
+    this.updateCities();
+  };
+
+  deleteReactCity = keyIndex => {
+    this.cityController.deleteCity(keyIndex);
+    console.log(this.cityController.cityRoster);
+    this.updateCities();
+  };
+
+  updateCities = () => {
+    if (this.cityController.cityRoster.length < 1) {
+      this.setState({ northMost: "", southMost: "", totalPopulation: 0 });
+      return;
+    }
+    const northMostCity = this.cityController.getMostNorthern(
+      this.cityController.cityRoster
+    );
+    const southMostCity = this.cityController.getMostSouthern(
+      this.cityController.cityRoster
+    );
+    const communityPopulation = this.cityController.getPopulation(
+      this.cityController.cityRoster
+    );
+
+    this.setState({
+      northMost: northMostCity.cityName,
+      southMost: southMostCity.cityName,
+      totalPopulation: communityPopulation
     });
   };
 
