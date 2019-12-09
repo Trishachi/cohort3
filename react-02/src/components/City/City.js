@@ -83,7 +83,11 @@ class City extends React.Component {
                 <MsgDisplay />
                 <hr></hr>
                 <AddCityForm onSubmit={this.addReactCity} />
-                <CommDisplay />
+                <CommDisplay
+                  mostNorthernCity={this.state.northMost}
+                  mostSouthernCity={this.state.southMost}
+                  commPopulation={this.state.totalPopulation}
+                />
               </div>
             </div>
           </div>
