@@ -4,15 +4,34 @@ import "./City.css";
 import MsgDisplay from "./MsgDisplay.js";
 import AddCityForm from "./AddCityForm";
 import CommDisplay from "./CommDisplay";
+import { Community } from "./cityFunctions";
 
 class City extends React.Component {
   constructor() {
     super();
+    this.state = {
+      keyCounter: 0
+    };
+    this.cityController = new Community();
   }
 
-  // addReactCity = params => {
-  //   const { cityName, latitude, longitude, population } = params;
-  // };
+  addReactCity = params => {
+    let cityCounter = this.state.keyCounter;
+    const { cityName, latitude, longitude, population } = params;
+    this.cityController.createCity(
+      cityCounter,
+      cityName,
+      latitude,
+      longitude,
+      population
+    );
+    console.log(this.cityController.cityRoster);
+    this.setState(newState => {
+      return {
+        keyCounter: newState.keyCounter + 1
+      };
+    });
+  };
 
   render() {
     return (
@@ -31,7 +50,7 @@ class City extends React.Component {
                 <hr></hr>
                 <MsgDisplay />
                 <hr></hr>
-                <AddCityForm />
+                <AddCityForm onSubmit={this.addReactCity} />
                 <CommDisplay />
               </div>
             </div>
