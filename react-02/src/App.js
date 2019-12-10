@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import Animation from "./components/Animations/svgComponent";
 import Game from "./components/Tictactoe/tictactoe.js";
-import { Square, Board } from "./components/Tictactoe/tictactoe.js";
+// import { Square, Board } from "./components/Tictactoe/tictactoe.js";
 import DefaultApp from "./components/DefaultApp/DefaultApp.js";
 import AccountComp from "./components/Accounts/Account.js";
 import City from "./components/City/City.js";

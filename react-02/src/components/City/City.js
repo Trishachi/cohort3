@@ -74,6 +74,8 @@ class City extends React.Component {
           cityCard={city}
           cardName={city.cityName}
           updateCityCard={this.updateCities}
+          deleteCityCard={this.deleteReactCity}
+          cardKey={city.key}
         />
       );
     });

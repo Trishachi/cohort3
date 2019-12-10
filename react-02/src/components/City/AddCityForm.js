@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import "../Accounts/Account.css";
 import "./City.css";
-import { Community } from "./cityFunctions";
 
 class AddCityForm extends React.Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class AddCityForm extends React.Component {
   handleFormSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(this.state);
-    // console.log(this.state);
+
     this.setState({
       cityName: "",
       latitude: "",

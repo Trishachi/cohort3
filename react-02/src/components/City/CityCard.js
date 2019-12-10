@@ -53,7 +53,14 @@ class CityCard extends React.Component {
     });
   };
 
-  handleDeleteBUtton = () => {};
+  handleDeleteButton = () => {
+    this.props.deleteCityCard(this.props.cardKey);
+    const updatedCard = this.state.cityCard;
+    this.setState({
+      cityCard: updatedCard
+    });
+    this.props.updateCityCard();
+  };
 
   render() {
     let { cityName, latitude, longitude, population } = this.props.cityCard;
@@ -83,7 +90,10 @@ class CityCard extends React.Component {
             >
               Moved Out
             </button>
-            <button className="deleteCardBtn btn btn-outline-danger">
+            <button
+              className="deleteCardBtn btn btn-outline-danger"
+              onClick={this.handleDeleteButton}
+            >
               Delete
             </button>
             <div className="spacerTop">
