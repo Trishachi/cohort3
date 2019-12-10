@@ -6,6 +6,7 @@ import AddCityForm from "./AddCityForm";
 import CommDisplay from "./CommDisplay";
 import { Community } from "./cityFunctions";
 import CityCard from "./CityCard";
+import cityFetchFunctions from "./cityFetch";
 
 class City extends React.Component {
   constructor() {
@@ -14,9 +15,16 @@ class City extends React.Component {
       keyCounter: 0,
       northMost: " ",
       southMost: "",
-      totalPopulation: 0
+      totalPopulation: 0,
+      serverDisplayMessage: "..."
     };
     this.cityController = new Community();
+  }
+
+  async serverData() {
+    let response = await fetch("http://localhost:5000/all");
+    let data = await response.json();
+    return data;
   }
 
   addReactCity = params => {
@@ -35,6 +43,9 @@ class City extends React.Component {
         keyCounter: newState.keyCounter + 1
       };
     });
+    cityFetchFunctions.postToServer(
+      this.cityController.cityRoster.filter(item => item.key === cityCounter)[0]
+    );
     this.updateCities();
   };
 
