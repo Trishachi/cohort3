@@ -3,13 +3,17 @@ import React, { Fragment } from "react";
 class CityCard extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      cityCard: this.props.cityCard
+    };
   }
 
   render() {
+    let { cityName, latitude, longitude, population } = this.props.cityCard;
     return (
       <Fragment>
         <div className="card">
-          <div className="card-header">Calgary</div>
+          <div className="card-header">{cityName}</div>
           <div className="card-body">
             <div className="spacerBottom">
               <input className="form-control" placeholder="Enter Value" />
@@ -23,8 +27,10 @@ class CityCard extends React.Component {
             <button className="deleteCardBtn btn btn-outline-danger">
               Delete
             </button>
-            <div className="spacerTop">Latitude: 56 | Longitude: 89</div>
-            <div className="spacer">Current Population: 1200</div>
+            <div className="spacerTop">
+              Latitude: {latitude} | Longitude: {longitude}
+            </div>
+            <div className="spacer">Current Population: {population}</div>
           </div>
         </div>
       </Fragment>

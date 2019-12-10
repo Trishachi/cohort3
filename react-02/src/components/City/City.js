@@ -67,8 +67,10 @@ class City extends React.Component {
   };
 
   addCityCard = () => {
-    return this.cityController.cityRoster.map(account => {
-      return <CityCard />;
+    return this.cityController.cityRoster.map(city => {
+      return (
+        <CityCard key={city.key} cityCard={city} cardName={city.cityName} />
+      );
     });
   };
 
