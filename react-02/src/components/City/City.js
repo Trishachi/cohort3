@@ -5,6 +5,7 @@ import MsgDisplay from "./MsgDisplay.js";
 import AddCityForm from "./AddCityForm";
 import CommDisplay from "./CommDisplay";
 import { Community } from "./cityFunctions";
+import CityCard from "./CityCard";
 
 class City extends React.Component {
   constructor() {
@@ -65,7 +66,14 @@ class City extends React.Component {
     });
   };
 
+  addCityCard = () => {
+    return this.cityController.cityRoster.map(account => {
+      return <CityCard />;
+    });
+  };
+
   render() {
+    const card = this.addCityCard();
     return (
       <React.Fragment>
         <h1 className="spacer">Community Management Dashboard</h1>
@@ -74,6 +82,7 @@ class City extends React.Component {
             <div className="col-md-6">
               <div id="leftPanel" className="col-md-12">
                 <h4 className="panelTitle">City Roster</h4>
+                {card}
               </div>
             </div>
             <div className="col-md-6">

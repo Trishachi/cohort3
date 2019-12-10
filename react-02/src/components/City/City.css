@@ -13,3 +13,12 @@ body {
 }
 
 /* Card Styles */
+
+.card-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-body {
+  font-size: 16px;
+}
