@@ -43,12 +43,6 @@ class City extends React.Component {
     this.updateCities();
   }
 
-  // async serverData() {
-  //   let response = await fetch("http://localhost:5000/all");
-  //   let data = await response.json();
-  //   return data;
-  // }
-
   addReactCity = params => {
     let cityCounter = this.state.keyCounter;
     const { cityName, latitude, longitude, population } = params;
