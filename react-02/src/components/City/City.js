@@ -25,8 +25,7 @@ class City extends React.Component {
     const newComm = new Community();
     let cityCount;
     let lastKey = await cityFetchFunctions.getCitiesOnServer(newComm);
-    console.log(newComm.cityRoster);
-    console.log(this.cityController.cityRoster);
+
     if (newComm.cityRoster.length >= 1) {
       cityCount = lastKey + 1;
       this.setState({
@@ -41,16 +40,14 @@ class City extends React.Component {
       this.setState({ serverDisplayMessage: `Server Error: No Key Found` });
     }
     this.cityController.cityRoster = newComm.cityRoster;
-    console.log(newComm.cityRoster);
-    console.log(this.cityController.cityRoster);
     this.updateCities();
   }
 
-  async serverData() {
-    let response = await fetch("http://localhost:5000/all");
-    let data = await response.json();
-    return data;
-  }
+  // async serverData() {
+  //   let response = await fetch("http://localhost:5000/all");
+  //   let data = await response.json();
+  //   return data;
+  // }
 
   addReactCity = params => {
     let cityCounter = this.state.keyCounter;
