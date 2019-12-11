@@ -21,6 +21,31 @@ class City extends React.Component {
     this.cityController = new Community();
   }
 
+  async componentDidMount() {
+    const newComm = new Community();
+    let cityCount;
+    let lastKey = await cityFetchFunctions.getCitiesOnServer(newComm);
+    console.log(newComm.cityRoster);
+    console.log(this.cityController.cityRoster);
+    if (newComm.cityRoster.length >= 1) {
+      cityCount = lastKey + 1;
+      this.setState({
+        keyCounter: cityCount,
+        serverDisplayMessage: "Success: Last key found!"
+      });
+    } else if (newComm.cityRoster.length === 0) {
+      this.setState({
+        serverDisplayMessage: `Server Running: Server is Empty`
+      });
+    } else {
+      this.setState({ serverDisplayMessage: `Server Error: No Key Found` });
+    }
+    this.cityController.cityRoster = newComm.cityRoster;
+    console.log(newComm.cityRoster);
+    console.log(this.cityController.cityRoster);
+    this.updateCities();
+  }
+
   async serverData() {
     let response = await fetch("http://localhost:5000/all");
     let data = await response.json();
@@ -69,7 +94,6 @@ class City extends React.Component {
     const communityPopulation = this.cityController.getPopulation(
       this.cityController.cityRoster
     );
-
     this.setState({
       northMost: northMostCity.cityName,
       southMost: southMostCity.cityName,
@@ -109,7 +133,7 @@ class City extends React.Component {
               <div id="rightPanel" className="col-md-12">
                 <h4 className="panelTitle">Community Summary</h4>
                 <hr></hr>
-                <MsgDisplay />
+                <MsgDisplay message={this.state.serverDisplayMessage} />
                 <hr></hr>
                 <AddCityForm onSubmit={this.addReactCity} />
                 <CommDisplay

@@ -6,7 +6,7 @@ function MsgDisplay(props) {
   return (
     <div id="messageArea">
       <h5 className="panelTitle text-center">Message Area</h5>
-      <p id="resultDisplay"></p>
+      <p id="resultDisplay">{props.message}</p>
     </div>
   );
 }

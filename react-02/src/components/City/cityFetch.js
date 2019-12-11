@@ -19,6 +19,8 @@ const cityFetchFunctions = {
     });
 
     const json = await response.json(); // parses JSON response into native JavaScript objects
+    json.status = response.status;
+    json.statusText = response.statusText;
     return json;
   },
   async postToServer(newCity) {
@@ -36,7 +38,7 @@ const cityFetchFunctions = {
   async getCitiesOnServer(newComm) {
     let data = await this.postData(url + "all");
     // console.log(newComm.cityRoster);
-    if (data.length != 0) {
+    if (data.length !== 0) {
       newComm.cityRoster = data.map(
         item =>
           new City(
@@ -58,30 +60,23 @@ const cityFetchFunctions = {
   async clearServer() {
     let data = await this.postData(url + "clear");
     return data;
+  },
+  async htmlReloadCities() {
+    fetch("http://localhost:5000/all")
+      .then(request => request.json())
+      .then(data => {
+        data.map(serverCity => {
+          return newComm.createCity(
+            Number(serverCity.key),
+            serverCity.cityName,
+            Number(serverCity.latitude),
+            Number(serverCity.longitude),
+            Number(serverCity.population)
+          );
+        });
+      });
+    return newComm.cityRoster;
   }
-  //   async htmlReloadCities() {
-  //     fetch("http://localhost:5000/all")
-  //       .then(request => request.json())
-  //       .then(data => {
-  //         data.map(serverCity => {
-  //           newComm.createCity(
-  //             Number(serverCity.key),
-  //             serverCity.cityName,
-  //             Number(serverCity.latitude),
-  //             Number(serverCity.longitude),
-  //             Number(serverCity.population)
-  //           );
-  //           cityHelpers.addCityCard(
-  //             serverCity.cityName,
-  //             Number(serverCity.latitude),
-  //             Number(serverCity.longitude),
-  //             Number(serverCity.population),
-  //             leftPanel
-  //           );
-  //         });
-  //       });
-  //     return newComm.cityRoster;
-  //   }
 };
 
 export default cityFetchFunctions;
