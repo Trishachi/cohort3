@@ -1,7 +1,7 @@
-import { City, Community } from "./cityFunctions.js";
+import { City } from "./cityFunctions.js";
 
 const url = "http://localhost:5000/";
-const newComm = new Community();
+// const newComm = new Community();
 
 const cityFetchFunctions = {
   async postData(url = "", data = {}) {
@@ -60,22 +60,6 @@ const cityFetchFunctions = {
   async clearServer() {
     let data = await this.postData(url + "clear");
     return data;
-  },
-  async htmlReloadCities() {
-    fetch("http://localhost:5000/all")
-      .then(request => request.json())
-      .then(data => {
-        data.map(serverCity => {
-          return newComm.createCity(
-            Number(serverCity.key),
-            serverCity.cityName,
-            Number(serverCity.latitude),
-            Number(serverCity.longitude),
-            Number(serverCity.population)
-          );
-        });
-      });
-    return newComm.cityRoster;
   }
 };
 
