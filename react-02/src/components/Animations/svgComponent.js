@@ -3,6 +3,7 @@ import welcome from "./welcome.svg";
 import tictactoe from "./tictactoe.svg";
 import accounts from "./accounts.svg";
 import cities from "./cities.svg";
+import list from "./list.svg";
 import "./svgComponent.css";
 
 const Animation = props => {
@@ -40,6 +41,15 @@ const Animation = props => {
         src={cities}
         className="svg-image animate3"
         alt="svg4"
+        onMouseOver={props.mouseOverEvent}
+        onMouseLeave={props.mouseOutEvent}
+        onClick={props.ButtonClicked}
+      />
+      <img
+        id="Lists"
+        src={list}
+        className="svg-image animate1"
+        alt="svg5"
         onMouseOver={props.mouseOverEvent}
         onMouseLeave={props.mouseOutEvent}
         onClick={props.ButtonClicked}

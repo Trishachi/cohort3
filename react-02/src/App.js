@@ -7,6 +7,7 @@ import Game from "./components/Tictactoe/tictactoe.js";
 import DefaultApp from "./components/DefaultApp/DefaultApp.js";
 import AccountComp from "./components/Accounts/Account.js";
 import City from "./components/City/City.js";
+import LinkedListApp from "./components/Lists/LinkedListApp.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -53,6 +54,7 @@ class App extends React.Component {
           {this.state.currentIcon === "Tictactoe" && <Game />}
           {this.state.currentIcon === "Accounts" && <AccountComp />}
           {this.state.currentIcon === "Cities" && <City />}
+          {this.state.currentIcon === "Lists" && <LinkedListApp />}
         </header>
       </div>
     );
