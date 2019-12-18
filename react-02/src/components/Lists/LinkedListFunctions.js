@@ -12,6 +12,7 @@ export class ListNode {
 export class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
     this.size = 0;
   }
 
@@ -69,6 +70,25 @@ export class LinkedList {
     previous.forwardNode = node;
     this.size++;
   }
+
+  //first
+  first() {
+    this.tail = this.head;
+    return this.tail;
+  }
+  //last
+  last() {
+    //if list is empty
+    if (!this.head) {
+      return null;
+    }
+    while (this.head.forwardNode !== null) {
+      this.head = this.head.forwardNode;
+    }
+    return this.head;
+  }
+  //next
+  //previous
 
   //Get at index
   getAtIndex(index) {
