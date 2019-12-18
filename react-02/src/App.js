@@ -51,7 +51,9 @@ class App extends React.Component {
           {this.state.currentIcon === "Home" && (
             <DefaultApp myState={this.state.myState} />
           )}
-          {this.state.currentIcon === "Tictactoe" && <Game />}
+          {this.state.currentIcon === "Tictactoe" && (
+            <Game className="active" />
+          )}
           {this.state.currentIcon === "Accounts" && <AccountComp />}
           {this.state.currentIcon === "Cities" && <City />}
           {this.state.currentIcon === "Lists" && <LinkedListApp />}
