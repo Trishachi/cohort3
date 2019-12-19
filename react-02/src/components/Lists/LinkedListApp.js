@@ -2,22 +2,22 @@ import React from "react";
 
 import { LinkedList } from "./LinkedListFunctions.js";
 
-const ll = new LinkedList();
+// const ll = new LinkedList();
 
-ll.insertAtFirst("Carrots", 100);
-ll.insertAtFirst("Potatoes", 50);
-ll.insertAtFirst("Berries", 20);
-ll.insertAtLast("Grapes", 70);
-// ll.insertAtIndex("Tomatoes", 500, 3);
-// ll.clearList();
-// ll.getAtIndex(3);
-// ll.removeAtIndex(3);
-console.log(ll.isListEmpty());
-ll.printListData();
-// ll.removeFromFirst();
-// ll.removeFromLast();
+// ll.insertAtFirst("Carrots", 100);
+// ll.insertAtFirst("Potatoes", 50);
+// ll.insertAtFirst("Berries", 20);
+// ll.insertAtLast("Grapes", 70);
+// // ll.insertAtIndex("Tomatoes", 500, 3);
+// // ll.clearList();
+// // ll.getAtIndex(3);
+// // ll.removeAtIndex(3);
+// console.log(ll.isListEmpty());
 // ll.printListData();
-console.log(ll);
+// // ll.removeFromFirst();
+// // ll.removeFromLast();
+// // ll.printListData();
+// console.log(ll);
 
 function LinkedListApp() {
   return (

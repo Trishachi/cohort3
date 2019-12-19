@@ -4,6 +4,7 @@ import tictactoe from "./tictactoe.svg";
 import accounts from "./accounts.svg";
 import cities from "./cities.svg";
 import list from "./list.svg";
+import link from "./link.svg";
 import "./svgComponent.css";
 
 const Animation = props => {
@@ -47,7 +48,7 @@ const Animation = props => {
       />
       <img
         id="Lists"
-        src={list}
+        src={link}
         className="svg-image animate1"
         alt="svg5"
         onMouseOver={props.mouseOverEvent}

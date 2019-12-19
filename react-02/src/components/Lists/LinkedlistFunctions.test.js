@@ -1,10 +1,6 @@
 import { ListNode, LinkedList } from "./LinkedListFunctions.js";
 
-test("Check if linkedList functions are working", () => {
-  let newList = new LinkedList();
-  newList.insertAtFirst("Carrots", 100);
-  //   newList.insertAtFirst("Potatoes", 50);
-  //   newList.insertAtFirst("Berries", 20);
-  //   newList.first();
-  expect(newList.printListData()).toBe("Carrots: 100");
+test("Linkedlist show function", () => {
+  const node = new ListNode("Carrot", 20, null);
+  expect(node.show()).toBe("Subject: Carrot and Amount: 20");
 });
