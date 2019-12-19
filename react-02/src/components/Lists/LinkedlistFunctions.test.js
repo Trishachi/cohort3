@@ -11,4 +11,7 @@ test("Testing LinkedList Functions", () => {
   let node1 = newList.insert("Tomatoes", 30, 0);
   console.log(node1);
   expect(newList.first()).toBe(node1);
+  expect(newList.last()).toBe(node1);
+  console.log(newList.next(0));
+  expect(newList.next(0)).toBe(undefined);
 });

@@ -35,7 +35,21 @@ export class LinkedList {
     return this.head;
   };
   //last
+  last = () => {
+    let tail = this.head;
+    //if list is empty
+    if (!tail) {
+      return null;
+    }
+    while (tail.forwardNode !== null) {
+      tail = tail.forwardNode;
+    }
+    return tail;
+  };
   //next
+  next = currentIndex => {
+    return currentIndex.forwardNode;
+  };
   //previous
   //insert
   insert = (subject, amount, currentIndex) => {
