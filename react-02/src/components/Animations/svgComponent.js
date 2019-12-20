@@ -3,7 +3,6 @@ import welcome from "./welcome.svg";
 import tictactoe from "./tictactoe.svg";
 import accounts from "./accounts.svg";
 import cities from "./cities.svg";
-import list from "./list.svg";
 import link from "./link.svg";
 import "./svgComponent.css";
 
