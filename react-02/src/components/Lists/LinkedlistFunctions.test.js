@@ -7,6 +7,8 @@ test("ListNode show function", () => {
 
 const newList = new LinkedList();
 test("Testing LinkedList Functions", () => {
+  const newList = new LinkedList();
+
   expect(newList.head).toBe(null);
   let node1 = newList.insert("Tomatoes", 30, 0);
   console.log(node1);
