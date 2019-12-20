@@ -5,7 +5,6 @@ test("ListNode show function", () => {
   expect(node.show()).toBe("Subject: Carrot and Amount: 20");
 });
 
-const newList = new LinkedList();
 test("Testing LinkedList Functions", () => {
   const newList = new LinkedList();
 
