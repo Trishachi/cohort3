@@ -13,44 +13,58 @@ export class ListNode {
 export class LinkedList {
   constructor() {
     this.head = null;
+    this.current = null;
   }
 
   //Methods to Implement
   //Helper function to find the current or desired location
-  getAtIndex = index => {
-    let current = this.head;
-    let counter = 0;
-    while (current) {
-      if (counter === index) {
-        console.log(`${current.subject}: ${current.amount} `);
-        return current;
-      }
-      counter++;
-      current = current.forwardNode;
-    }
-  };
+  // getAtIndex = index => {
+  //   let current = this.head;
+  //   let counter = 0;
+  //   while (current) {
+  //     if (counter === index) {
+  //       console.log(`${current.subject}: ${current.amount} `);
+  //       return current;
+  //     }
+  //     counter++;
+  //     current = current.forwardNode;
+  //   }
+  // };
 
   //first
   first = () => {
-    return this.head;
+    this.current = this.head;
+    return this.current;
   };
+
   //last
   last = () => {
-    let tail = this.head;
-    //if list is empty
-    if (!tail) {
-      return null;
+    if (this.current.forwardNode === null) return this.current;
+    while (this.current.forwardNode !== null) {
+      this.current = this.current.forwardNode;
     }
-    while (tail.forwardNode !== null) {
-      tail = tail.forwardNode;
-    }
-    return tail;
+    return this.current;
   };
+
   //next
-  next = currentIndex => {
-    return currentIndex.forwardNode;
+  next = () => {
+    if (this.current === null) return `List is empty`;
+    if (this.current.forwardNode === null) return `Single Item on the List`;
+    this.current = this.current.forwardNode;
+    return this.current;
   };
+
   //previous
+  previous = () => {
+    if ((this.current = this.head)) return `Single Item on the List`;
+    let previousNode = this.head;
+    while (this.current !== previousNode.forwardNode) {
+      previousNode = previousNode.forwardNode;
+    }
+    this.current = previousNode;
+    return this.current;
+  };
+
   //insert
   insert = (subject, amount, currentIndex) => {
     //if index is out of range - Consider adding to the end
