@@ -66,23 +66,19 @@ export class LinkedList {
   };
 
   //insert
-  insert = (subject, amount, currentIndex) => {
+  insert = (subject, amount) => {
     //if index is out of range - Consider adding to the end
-    if (currentIndex > 0 && currentIndex > this.size) {
-      return `Index out of range`;
+    let newNode = new ListNode(subject, amount);
+    //if list is empty - insert at begining
+    if (!this.head) {
+      this.head = newNode;
+      this.current = newNode;
+    } else {
+      newNode.forwardNode = this.current.forwardNode;
+      this.current.forwardNode = newNode;
+      this.current = newNode;
     }
-    //if index is at zero - ie insert at begining
-    if (currentIndex === 0) {
-      this.head = new ListNode(subject, amount, this.head);
-      return this.head;
-    }
-    //Transveres to find and insert at desired location - after current location
-    const prev = this.getAtIndex(currentIndex - 1);
-    let node = new ListNode(subject, amount);
-    node.forwardNode = prev.forwardNode;
-    prev.forwardNode = node;
-    this.size++;
-    return this.head;
+    return this.current;
   };
   //delete
   //sumAmounts

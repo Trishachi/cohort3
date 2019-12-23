@@ -9,10 +9,12 @@ test("Testing LinkedList Functions", () => {
   const newList = new LinkedList();
 
   expect(newList.head).toBe(null);
-  let node1 = newList.insert("Tomatoes", 30, 0);
+  let node1 = newList.insert("A", 30);
   console.log(node1);
   expect(newList.first()).toBe(node1);
   expect(newList.last()).toBe(node1);
-  console.log(newList.next(0));
-  expect(newList.next(0)).toBe(undefined);
+  console.log(newList.next());
+  expect(newList.next()).toBe(`Single Item on the List`);
+  console.log(newList.previous());
+  expect(newList.previous()).toBe(`Single Item on the List`);
 });
