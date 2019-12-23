@@ -17,20 +17,6 @@ export class LinkedList {
   }
 
   //Methods to Implement
-  //Helper function to find the current or desired location
-  // getAtIndex = index => {
-  //   let current = this.head;
-  //   let counter = 0;
-  //   while (current) {
-  //     if (counter === index) {
-  //       console.log(`${current.subject}: ${current.amount} `);
-  //       return current;
-  //     }
-  //     counter++;
-  //     current = current.forwardNode;
-  //   }
-  // };
-
   //first
   first = () => {
     this.current = this.head;
@@ -80,6 +66,34 @@ export class LinkedList {
     }
     return this.current;
   };
+
   //delete
+  delete = () => {
+    // if (this.current === null) return;
+    // if (this.current.forwardNode === null) {
+    //   this.previous();
+    //   this.current.forwardNode = null;
+    //   return;
+    // } else {
+    // if (this.current === this.head) {
+    //   this.head = this.current.forwardNode;
+    //   this.current = this.head;
+    // } else {
+    //   // let targetNode = this.current;
+    this.previous();
+    this.current.forwardNode = this.current.forwardNode.forwardNode;
+    // }
+    // }
+  };
+
   //sumAmounts
+  sumAmounts = () => {
+    let sum = 0;
+    let node = this.head;
+    while (node) {
+      sum += Number(node.amount);
+      node = node.forwardNode;
+    }
+    return sum;
+  };
 }
