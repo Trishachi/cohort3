@@ -53,7 +53,6 @@ export class LinkedList {
 
   //insert
   insert = (subject, amount) => {
-    //if index is out of range - Consider adding to the end
     let newNode = new ListNode(subject, amount);
     //if list is empty - insert at begining
     if (!this.head) {
@@ -69,20 +68,6 @@ export class LinkedList {
 
   //delete
   delete = () => {
-    // if (this.current === null) return;
-    // if (this.current.forwardNode === null) {
-    //   this.previous();
-    //   this.current.forwardNode = null;
-    //   return;
-    // } else {
-    //   if (this.current === this.head) {
-    //     this.head = this.current.forwardNode;
-    //     this.current = this.head;
-    //   } else {
-    //     this.previous();
-    //     this.current.forwardNode = this.current.forwardNode.forwardNode;
-    //   }
-    // }
     if (!this.head) return null; // List is empty
     //If Only one item in the list
     if (this.head === this.current) {
