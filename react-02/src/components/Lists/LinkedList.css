@@ -1,0 +1,16 @@
+#wrapper {
+  color: black;
+}
+
+#leftPanel {
+  border: 2px solid black;
+  height: 100vh;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #eee;
+  overflow: scroll;
+}
+
+.left-align {
+  text-align: left;
+}
