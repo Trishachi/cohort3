@@ -42,7 +42,7 @@ export class LinkedList {
 
   //previous
   previous = () => {
-    if ((this.current = this.head)) return `Single Item on the List`;
+    if (this.current === this.head) return `Single Item on the List`;
     let previousNode = this.head;
     while (this.current !== previousNode.forwardNode) {
       previousNode = previousNode.forwardNode;
@@ -75,15 +75,23 @@ export class LinkedList {
     //   this.current.forwardNode = null;
     //   return;
     // } else {
-    // if (this.current === this.head) {
-    //   this.head = this.current.forwardNode;
-    //   this.current = this.head;
-    // } else {
-    //   // let targetNode = this.current;
-    this.previous();
-    this.current.forwardNode = this.current.forwardNode.forwardNode;
+    //   if (this.current === this.head) {
+    //     this.head = this.current.forwardNode;
+    //     this.current = this.head;
+    //   } else {
+    //     this.previous();
+    //     this.current.forwardNode = this.current.forwardNode.forwardNode;
+    //   }
     // }
-    // }
+    if (!this.head) return null; // List is empty
+    //If Only one item in the list
+    if (this.head === this.current) {
+      this.head = this.current = null;
+      return null;
+    } else {
+      this.previous();
+      this.current.forwardNode = this.current.forwardNode.forwardNode;
+    }
   };
 
   //sumAmounts
