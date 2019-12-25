@@ -1,10 +1,32 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect, useReducer } from "react";
 // import "../Accounts/Account.css";
 import "./LinkedList.css";
-
 import { LinkedList } from "./LinkedListFunctions.js";
 
-function LinkedListApp() {
+const myLinkedList = new LinkedList();
+
+const LinkedListApp = () => {
+  // const [subject, setSubject] = useState("");
+  // const [amount, setAmount] = useState("");
+
+  const [userInput, setUserInput] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      subject: "",
+      amount: ""
+    }
+  );
+
+  const handleOnChange = event => {
+    const name = event.target.name;
+    const newValue = event.target.value;
+
+    setUserInput({ [name]: newValue });
+
+    console.log(userInput.subject);
+    console.log(userInput.amount);
+  };
+
   return (
     <Fragment>
       <h1 className="spacer">Welcome to Linked List App</h1>
@@ -25,6 +47,8 @@ function LinkedListApp() {
                     id="subject"
                     name="subject"
                     placeholder="Enter Subject Name"
+                    value={userInput.subject}
+                    onChange={handleOnChange}
                   />
                 </div>
               </div>
@@ -39,6 +63,8 @@ function LinkedListApp() {
                     id="amount"
                     name="amount"
                     placeholder="Enter an Amount"
+                    value={userInput.amount}
+                    onChange={handleOnChange}
                   />
                 </div>
               </div>
@@ -61,6 +87,6 @@ function LinkedListApp() {
       </div>
     </Fragment>
   );
-}
+};
 
 export default LinkedListApp;
