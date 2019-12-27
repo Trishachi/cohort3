@@ -8,7 +8,7 @@ const myLinkedList = new LinkedList();
 const LinkedListApp = () => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
-  // const [current, setCurrent] = useState("");
+  const [current, setCurrent] = useState("");
 
   const handleSubjectChange = event => {
     setSubject(event.target.value);
@@ -27,6 +27,8 @@ const LinkedListApp = () => {
     myLinkedList.insert(subject, amount);
     setSubject("");
     setAmount("");
+    setCurrent(myLinkedList.current);
+    console.log(current.subject);
     console.log(myLinkedList);
   };
 
@@ -39,17 +41,17 @@ const LinkedListApp = () => {
   };
 
   //Handle Delete Button
-  const handleDelete = event => {
+  const handleDelete = () => {
     console.log("Delete Button Clicked");
     myLinkedList.delete();
-    // setCurrent(myLinkedList.current);
+    setCurrent(myLinkedList.current);
     console.log(myLinkedList);
   };
   //Handle First Button
   //Handle Last Button
   //Handle Previous Button
   //Handle Node Buttton
-
+  // let currentNode = myLinkedList.current;
   return (
     <Fragment>
       <h1 className="spacer">Welcome to Linked List App</h1>
@@ -116,6 +118,19 @@ const LinkedListApp = () => {
             </div>
             <hr />
             <h4 className="panelTitle">Linked List Display</h4>
+            <p>Current Node: </p>
+            <button id="first" className="btn btn-primary">
+              <b>{"<<"}</b>
+            </button>
+            <button id="prev" className="btn btn-primary">
+              <b>{"<"}</b>
+            </button>
+            <button id="next" className="btn btn-primary">
+              <b>{">"}</b>
+            </button>
+            <button id="last" className="btn btn-primary">
+              <b>{">>"}</b>
+            </button>
           </div>
         </div>
       </div>
