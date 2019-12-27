@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-// import "../Accounts/Account.css";
+import "../Accounts/Account.css";
 import "./LinkedList.css";
 import { LinkedList } from "./LinkedListFunctions.js";
 
@@ -22,20 +22,18 @@ const LinkedListApp = () => {
 
   //Handle Insert Button
   const handleInsert = event => {
-    event.preventDefault();
     console.log("Insert Button Clicked");
     myLinkedList.insert(subject, amount);
     setSubject("");
     setAmount("");
     setCurrent(myLinkedList.current);
-    console.log(current.subject);
     console.log(myLinkedList);
   };
 
   //Handle on Enter Event
   const handleEnter = event => {
     if (event.keyCode === 13) {
-      event.preventDefault();
+      // event.preventDefault();
       handleInsert();
     }
   };
@@ -117,20 +115,26 @@ const LinkedListApp = () => {
               </div>
             </div>
             <hr />
-            <h4 className="panelTitle">Linked List Display</h4>
-            <p>Current Node: </p>
-            <button id="first" className="btn btn-primary">
-              <b>{"<<"}</b>
-            </button>
-            <button id="prev" className="btn btn-primary">
-              <b>{"<"}</b>
-            </button>
-            <button id="next" className="btn btn-primary">
-              <b>{">"}</b>
-            </button>
-            <button id="last" className="btn btn-primary">
-              <b>{">>"}</b>
-            </button>
+            <div id="currentNodeDisplay">
+              <h4 className="panelTitle">Linked List Display</h4>
+              <p>
+                Current Node: Subject: {current.subject} and Amount:{" "}
+                {current.amount}{" "}
+              </p>
+
+              <button id="first" className="btn btn-primary">
+                <b>{"<<"}</b>
+              </button>
+              <button id="prev" className="btn btn-primary">
+                <b>{"<"}</b>
+              </button>
+              <button id="next" className="btn btn-primary">
+                <b>{">"}</b>
+              </button>
+              <button id="last" className="btn btn-primary">
+                <b>{">>"}</b>
+              </button>
+            </div>
           </div>
         </div>
       </div>
