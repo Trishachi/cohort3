@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useReducer } from "react";
+import React, { Fragment, useState } from "react";
 // import "../Accounts/Account.css";
 import "./LinkedList.css";
 import { LinkedList } from "./LinkedListFunctions.js";
@@ -6,26 +6,58 @@ import { LinkedList } from "./LinkedListFunctions.js";
 const myLinkedList = new LinkedList();
 
 const LinkedListApp = () => {
-  // const [subject, setSubject] = useState("");
-  // const [amount, setAmount] = useState("");
+  const [subject, setSubject] = useState("");
+  const [amount, setAmount] = useState("");
 
-  const [userInput, setUserInput] = useReducer(
-    (state, newState) => ({ ...state, ...newState }),
-    {
-      subject: "",
-      amount: ""
-    }
-  );
+  // const [current, setCurrent] = useState("");
+  // const [userInput, setUserInput] = useReducer(
+  //   (state, newState) => ({ ...state, ...newState }),
+  //   {
+  //     subject: "",
+  //     amount: ""
+  //   }
+  // );
 
-  const handleOnChange = event => {
-    const name = event.target.name;
-    const newValue = event.target.value;
+  // const handleOnChange = event => {
+  //   const name = event.target.name;
+  //   const newValue = event.target.value;
+  //   setUserInput({ [name]: newValue });
+  // };
 
-    setUserInput({ [name]: newValue });
-
-    console.log(userInput.subject);
-    console.log(userInput.amount);
+  const handleSubjectChange = event => {
+    setSubject(event.target.value);
   };
+
+  const handleAmountChange = event => {
+    setAmount(event.target.value);
+  };
+
+  // Methods to Implement
+
+  //Handle Insert Button
+  const handleInsert = event => {
+    event.preventDefault();
+    console.log("Insert Button Clicked");
+    myLinkedList.insert(subject, amount);
+    setSubject("");
+    setAmount("");
+    console.log(myLinkedList);
+  };
+
+  //Handle on Enter Event
+
+  const handleEnter = event => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      handleInsert();
+    }
+  };
+  //Handle Delete Button
+
+  //Handle First Button
+  //Handle Last Button
+  //Handle Previous Button
+  //Handle Node Buttton
 
   return (
     <Fragment>
@@ -47,8 +79,8 @@ const LinkedListApp = () => {
                     id="subject"
                     name="subject"
                     placeholder="Enter Subject Name"
-                    value={userInput.subject}
-                    onChange={handleOnChange}
+                    value={subject}
+                    onChange={handleSubjectChange}
                   />
                 </div>
               </div>
@@ -63,15 +95,21 @@ const LinkedListApp = () => {
                     id="amount"
                     name="amount"
                     placeholder="Enter an Amount"
-                    value={userInput.amount}
-                    onChange={handleOnChange}
+                    value={amount}
+                    onChange={handleAmountChange}
                   />
                 </div>
               </div>
               <div className="form-group row">
                 <label className="col-sm-4"></label>
                 <div className="col-sm-8 left-align">
-                  <button id="insert" type="submit" className="btn btn-primary">
+                  <button
+                    onClick={handleInsert}
+                    onKeyPress={handleEnter}
+                    id="insert"
+                    type="submit"
+                    className="btn btn-primary"
+                  >
                     Insert
                   </button>
                   <button id="delete" type="submit" className="btn btn-primary">
