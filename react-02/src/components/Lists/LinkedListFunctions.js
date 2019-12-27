@@ -44,7 +44,10 @@ export class LinkedList {
   previous = () => {
     if (this.current === this.head) return `Single Item on the List`;
     let previousNode = this.head;
-    while (this.current !== previousNode.forwardNode) {
+    while (
+      this.current !== previousNode.forwardNode &&
+      this.current !== this.head
+    ) {
       previousNode = previousNode.forwardNode;
     }
     this.current = previousNode;
@@ -68,10 +71,11 @@ export class LinkedList {
 
   //delete
   delete = () => {
-    if (!this.head) return null; // List is empty
+    // if (!this.head) return null; // List is empty
     //If Only one item in the list
-    if (this.head === this.current) {
-      this.head = this.current = null;
+    if (this.current === this.head) {
+      this.head = this.head.forwardNode;
+      this.current = this.head;
       return null;
     } else {
       this.previous();
