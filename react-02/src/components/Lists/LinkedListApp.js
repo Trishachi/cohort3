@@ -45,10 +45,35 @@ const LinkedListApp = () => {
     setCurrent(myLinkedList.current);
     console.log(myLinkedList);
   };
+
   //Handle First Button
+  const handleFirst = () => {
+    console.log("First Clicked");
+    myLinkedList.first();
+    setCurrent(myLinkedList.current);
+  };
+
   //Handle Last Button
+  const handleLast = () => {
+    console.log("Last Clicked");
+    myLinkedList.last();
+    setCurrent(myLinkedList.current);
+  };
+
   //Handle Previous Button
-  //Handle Node Buttton
+  const handlePrev = () => {
+    console.log("Previous Clicked");
+    myLinkedList.previous();
+    setCurrent(myLinkedList.current);
+  };
+
+  //Handle Next Buttton
+  const handleNext = () => {
+    console.log("Next Clicked");
+    myLinkedList.next();
+    setCurrent(myLinkedList.current);
+  };
+
   // let currentNode = myLinkedList.current;
   return (
     <Fragment>
@@ -122,16 +147,32 @@ const LinkedListApp = () => {
                 {current.amount}{" "}
               </p>
 
-              <button id="first" className="btn btn-primary">
+              <button
+                id="first"
+                onClick={handleFirst}
+                className="btn btn-primary"
+              >
                 <b>{"<<"}</b>
               </button>
-              <button id="prev" className="btn btn-primary">
+              <button
+                id="prev"
+                onClick={handlePrev}
+                className="btn btn-primary"
+              >
                 <b>{"<"}</b>
               </button>
-              <button id="next" className="btn btn-primary">
+              <button
+                id="next"
+                onClick={handleNext}
+                className="btn btn-primary"
+              >
                 <b>{">"}</b>
               </button>
-              <button id="last" className="btn btn-primary">
+              <button
+                id="last"
+                onClick={handleLast}
+                className="btn btn-primary"
+              >
                 <b>{">>"}</b>
               </button>
             </div>
