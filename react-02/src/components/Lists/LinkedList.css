@@ -22,3 +22,19 @@ p {
 .hidden {
   display: none;
 }
+
+p.node,
+p.currentNode {
+  margin-bottom: 0;
+}
+
+.currentNode {
+  color: #09d3ac;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.total {
+  font-size: 16px;
+  font-weight: bold;
+}

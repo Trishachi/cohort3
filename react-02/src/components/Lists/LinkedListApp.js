@@ -3,13 +3,13 @@ import "../Accounts/Account.css";
 import "./LinkedList.css";
 import { LinkedList } from "./LinkedListFunctions.js";
 
-const myLinkedList = new LinkedList();
+let myLinkedList = new LinkedList();
 
 const LinkedListApp = () => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
   const [current, setCurrent] = useState("");
-  let currentNode = myLinkedList.current;
+  // let currentNode = myLinkedList.current;
 
   const handleSubjectChange = event => {
     setSubject(event.target.value);
@@ -23,12 +23,11 @@ const LinkedListApp = () => {
 
   //Handle Insert Button
   const handleInsert = event => {
-    console.log("Insert Button Clicked");
+    if (subject === "" || amount === "") return null;
     myLinkedList.insert(subject, amount);
     setSubject("");
     setAmount("");
     setCurrent(myLinkedList.current);
-    console.log(myLinkedList);
   };
 
   //Handle on Enter Event
@@ -41,39 +40,58 @@ const LinkedListApp = () => {
 
   //Handle Delete Button
   const handleDelete = () => {
-    console.log("Delete Button Clicked");
     myLinkedList.delete();
     setCurrent(myLinkedList.current);
-    console.log(myLinkedList);
   };
 
   //Handle First Button
   const handleFirst = () => {
-    console.log("First Clicked");
     myLinkedList.first();
     setCurrent(myLinkedList.current);
   };
 
   //Handle Last Button
   const handleLast = () => {
-    console.log("Last Clicked");
     myLinkedList.last();
     setCurrent(myLinkedList.current);
   };
 
   //Handle Previous Button
   const handlePrev = () => {
-    console.log("Previous Clicked");
     myLinkedList.previous();
     setCurrent(myLinkedList.current);
   };
 
   //Handle Next Buttton
   const handleNext = () => {
-    console.log("Next Clicked");
     myLinkedList.next();
     setCurrent(myLinkedList.current);
   };
+
+  const listNodes = [];
+  let displayText = "";
+  let total = 0;
+  let counter = 1;
+  let newNode = myLinkedList.head;
+  while (newNode !== null) {
+    displayText = `${newNode.subject} : ${newNode.amount}`;
+    if (newNode === myLinkedList.current) {
+      listNodes.push(
+        <p className="currentNode" key={counter}>
+          {displayText}
+        </p>
+      );
+    } else {
+      listNodes.push(
+        <p className="node" key={counter}>
+          {displayText}
+        </p>
+      );
+    }
+    total = total + Number(newNode.amount);
+    newNode = newNode.forwardNode;
+    counter = counter + 1;
+  }
 
   return (
     <Fragment>
@@ -146,8 +164,8 @@ const LinkedListApp = () => {
             >
               <h4 className="panelTitle">Linked List Display</h4>
               <p>
-                {currentNode
-                  ? `Current Node: ${currentNode.show()}`
+                {current
+                  ? `Current Node: ${current.show()}`
                   : "No Current Node"}
               </p>
 
@@ -179,6 +197,12 @@ const LinkedListApp = () => {
               >
                 <b>{">>"}</b>
               </button>
+              <div id="nodes" className="spacerTop">
+                {listNodes}
+              </div>
+              <div id="total" className="total">
+                {myLinkedList.head ? `Total Amount: ${total}` : ""}
+              </div>
             </div>
           </div>
         </div>
