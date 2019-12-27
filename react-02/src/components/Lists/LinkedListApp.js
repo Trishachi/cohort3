@@ -9,6 +9,7 @@ const LinkedListApp = () => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
   const [current, setCurrent] = useState("");
+  let currentNode = myLinkedList.current;
 
   const handleSubjectChange = event => {
     setSubject(event.target.value);
@@ -74,7 +75,6 @@ const LinkedListApp = () => {
     setCurrent(myLinkedList.current);
   };
 
-  // let currentNode = myLinkedList.current;
   return (
     <Fragment>
       <h1 className="spacer">Welcome to Linked List App</h1>
@@ -146,8 +146,9 @@ const LinkedListApp = () => {
             >
               <h4 className="panelTitle">Linked List Display</h4>
               <p>
-                Current Node: Subject: {current.subject} and Amount:{" "}
-                {current.amount}{" "}
+                {currentNode
+                  ? `Current Node: ${currentNode.show()}`
+                  : "No Current Node"}
               </p>
 
               <button
