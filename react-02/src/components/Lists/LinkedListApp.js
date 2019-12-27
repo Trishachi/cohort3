@@ -8,21 +8,7 @@ const myLinkedList = new LinkedList();
 const LinkedListApp = () => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
-
   // const [current, setCurrent] = useState("");
-  // const [userInput, setUserInput] = useReducer(
-  //   (state, newState) => ({ ...state, ...newState }),
-  //   {
-  //     subject: "",
-  //     amount: ""
-  //   }
-  // );
-
-  // const handleOnChange = event => {
-  //   const name = event.target.name;
-  //   const newValue = event.target.value;
-  //   setUserInput({ [name]: newValue });
-  // };
 
   const handleSubjectChange = event => {
     setSubject(event.target.value);
@@ -45,15 +31,20 @@ const LinkedListApp = () => {
   };
 
   //Handle on Enter Event
-
   const handleEnter = event => {
     if (event.keyCode === 13) {
       event.preventDefault();
       handleInsert();
     }
   };
-  //Handle Delete Button
 
+  //Handle Delete Button
+  const handleDelete = event => {
+    console.log("Delete Button Clicked");
+    myLinkedList.delete();
+    // setCurrent(myLinkedList.current);
+    console.log(myLinkedList);
+  };
   //Handle First Button
   //Handle Last Button
   //Handle Previous Button
@@ -67,7 +58,7 @@ const LinkedListApp = () => {
           <div id="leftPanel" className="col-md-12">
             <h4 className="panelTitle">Linked List Control</h4>
             <hr />
-            <form>
+            <div id="form">
               <div className="form-group row">
                 <label htmlFor="subject" className="col-sm-4 col-form-label">
                   Subject:
@@ -112,12 +103,17 @@ const LinkedListApp = () => {
                   >
                     Insert
                   </button>
-                  <button id="delete" type="submit" className="btn btn-primary">
+                  <button
+                    onClick={handleDelete}
+                    id="delete"
+                    type="submit"
+                    className="btn btn-primary"
+                  >
                     Delete
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
             <hr />
             <h4 className="panelTitle">Linked List Display</h4>
           </div>
