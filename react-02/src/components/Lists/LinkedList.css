@@ -18,3 +18,7 @@ p {
 .left-align {
   text-align: left;
 }
+
+.hidden {
+  display: none;
+}

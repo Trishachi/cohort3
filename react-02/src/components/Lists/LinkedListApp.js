@@ -140,7 +140,10 @@ const LinkedListApp = () => {
               </div>
             </div>
             <hr />
-            <div id="currentNodeDisplay">
+            <div
+              id="currentNodeDisplay"
+              className={myLinkedList.head ? null : "hidden"}
+            >
               <h4 className="panelTitle">Linked List Display</h4>
               <p>
                 Current Node: Subject: {current.subject} and Amount:{" "}
