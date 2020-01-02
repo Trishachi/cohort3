@@ -41,8 +41,41 @@ ORDER by joindate DESC
 LIMIT 1;
 
 -- Produce a count of the number of facilities that have a cost to guests of 10 or more.
+SELECT COUNT(*) FROM cd.facilities
+WHERE guestcost >= 10;
+
 -- Skip this one, no question for #11.
--- Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
--- Produce a list of facilities with more than 1000 slots booked. Produce an output table consisting of facility id and total slots, sorted by facility id.
--- How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
+
+-- Produce a list of the total number of slots booked per facility in the month of September 2012.
+-- Produce an output table consisting of facility id and slots, sorted by the number of slots.
+SELECT facid, SUM(slots) FROM cd.bookings
+WHERE starttime >= '2012-09-01'
+AND starttime < '2012-10-01'
+GROUP BY facid
+ORDER BY sum(slots);
+
+-- Produce a list of facilities with more than 1000 slots booked.
+-- Produce an output table consisting of facility id and total slots, sorted by facility id.
+SELECT facid, SUM(slots) FROM cd.bookings
+GROUP BY facid
+HAVING SUM(slots) > 1000
+ORDER BY facid;
+
+-- How can you produce a list of the start times for bookings for tennis courts,
+-- for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
+SELECT bookings.starttime, facilities.name
+FROM cd.facilities
+INNER JOIN cd.bookings ON
+facilities.facid = bookings.facid
+WHERE facilities.facid IN (0,1)
+AND bookings.starttime >= '2012-09-21'
+AND bookings.starttime < '2012-09-22'
+ORDER BY bookings.starttime;
+
 -- How can you produce a list of the start times for bookings by members named 'David Farrell'?
+SELECT bookings.starttime, members.surname, members.firstname
+FROM cd.members
+INNER JOIN cd.bookings ON
+members.memid = bookings.memid
+WHERE members.surname = 'Farrell'
+AND members.firstname = 'David';
