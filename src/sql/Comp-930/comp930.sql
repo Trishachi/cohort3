@@ -15,6 +15,21 @@ CREATE TABLE customer(
 	email VARCHAR(355) NOT NULL,
 	);
 
+SELECT * FROM customer;
+ -- Populate with 10 Customers
+ INSERT INTO customer (firstname, lastname, address, phone, email)
+ VALUES ('Dane', 'Howard','4781 Magna. Rd.', '1-761-390-4364', 'malesuada.augue@egetipsum.org'),
+ ('Kaitlin','Case','5221 Ipsum St.','1-902-514-4047','risus.In@mollisnec.org'),
+ ('Clare','Dunlap','8471 Et Street','1-931-325-2208','nec@Inscelerisquescelerisque.co.uk'),
+ ('Axel','Cardenas','Ap #253-4033 Volutpat Rd.','1-372-886-2621','vitae.aliquet@et.ca'),
+ ('Randall','Robertson','737-3601 Amet St.','1-358-177-3748','molestie@neque.ca'),
+ ('Xantha','Brown','2884 Fermentum Road','1-953-305-4569','Phasellus@Nullamsuscipitest.org'),
+ ('Dolan','Lloyd','Ap #414-6361 Eu Rd.','1-887-245-0182','orci@turpisIn.edu'),
+ ('Hammett','Adkins','2845 Per Avenue','1-193-290-1547','Donec.felis@nonummyac.com'),
+ ('Nelle','Reed','5645 Vestibulum. Street','1-995-247-3571','erat.Etiam.vestibulum@dolor.edu'),
+ ('Kenyon','Petersen','>9641 Eu St.','1-474-936-8646','turpis.nec.mauris@dolor.ca')
+;
+
 CREATE TABLE invoice(
     invoice_id serial PRIMARY KEY,
     customer_id INTEGER FOREIGN KEY,
