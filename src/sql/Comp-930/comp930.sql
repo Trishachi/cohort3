@@ -39,6 +39,9 @@ CREATE TABLE invoice(
   	total DECIMAL(10, 2),
 );
 
+ -- Each Customer should have about 10 invoices
+ -- Each invoice should have at least 3 products
+
 CREATE TABLE product(
   product_id serial PRIMARY KEY,
   product_name VARCHAR(50) NOT NULL,
