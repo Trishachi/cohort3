@@ -1,12 +1,31 @@
 import React from "react";
 
-export const themes = {
-  default: {},
-  other: {}
-};
+export const ThemeContext = React.createContext();
 
-const ThemeContext = React.createContext(themes.default);
-// const ThemeProvider = ThemeContext.Provider();
-// const ThemeConsumer = ThemeContext.Consumer();
+class ThemeProvider extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: "white"
+    };
+  }
 
-// export { ThemeProvider, ThemeConsumer };
+  changeFont = event => {
+    this.setState({ fontColor: event.target.value });
+  };
+
+  render() {
+    return (
+      <ThemeContext.Provider
+        value={{
+          ...this.state,
+          changeFont: this.changeFont
+        }}
+      >
+        {this.props.children}
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+export default ThemeProvider;

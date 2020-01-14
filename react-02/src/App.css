@@ -6,6 +6,10 @@
   height: 40vmin;
 }
 
+.App-link {
+  color: #09d3ac;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,6 +21,21 @@
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.App-header-light {
+  /* background-color: #282c34; */
+  background-color: #ccc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  font-size: calc(10px + 2vmin);
+  color: #222;
+  /* color: #09d3ac; */
+  /* color: white; */
+}
+
+.form-control.theme-form {
+  width: 25% !important;
 }

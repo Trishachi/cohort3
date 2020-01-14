@@ -9,7 +9,8 @@ import AccountComp from "./components/Accounts/Account.js";
 import City from "./components/City/City.js";
 import LinkedListApp from "./components/Lists/LinkedListApp.js";
 import ThemeApp from "./components/Theme/ThemeSettings.js";
-import ThemeContext, { themes } from "./components/Theme/ThemeContext.js";
+import ThemeProvider from "./components/Theme/ThemeContext.js";
+import ThemeContext from "./components/Theme/ThemeContext.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -41,27 +42,36 @@ class App extends React.Component {
     });
   };
 
+  static contextType = ThemeContext;
   render() {
     return (
-      <div className="App">
-        <Animation
-          mouseOverEvent={this.onMouseOver}
-          mouseOutEvent={this.onMouseOut}
-          ButtonClicked={this.onButtonClick}
-        />
-        <header className="App-header">
-          {this.state.currentIcon === "Home" && (
-            <DefaultApp myState={this.state.myState} />
-          )}
-          {this.state.currentIcon === "Tictactoe" && (
-            <Game className="active" />
-          )}
-          {this.state.currentIcon === "Accounts" && <AccountComp />}
-          {this.state.currentIcon === "Cities" && <City />}
-          {this.state.currentIcon === "Lists" && <LinkedListApp />}
-          {this.state.currentIcon === "Settings" && <ThemeApp />}
-        </header>
-      </div>
+      <ThemeProvider>
+        <div className="App">
+          <Animation
+            mouseOverEvent={this.onMouseOver}
+            mouseOutEvent={this.onMouseOut}
+            ButtonClicked={this.onButtonClick}
+          />
+          <header
+            className={
+              this.context.fontColor === "white"
+                ? "App-header"
+                : "App-header-light"
+            }
+          >
+            {this.state.currentIcon === "Home" && (
+              <DefaultApp myState={this.state.myState} />
+            )}
+            {this.state.currentIcon === "Tictactoe" && (
+              <Game className="active" />
+            )}
+            {this.state.currentIcon === "Accounts" && <AccountComp />}
+            {this.state.currentIcon === "Cities" && <City />}
+            {this.state.currentIcon === "Lists" && <LinkedListApp />}
+            {this.state.currentIcon === "Settings" && <ThemeApp />}
+          </header>
+        </div>
+      </ThemeProvider>
     );
   }
 }
