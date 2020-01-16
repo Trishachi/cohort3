@@ -12,7 +12,7 @@ CREATE TABLE customer(
 	lastname VARCHAR(50) NOT NULL,
 	address VARCHAR(512),
 	phone VARCHAR(50) NOT NULL,
-	email VARCHAR(355) NOT NULL,
+	email VARCHAR(355) NOT NULL
 	);
 
 SELECT * FROM customer;
@@ -34,26 +34,28 @@ SELECT * FROM customer;
 
 CREATE TABLE invoice(
     invoice_id serial PRIMARY KEY,
-    customer_id INTEGER FOREIGN KEY,
+    customer_id INTEGER NOT NULL,
   	order_date TIMESTAMP,
-  	total DECIMAL(10, 2),
+  	total DECIMAL(10, 2) NOT NULL
 );
-
- -- Each Customer should have about 10 invoices
- -- Each invoice should have at least 3 products
 
 CREATE TABLE product(
   product_id serial PRIMARY KEY,
   product_name VARCHAR(50) NOT NULL,
-  product_description TEXT(1000),
+  product_description VARCHAR(1000),
   unit_price DECIMAL(10, 2),
-  total_stock INTEGER,
+  total_stock INTEGER
 );
 
 CREATE TABLE item(
-  invoice_id INTEGER PRIMARY KEY
-  product_id INTEGER FOREIGN KEY,
+  invoice_id INTEGER NOT NULL,
+  product_id INTEGER NOT NULL,
   product_name VARCHAR(50) NOT NULL,
   unit_price DECIMAL(10, 2),
-  total DECIMAL(10, 2),
+  total DECIMAL(10, 2)
 );
+
+----------------POPULATE DATABASE-----------------------------------------------------------------
+ -- Each Customer should have about 10 invoices
+ -- Each invoice should have at least 3 products
+ -- (Approach - Create Excel Sheet for populating the tables)
