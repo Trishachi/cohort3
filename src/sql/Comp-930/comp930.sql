@@ -39,6 +39,9 @@ CREATE TABLE invoice(
   	total DECIMAL(10, 2) NOT NULL
 );
 
+ALTER TABLE invoice
+ALTER COLUMN order_date TYPE DATE;
+
 CREATE TABLE product(
   product_id serial PRIMARY KEY,
   product_name VARCHAR(50) NOT NULL,
