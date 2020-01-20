@@ -27,8 +27,12 @@ SELECT * FROM customer;
  ('Dolan','Lloyd','Ap #414-6361 Eu Rd.','1-887-245-0182','orci@turpisIn.edu'),
  ('Hammett','Adkins','2845 Per Avenue','1-193-290-1547','Donec.felis@nonummyac.com'),
  ('Nelle','Reed','5645 Vestibulum. Street','1-995-247-3571','erat.Etiam.vestibulum@dolor.edu'),
- ('Kenyon','Petersen','9641 Eu St.','1-474-936-8646','turpis.nec.mauris@dolor.ca')
+ ('Kenyon','Petersen','>9641 Eu St.','1-474-936-8646','turpis.nec.mauris@dolor.ca')
 ;
+
+UPDATE customer
+SET address = '9641 Eu St.'
+WHERE firstname LIKE 'Kenyon';
 
 ----------------------------------------------------------------------------------------------
 
@@ -59,6 +63,6 @@ CREATE TABLE item(
 );
 
 ----------------POPULATE DATABASE-----------------------------------------------------------------
- -- Each Customer should have about 10 invoices
+ -- Each Customer should have about 5-10 invoices
  -- Each invoice should have at least 3 products
  -- (Approach - Create Excel Sheet for populating the tables)
