@@ -9,7 +9,7 @@ class Store:
         # Create a dictionary with keys name and price, and append that to self.items.
         item = {
             "name": name,
-            "price": rrice
+            "price": price
         }
         self.items.append(item)
 
