@@ -44,8 +44,38 @@ def bigger_num(num1, num2):
         return str(num2) + " is bigger"
 
 
-print(var_type(23))
-print(var_type("Chisom"))
-print(var_type(True))
+def sum_range(minNum, maxNum):
+    minNum = int(minNum)
+    maxNum = int(maxNum)
+    sum = 0
+    for x in range(minNum, maxNum):
+        sum += x
+    result = "The total sum of numbers from {} to {} is {}"
+    print(result.format(minNum, maxNum, sum))
+    return result
 
-print(bigger_num(3, 6))
+
+def reverse_list(lst):
+    newList = []
+    length = len(lst)
+    for item in lst:
+        length -= 1
+        newList.append(item)
+    return newList
+
+    # def update_todo():
+    # def profile_lookup():
+    # def double_numbers():
+    # def profile_details():
+    # def countdown():
+    # def counter():
+
+
+# print(var_type(23))
+# print(var_type("Chisom"))
+# print(var_type(True))
+
+# print(bigger_num(3, 6))
+# sum_range(0, 100)
+
+print(reverse_list([1, 2, 3, 4, 5]))
