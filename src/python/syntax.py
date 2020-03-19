@@ -31,6 +31,26 @@ Objects / Dictionaries
 """
 
 # Code Starts Here
+contacts = [
+    {
+        "firstName": "Chisom",
+        "lastName": "Okoye",
+        "number": "0543236543",
+        "likes": ["Reading", "Coding", "Swimming"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    }
+]
 
 
 def var_type(input):
@@ -94,17 +114,36 @@ def counter(number):
         start += 1
     return count
 
-    # def profile_lookup():
-    # def profile_details():
+
+def profile_lookup(name, prop):
+    # count_start = 0
+    # count_end = len(contacts)
+    for item in contacts:
+        if item["firstName"] == name:
+            if prop in item:
+                return item[prop]
+            else:
+                return "Property does not exist"
+        return "Contact does not exist"
 
 
-    # print(var_type(23))
-    # print(var_type("Chisom"))
-    # print(var_type(True))
-    # print(bigger_num(3, 6))
-    # sum_range(0, 100)
-    # print(reverse_list([1, 2, 3, 4, 5]))
-    # print(double_numbers([1, 2, 3, 4, 5]))
+def profile_details():
+    profile = ""
+    for contact in contacts:
+        profile += contact["firstName"] + " " + \
+            contact["lastName"] + " - " + contact["number"] + "\n"
+    return profile
+
+
+print(var_type(23))
+print(var_type("Chisom"))
+print(var_type(True))
+print(bigger_num(3, 6))
+sum_range(0, 100)
+print(reverse_list([1, 2, 3, 4, 5]))
+print(double_numbers([1, 2, 3, 4, 5]))
 print(update_todo("code", ["code", "laundry", "dinner"], "sleep"))
 print(countdown(10))
 print(counter(10))
+print(profile_lookup("Mbok", "likes"))
+print(profile_details())
