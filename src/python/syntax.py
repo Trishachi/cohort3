@@ -77,19 +77,34 @@ def update_todo(task, lst, replace):
     return lst
 
 
-# def profile_lookup():
-# def profile_details():
-# def countdown():
-# def counter():
-
-# print(var_type(23))
-# print(var_type("Chisom"))
-# print(var_type(True))
-
-# print(bigger_num(3, 6))
-# sum_range(0, 100)
-# print(reverse_list([1, 2, 3, 4, 5]))
-# print(double_numbers([1, 2, 3, 4, 5]))
+def countdown(num):
+    text = ""
+    start = int(num)
+    while start >= 0:
+        text += str(start) + " "
+        start -= 1
+    return text
 
 
+def counter(number):
+    count = " "
+    start = 0
+    while start <= number:
+        count += str(start) + " "
+        start += 1
+    return count
+
+    # def profile_lookup():
+    # def profile_details():
+
+
+    # print(var_type(23))
+    # print(var_type("Chisom"))
+    # print(var_type(True))
+    # print(bigger_num(3, 6))
+    # sum_range(0, 100)
+    # print(reverse_list([1, 2, 3, 4, 5]))
+    # print(double_numbers([1, 2, 3, 4, 5]))
 print(update_todo("code", ["code", "laundry", "dinner"], "sleep"))
+print(countdown(10))
+print(counter(10))
