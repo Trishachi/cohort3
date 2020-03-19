@@ -56,20 +56,31 @@ def sum_range(minNum, maxNum):
 
 
 def reverse_list(lst):
-    newList = []
-    length = len(lst)
-    for item in lst:
-        length -= 1
-        newList.append(item)
+    newList = lst[::-1]  # -1 means iterate in a reverse order
     return newList
 
-    # def update_todo():
-    # def profile_lookup():
-    # def double_numbers():
-    # def profile_details():
-    # def countdown():
-    # def counter():
 
+def double_numbers(lst2):
+    doubleLst = []
+    for item in lst2:
+        item = item * 2
+        doubleLst.append(item)
+    return doubleLst
+
+
+def update_todo(task, lst, replace):
+    if task not in lst:
+        lst.insert(0, task)
+    else:
+        indx = lst.index(task)
+        lst[indx] = replace
+    return lst
+
+
+# def profile_lookup():
+# def profile_details():
+# def countdown():
+# def counter():
 
 # print(var_type(23))
 # print(var_type("Chisom"))
@@ -77,5 +88,8 @@ def reverse_list(lst):
 
 # print(bigger_num(3, 6))
 # sum_range(0, 100)
+# print(reverse_list([1, 2, 3, 4, 5]))
+# print(double_numbers([1, 2, 3, 4, 5]))
 
-print(reverse_list([1, 2, 3, 4, 5]))
+
+print(update_todo("code", ["code", "laundry", "dinner"], "sleep"))
