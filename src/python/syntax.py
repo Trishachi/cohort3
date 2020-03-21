@@ -116,8 +116,6 @@ def counter(number):
 
 
 def profile_lookup(name, prop):
-    # count_start = 0
-    # count_end = len(contacts)
     for item in contacts:
         if item["firstName"] == name:
             if prop in item:
