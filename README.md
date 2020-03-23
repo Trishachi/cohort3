@@ -2,11 +2,11 @@
 
 View published pages of this repository
 
-1. [01-Getting Started](https://trishachi.github.io/cohort3/src/01-getting-started/){:target="\_blank"}
-2. [02-DOM Exercise](https://trishachi.github.io/cohort3/src/02-dom/){:target="\_blank"}
-3. [Accounts Exercise](https://trishachi.github.io/cohort3/src/03-objects/){:target="\_blank"}
-4. [Javascript Exercise](https://trishachi.github.io/cohort3/src/javascript/){:target="\_blank"}
-5. [React Exercises](https://trishachi.github.io/my-react-apps/){:target="\_blank"}
+1. [01-Getting Started](https://trishachi.github.io/cohort3/src/01-getting-started/)
+2. [02-DOM Exercise](https://trishachi.github.io/cohort3/src/02-dom/)
+3. [Accounts Exercise](https://trishachi.github.io/cohort3/src/03-objects/)
+4. [Javascript Exercise](https://trishachi.github.io/cohort3/src/javascript/)
+5. [React Exercises](https://trishachi.github.io/my-react-apps/)
 
 ## Getting Started
 
