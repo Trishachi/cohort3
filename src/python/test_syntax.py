@@ -1,10 +1,13 @@
 import unittest
 import syntax
 
+# Syntax for running Tests - python -m unittest test_syntax
+# or python -m unittest
+
 
 class SyntaxTests(unittest.TestCase):
     def test_hello(self):
-        print("Hello World!!!")
+        pass
 
     def test_chkVarType(self):
         self.assertEqual(syntax.var_type(23), "int")
@@ -17,7 +20,7 @@ class SyntaxTests(unittest.TestCase):
 
     def test_chkSumRange(self):
         self.assertEqual(syntax.sum_range(
-            0, 100), "The total sum of numbers from {} to {} is {}")
+            0, 100), "The total sum of numbers from 0 to 100 is 4950")
 
     def test_chkReverseList(self):
         self.assertEqual(syntax.reverse_list(
@@ -36,3 +39,11 @@ class SyntaxTests(unittest.TestCase):
 
     def test_chkCounter(self):
         self.assertEqual(syntax.counter(10), " 0 1 2 3 4 5 6 7 8 9 10 ")
+
+    def test_profileLookup(self):
+        self.assertEqual(syntax.profile_lookup("Chisom", "likes"),
+                         ['Reading', 'Coding', 'Swimming'])
+
+    # def test_profileDetails(self):
+    #     self.assertEqual(syntax.profile_details(
+    #     ), "Chisom Okoye - 0543236543, Harry Potter - 0994372684, Sherlock Holmes - 0487345643,")

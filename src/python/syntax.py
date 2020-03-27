@@ -70,8 +70,8 @@ def sum_range(minNum, maxNum):
     sum = 0
     for x in range(minNum, maxNum):
         sum += x
-    result = "The total sum of numbers from {} to {} is {}"
-    print(result.format(minNum, maxNum, sum))
+    result = "The total sum of numbers from {0} to {1} is {2}".format(
+        minNum, maxNum, sum)
     return result
 
 
@@ -129,19 +129,19 @@ def profile_details():
     profile = ""
     for contact in contacts:
         profile += contact["firstName"] + " " + \
-            contact["lastName"] + " - " + contact["number"] + "\n"
+            contact["lastName"] + " - " + contact["number"] + ", "
     return profile
 
 
-print(var_type(23))
-print(var_type("Chisom"))
-print(var_type(True))
-print(bigger_num(3, 6))
-sum_range(0, 100)
-print(reverse_list([1, 2, 3, 4, 5]))
-print(double_numbers([1, 2, 3, 4, 5]))
-print(update_todo("code", ["code", "laundry", "dinner"], "sleep"))
-print(countdown(10))
-print(counter(10))
-print(profile_lookup("Mbok", "likes"))
-print(profile_details())
+# print(var_type(23))
+# print(var_type("Chisom"))
+# print(var_type(True))
+# print(bigger_num(3, 6))
+# print(sum_range(0, 100))
+# print(reverse_list([1, 2, 3, 4, 5]))
+# print(double_numbers([1, 2, 3, 4, 5]))
+# print(update_todo("code", ["code", "laundry", "dinner"], "sleep"))
+# print(countdown(10))
+# print(counter(10))
+# print(profile_lookup("Chisom", "likes"))
+# print(profile_details())
