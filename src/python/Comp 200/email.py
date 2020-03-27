@@ -1,6 +1,9 @@
 def email(firstName, lastName):
-    name = firstName.lower() + "." + lastName.lower()
-    return name + "@evolveu.ca"
+    if type(firstName) == str and type(lastName) == str:
+        name = firstName.lower() + "." + lastName.lower()
+        return name + "@evolveu.ca"
+    else:
+        return "Please enter a string"
 
 
-print(email("Larry", "Shumlich"))
+# print(email("Larry", "Shumlich"))
