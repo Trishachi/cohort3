@@ -11,10 +11,12 @@ def read_file():
             for line in my_file:
                 line_count += 1
 
-        text = fname + " has " + \
-            str(line_count) + " number of lines, and has " + \
-            str(word_count) + " 'else' statements and " + \
-            str(character_count) + " characters."
+        # text = fname + " has " + \
+        #     str(line_count) + " number of lines, and has " + \
+        #     str(word_count) + " 'else' statements and " + \
+        #     str(character_count) + " characters."
+
+        text = f"'{fname}' has {line_count} number of lines, {word_count} 'else' statements and {character_count} characters."
     except FileNotFoundError:
         text = "File not found"
 
