@@ -1,10 +1,27 @@
-def read_file(file):
+def read_file():
+    fname = input("Enter filename or path: ")
+    line_count = 0
     try:
-        with open(file, "r") as my_file:
-            text = my_file.read()
+        with open(fname, "r") as my_file:
+            contents = my_file.read()
+            word_count = contents.count("else")
+            character_count = len(contents)
+
+        with open(fname, "r") as my_file:
+            for line in my_file:
+                line_count += 1
+
+        text = fname + " has " + \
+            str(line_count) + " number of lines, and has " + \
+            str(word_count) + " 'else' statements and " + \
+            str(character_count) + " characters."
     except FileNotFoundError:
-        text = None
+        text = "File not found"
+
     print(text)
 
 
-read_file("C:\\code\\cohort3\\src\\javascript\\syntax.js")
+read_file()
+
+
+# Try JS File - "C:\\code\\cohort3\\src\\javascript\\syntax.js"
