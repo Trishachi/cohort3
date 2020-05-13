@@ -1,0 +1,32 @@
+*********************************************
+============ CENSUS REPORT 2018 =============
+*********************************************
+
+
+---------- Residency Count by CLASS ----------
+----------------------------------------------
+CLASS               RESIDENCY COUNT     
+Residential         1,263,734           
+Industrial          922                 
+Major Park          0                   
+Residual Sub Area   0                   
+
+Total Count By CLASS: 1,264,656
+
+
+--------- Residency Count by SECTOR ----------
+----------------------------------------------
+SECTOR              RESIDENCY COUNT     
+CENTRE              199,977             
+SOUTH               227,345             
+NORTHEAST           185,534             
+NORTHWEST           174,126             
+NORTH               160,502             
+SOUTHEAST           135,009             
+EAST                57,666              
+WEST                124,497             
+
+Total Count By SECTOR: 1,264,656
+
+==============================================
+Total number of Rows: 303
