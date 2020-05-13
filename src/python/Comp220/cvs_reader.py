@@ -2,6 +2,8 @@ import csv
 head_1 = "CLASS"
 head_2 = "RESIDENCY COUNT"
 head_3 = "SECTOR"
+class_total = "TOTAL BY CLASS: "
+sector_total = "TOTAL BY SECTOR: "
 
 
 def read_csv():
@@ -33,7 +35,7 @@ def read_csv():
             census_report.write(
                 "*********************************************\n")
             census_report.write(
-                "============ CENSUS REPORT 2018 =============\n")
+                "========== RESIDENCY CENSUS REPORT ==========\n")
             census_report.write(
                 "*********************************************\n")
             census_report.write("\n")
@@ -42,35 +44,37 @@ def read_csv():
             census_report.write(
                 "---------- Residency Count by CLASS ----------\n")
             census_report.write(
-                "----------------------------------------------\n")
+                "*********************************************\n")
             census_report.write(f"{head_1:<20}" f"{head_2:<20}\n")
+            census_report.write(
+                "----------------------------------------------\n")
             for key, value in CLASS_Dict.items():
                 census_report.write(f"{key:<20}" f"{value:<20,}\n")
 
             census_report.write("\n")
             total_class = sum(CLASS_Dict.values())
-            census_report.write(
-                f"Total Count By CLASS: {total_class:,}\n")
+            census_report.write(f"{class_total:<20}" f"{total_class:<20,}\n")
             census_report.write("\n")
             census_report.write("\n")
 
             census_report.write(
                 "--------- Residency Count by SECTOR ----------\n")
             census_report.write(
-                "----------------------------------------------\n")
+                "*********************************************\n")
 
             census_report.write(f"{head_3:<20}" f"{head_2:<20}\n")
+            census_report.write(
+                "----------------------------------------------\n")
             for key, value in SECTOR_Dict.items():
                 census_report.write(f"{key:<20}" f"{value:<20,}\n")
             census_report.write("\n")
             total_sector = sum(SECTOR_Dict.values())
-            census_report.write(f"Total Count By SECTOR: {total_sector:,}\n")
+            census_report.write(f"{sector_total:<20}" f"{total_sector:<20,}\n")
 
             census_report.write("\n")
             census_report.write(
                 "==============================================\n")
             census_report.write(f"Total number of Rows: {total_rows}\n")
-            # census_report.write(f"Total Residency Count: {total_res_count}")
 
     # print(CLASS_Dict)
     # print(SECTOR_Dict)
