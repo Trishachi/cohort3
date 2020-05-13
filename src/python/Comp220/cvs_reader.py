@@ -14,22 +14,22 @@ def read_csv():
         for row in csv.DictReader(csv_file):
             total_rows += 1
             # comment out for stretch goal
-            if row['CLASS'] in CLASS_Dict:
-                CLASS_Dict[row['CLASS']] = int(row['RES_CNT']) + \
-                    int(CLASS_Dict.get(row['CLASS']))
-            else:
-                CLASS_Dict.update({row['CLASS']: row['RES_CNT']})
-            if row['SECTOR'] in SECTOR_Dict:
-                SECTOR_Dict[row['SECTOR']] = int(row['RES_CNT']) + \
-                    int(SECTOR_Dict.get(row['SECTOR']))
-            else:
-                SECTOR_Dict.update({row['SECTOR']: row['RES_CNT']})
+            # if row['CLASS'] in CLASS_Dict:
+            #     CLASS_Dict[row['CLASS']] = int(row['RES_CNT']) + \
+            #         int(CLASS_Dict.get(row['CLASS']))
+            # else:
+            #     CLASS_Dict.update({row['CLASS']: row['RES_CNT']})
+            # if row['SECTOR'] in SECTOR_Dict:
+            #     SECTOR_Dict[row['SECTOR']] = int(row['RES_CNT']) + \
+            #         int(SECTOR_Dict.get(row['SECTOR']))
+            # else:
+            #     SECTOR_Dict.update({row['SECTOR']: row['RES_CNT']})
 
             # Uncomment for the stretch goal
-            # CLASS_Dict.update(
-            #     {row['CLASS']: int(row['RES_CNT']) + int(CLASS_Dict.get(row['CLASS'], '0'))})
-            # SECTOR_Dict.update(
-            #     {row['SECTOR']: int(row['RES_CNT']) + int(SECTOR_Dict.get(row['SECTOR'], '0'))})
+            CLASS_Dict.update(
+                {row['CLASS']: int(row['RES_CNT']) + int(CLASS_Dict.get(row['CLASS'], '0'))})
+            SECTOR_Dict.update(
+                {row['SECTOR']: int(row['RES_CNT']) + int(SECTOR_Dict.get(row['SECTOR'], '0'))})
 
         with open('report.txt', mode='w') as census_report:
             census_report.write(
