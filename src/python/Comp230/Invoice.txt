@@ -1,0 +1,12 @@
+*********************************************
+================== INVOICE ==================
+*********************************************
+
+
+Invoice Number: Invoice number goes here 
+Invoice Date: Invoice date goes here 
+Customer ID: Customer ID goes here 
+Shipping Address: Shipping address goes here 
+
+==============================================
+Invoice Total: Invoice total goes here 
