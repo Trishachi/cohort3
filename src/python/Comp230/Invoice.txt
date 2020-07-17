@@ -3,10 +3,10 @@
 *********************************************
 
 
-Invoice Number: Invoice number goes here 
-Invoice Date: Invoice date goes here 
-Customer ID: Customer ID goes here 
-Shipping Address: Shipping address goes here 
+Invoice Number: 125
+Invoice Date: 04-27-19
+Customer ID: 5
+Shipping Address: 548 Ornare. Rd.
 
 ==============================================
-Invoice Total: Invoice total goes here 
+Invoice Total: $422.72
