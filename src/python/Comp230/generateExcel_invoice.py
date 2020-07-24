@@ -26,7 +26,9 @@ def makeDict(sheet):
 
 
 def createXl_invoice(invoiceNumber, invoiceDate, customerID,
-                     shippingAddress, invoiceTotal, customerFullname, customerEmail, customerAdd, customerPhone):
+                     shippingAddress, invoiceTotal, customerFullname, customerEmail, customerAdd, customerPhone,
+                     item1_name, item1_price, item1_qty, item2_name, item2_price, item2_qty,
+                     item3_name, item3_price, item3_qty):
     invoice = load_workbook(filename='invoice_template.xlsx', data_only=True)
     current_invoice = invoice.active
     current_invoice['H4'] = invoiceDate
@@ -40,6 +42,23 @@ def createXl_invoice(invoiceNumber, invoiceDate, customerID,
     current_invoice['D15'] = customerPhone
     current_invoice['F15'] = customerPhone
     current_invoice['D16'] = customerEmail
+
+    current_invoice['D20'] = item1_name
+    current_invoice['F20'] = item1_price
+    current_invoice['G20'] = item1_qty
+    current_invoice['D21'] = item2_name
+    current_invoice['F21'] = item2_price
+    current_invoice['G21'] = item2_qty
+    current_invoice['D22'] = item3_name
+    current_invoice['F22'] = item3_price
+    current_invoice['G22'] = item3_qty
+
+    current_invoice['H20'] = item1_price * item1_qty
+    current_invoice['H21'] = item2_price * item2_qty
+    current_invoice['H22'] = item3_price * item3_qty
+
+    current_invoice['H29'] = current_invoice['H20'].value + \
+        current_invoice['H21'].value + current_invoice['H22'].value
 
     invoice.save('invoice_template.xlsx')
 
@@ -78,9 +97,35 @@ customerEmail = targetCustomer_row.get("Email")
 customerAdd = targetCustomer_row.get("Address")
 customerPhone = targetCustomer_row.get("Phone")
 
-for row in invoiceItems_sheet:
-    for value in row:
-        print(value)
+itemsDict = {}
+rowDict = {}
+counter = 1
+
+for row in invoiceItems_sheet.values:
+    if row[0] == target_invoice:
+        rowDict = {'Item': counter,
+                   'Name': row[2], 'Price': row[3], 'Qty': row[4]}
+        itemsDict[counter] = rowDict
+        counter = counter + 1
+
+# print(itemsDict)
+
+item1_row = itemsDict[1]
+item2_row = itemsDict[2]
+item3_row = itemsDict[3]
+
+item1_name = item1_row.get("Name")
+item1_price = item1_row.get("Price")
+item1_qty = item1_row.get("Qty")
+item2_name = item2_row.get("Name")
+item2_price = item2_row.get("Price")
+item2_qty = item2_row.get("Qty")
+item3_name = item3_row.get("Name")
+item3_price = item3_row.get("Price")
+item3_qty = item3_row.get("Qty")
+
 
 createXl_invoice(invoiceNumber, invoiceDate, customerID,
-                 shippingAddress, invoiceTotal, customerFullname, customerEmail, customerAdd, customerPhone)
+                 shippingAddress, invoiceTotal, customerFullname, customerEmail, customerAdd, customerPhone,
+                 item1_name, item1_price, item1_qty, item2_name, item2_price, item2_qty,
+                 item3_name, item3_price, item3_qty)
